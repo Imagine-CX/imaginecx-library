@@ -19,8 +19,8 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "npm run eslint",
-      "npm run format"
+      "yarn eslint",
+      "yarn format"
     ]
   },
   "files": [
@@ -69,13 +69,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bigyanpoudel/react-vite-library"
+    "url": "https://github.com/Imagine-CX/imaginecx-library"
   },
   "keywords": [],
   "author": "bigyan poudel",
   "bugs": {
-    "url": "https://github.com/bigyanpoudel/react-vite-library/issues"
+    "url": "https://github.com/Imagine-CX/imaginecx-library/issues"
   },
-  "homepage": "https://github.com/bigyanpoudel/react-vite-library#readme",
+  "homepage": "https://github.com/Imagine-CX/imaginecx-library#readme",
   "license": "MIT"
 }
