@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && npm run build:style",
+    "build:style": "postcss src/components/style.css -o ./dist/style.css",
     "preview": "vite preview",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "lint:fix": "eslint --fix 'src/**/*.{jsx,ts,tsx}'",
@@ -30,8 +31,7 @@
     ".": {
       "import": "./dist/imaginecx-library.es.js",
       "require": "./dist/imaginecx-library.umd.js"
-    },
-    "./dist/style.css": "./dist/style.css"
+    }
   },
   "main": "./dist/imaginecx-library.umd.js",
   "module": "./dist/imaginecx-library.es.js",
