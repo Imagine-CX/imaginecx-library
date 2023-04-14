@@ -1,4 +1,4 @@
-import { BtnPrimary } from './components/Btns';
+import { Header, Button } from './components';
 import { Helloworld } from './components/HelloWorld';
 
 function App() {
@@ -7,7 +7,8 @@ function App() {
       <h1>Imagine cx library</h1>
       <p>this is for testing</p>
       <Helloworld text={'probando this text'} />
-      <BtnPrimary text="esto es un btn" />
+      <Button text="Button Primary" color='btn-primary'/>
+      <Header text='Headers' variant='h3'/>
     </div>
   );
 }
