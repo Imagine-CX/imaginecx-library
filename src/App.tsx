@@ -1,4 +1,4 @@
-import { Button, Header } from './components';
+import { Button, Dropdown, Header } from './components';
 import { Helloworld } from './components/HelloWorld';
 
 function App() {
@@ -10,6 +10,10 @@ function App() {
       <Button text="Button Primary" color="icx-btn-primary" />
       <Button text="Button Secondary" color="icx-btn-secondary" />
       <Header text="Headers" variant="h1" />
+      <br />
+      <Dropdown title="Dropdown">
+        <option value="1">Hola</option>
+      </Dropdown>
     </div>
   );
 }
