@@ -4,12 +4,12 @@ import { Helloworld } from './components/HelloWorld';
 function App() {
   return (
     <div className="icx-container icx-w-[100vw] icx-mx-2">
-      <h1>Imagine cx library</h1>
-      <p>this is for testing</p>
+      <Header text="Imagine CX Library" variant="h1" />
       <Helloworld text={'probando this text'} />
       <Button text="Button Primary" color="icx-btn-primary" />
       <Button text="Button Secondary" color="icx-btn-secondary" />
-      <Header text="Headers" variant="h1" />
+      <Button text="Disable" color="icx-btn-disable" />
+      <Button text="Alternative" color="icx-btn-alternative" />
     </div>
   );
 }
