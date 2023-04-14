@@ -32,7 +32,10 @@
       "import": "./dist/imaginecx-library.es.js",
       "require": "./dist/imaginecx-library.umd.js"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
+    }
   },
   "main": "./dist/imaginecx-library.umd.js",
   "module": "./dist/imaginecx-library.es.js",
