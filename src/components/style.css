@@ -33,11 +33,19 @@
 
 @layer components {
   .icx-btn-primary {
-    @apply icx-bg-primary-400 hover:icx-bg-primary-500;
+    @apply icx-bg-primary-400 hover:icx-bg-primary-500 focus:icx-bg-primary-400 icx-text-white;
   }
 
   .icx-btn-secondary {
-    @apply icx-bg-secondary-400 hover:icx-bg-secondary-500;
+    @apply icx-bg-secondary-400 hover:icx-bg-secondary-500 focus:icx-bg-secondary-400 icx-text-white;
+  }
+  
+  .icx-btn-disable {
+    @apply icx-bg-disable-100 icx-text-disable-200;
+  }
+
+  .icx-btn-alternative {
+    @apply icx-bg-neutral-100 icx-border icx-border-primary-400 icx-text-primary-400 hover:icx-bg-primary-400 hover:icx-text-white icx-transition-colors;
   }
 }
 

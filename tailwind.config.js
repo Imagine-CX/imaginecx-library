@@ -27,9 +27,12 @@ export default {
         },
         disable: {
           100: '#CECECE',
-          200: '#3F3F3F',
-        },
+          200: '#3F3F3F'
+        }, 
       },
+      fontFamily: {
+        'font': ['Segoe UI', 'sans-serif']
+      }
     },
   },
   plugins: [],
