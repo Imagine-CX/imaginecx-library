@@ -39,7 +39,7 @@
   .icx-btn-secondary {
     @apply icx-bg-secondary-400 hover:icx-bg-secondary-500 focus:icx-bg-secondary-400 icx-text-white;
   }
-  
+
   .icx-btn-disable {
     @apply icx-bg-disable-100 icx-text-disable-200;
   }
