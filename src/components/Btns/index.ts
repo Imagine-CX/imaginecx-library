@@ -1,2 +1,3 @@
-export type { IBtnPrimary } from './BtnPrimary';
-export { BtnPrimary } from './BtnPrimary';
+// export type { IBtnPrimary } from './Button';
+// export { Button } from './Button';
+export * from './Button'

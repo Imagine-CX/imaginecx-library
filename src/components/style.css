@@ -3,8 +3,43 @@
 @tailwind utilities;
 
 @layer base {
-  h1 {
-    font-size: 3.18rem;
+  .h1 {
+    font-size: 3.2em;
+    font-weight: bold;
+    line-height: 1.1;
+  } 
+   .h2 {
+    font-size: 2.62em;
+    font-weight: bold;
+    line-height: 1.1;
+  } 
+   .h3 {
+    font-size: 2.31em;
+    line-height: 1.1;
+  } 
+   .h4 {
+    font-size: 1.81em;
+    line-height: 1.1;
+  } 
+   .h5 {
+    font-size: 1.51em;
+    line-height: 1.1;
+  } 
+   .h6 {
+    font-size: 1.21em;
+    line-height: 1.1;
+  }
+}
+
+
+
+@layer components {
+  .btn-primary {
+    @apply bg-icx-primary-400 hover:bg-icx-primary-500;
+  }
+
+  .btn-secondary{
+    @apply bg-icx-secondary-400 hover:bg-icx-secondary-500;
   }
 }
 
@@ -12,3 +47,4 @@
   font-size: 20px;
   color: red;
 }
+
