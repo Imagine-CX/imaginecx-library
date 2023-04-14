@@ -5,5 +5,5 @@ export interface IHelloWorld {
 }
 
 export const Helloworld = ({ text }: IHelloWorld) => {
-  return <div className="text-3xl font-bold underline text-red-red">This is test text: {text}</div>;
+  return <div className="icx-text-3xl icx-font-bold icx-underline text-red-red">This is test text: {text}</div>;
 };

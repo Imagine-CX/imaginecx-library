@@ -20,8 +20,8 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "yarn eslint",
-      "yarn format"
+      "eslint",
+      "npm run format"
     ]
   },
   "files": [
@@ -80,7 +80,7 @@
     "url": "https://github.com/Imagine-CX/imaginecx-library"
   },
   "keywords": [],
-  "author": "bigyan poudel",
+  "author": "Imagine CX",
   "bugs": {
     "url": "https://github.com/Imagine-CX/imaginecx-library/issues"
   },
