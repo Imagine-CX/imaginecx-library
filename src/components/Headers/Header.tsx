@@ -5,9 +5,5 @@ export interface IHeader {
 
 export const Header = ({ text, variant }: IHeader) => {
   // console.log(variant);
-  return (
-    <>
-      <span className={`${variant}`}>{text}</span>
-    </>
-  );
+  return <span className={`${variant}`}>{text}</span>;
 };
