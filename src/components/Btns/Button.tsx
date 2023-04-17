@@ -3,11 +3,14 @@ import '../style.css';
 export interface IBtnPrimary {
   text: string;
   color: string;
+  disabled?: boolean;
 }
 
-export const Button = ({ text, color }: IBtnPrimary) => {
+export const Button = ({ text, color, disabled }: IBtnPrimary) => {
+  const estiloBtn = disabled ? 'icx-btn-disable' : `${color}`;
+
   return (
-    <button className={`${color} icx-m-3 icx-px-8 icx-py-2 icx-rounded-full`}>
+    <button className={`${estiloBtn} icx-m-3 icx-px-8 icx-py-2 icx-rounded-full`} disabled={disabled}>
       <span>{text}</span>
     </button>
   );
