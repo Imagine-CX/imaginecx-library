@@ -6,8 +6,8 @@ export interface IBtnPrimary {
   disabled?: boolean;
 }
 
-export const Button = ({ text, color, disabled }: IBtnPrimary) => {
-  const estiloBtn = disabled ? 'icx-btn-disable' : `${color}`;
+export const Button = ({ text, color, disabled }: IBtnPrimary): JSX.Element => {
+  const estiloBtn: string = disabled ? 'icx-btn-disable' : `${color}`;
 
   return (
     <button className={`${estiloBtn} icx-m-3 icx-px-8 icx-py-2 icx-rounded-full`} disabled={disabled}>
