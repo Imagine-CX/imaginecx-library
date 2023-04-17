@@ -5,11 +5,11 @@ export interface IDropdown {
 
 export const Dropdown = ({ children, title }: IDropdown) => {
   return (
-    <div className="icx-relative icx-inline-block icx-text-left">
+    <div className="icx-relative icx-inline-block icx-text-left icx-font-imagine icx-text-md">
       <div>
         <button
           type="button"
-          className="icx-text-sm icx-text-disable-200 icx-bg-neutral-100 icx-border icx-border-disable-200 icx-rounded-[0.5rem] icx-p-2.5 icx-min-w-[12rem] icx-flex icx-justify-between icx-items-center icx-gap-x-1.5 "
+          className="icx-text-disable-200 icx-bg-neutral-100 icx-border icx-border-disable-200 icx-rounded-[0.5rem] icx-p-2.5 icx-min-w-[12rem] icx-flex icx-justify-between icx-items-center icx-gap-x-1.5 "
         >
           {title}
           <svg
@@ -26,7 +26,7 @@ export const Dropdown = ({ children, title }: IDropdown) => {
           </svg>
         </button>
       </div>
-      {children}
+      <div className="icx-absolute icx-right-0 icx-z-10 icx-w-full icx-origin-top-right icx-rounded-md">{children}</div>
     </div>
   );
 };

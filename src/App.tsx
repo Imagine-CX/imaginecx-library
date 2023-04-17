@@ -8,13 +8,13 @@ function App() {
       <Helloworld text={'probando this text'} />
       <Button text="Button Primary" color="icx-btn-primary" />
       <Button text="Button Secondary" color="icx-btn-secondary" />
+      <Button text="Disable" color="icx-btn-disable" />
+      <Button text="Alternative" color="icx-btn-alternative" />
       <Header text="Headers" variant="h1" />
       <br />
       <Dropdown title="Dropdown">
         <option value="1">Hola</option>
       </Dropdown>
-      <Button text="Disable" color="icx-btn-disable" />
-      <Button text="Alternative" color="icx-btn-alternative" />
     </div>
   );
 }
