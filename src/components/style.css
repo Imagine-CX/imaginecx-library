@@ -47,6 +47,46 @@
   .icx-btn-alternative {
     @apply icx-bg-neutral-100 icx-border icx-border-primary-400 icx-text-primary-400 hover:icx-bg-primary-400 hover:icx-text-white icx-transition-colors;
   }
+
+  .icx-checkbox-disabled {
+    @apply icx-w-5 
+          icx-h-5 
+          icx-text-primary-400 
+          icx-bg-neutral-200 
+          icx-border-gray-300 
+          icx-rounded-lg;
+  }
+
+  .icx-checkbox-active {
+    @apply icx-w-5 
+          icx-h-5 
+          icx-text-primary-400 
+          icx-bg-neutral-100 
+          icx-border-gray-300 
+          icx-rounded-lg 
+          focus:icx-ring-primary-400 
+          focus:icx-ring-1;
+  }
+
+  .icx-radio-disabled {
+    @apply icx-h-5 
+          icx-w-5 
+          icx-bg-neutral-200 
+          icx-text-neutral-200 
+          icx-border-neutral-200 
+          indeterminate:icx-bg-neutral-200;
+  }
+
+  .icx-radio-active {
+    @apply icx-h-5 
+          icx-w-5 
+          icx-text-primary-400 
+          icx-border-primary-500 
+          hover:icx-text-primary-500 
+          indeterminate:icx-bg-neutral-100 
+          focus:icx-ring-1 
+          focus:icx-ring-primary-400;
+  }
 }
 
 .text-red-red {

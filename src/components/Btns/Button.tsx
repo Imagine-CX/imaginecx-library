@@ -12,7 +12,7 @@ export const Button = ({ text, color, disabled, handleClick }: IBtnPrimary): JSX
 
   return (
     <button
-      className={`${estiloBtn} icx-m-3 icx-px-8 icx-py-2 icx-rounded-full`}
+      className={`${estiloBtn} icx-m-2 icx-px-5 icx-py-2 icx-rounded-xl`}
       disabled={disabled}
       onClick={handleClick}
     >
