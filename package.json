@@ -85,5 +85,9 @@
     "url": "https://github.com/Imagine-CX/imaginecx-library/issues"
   },
   "homepage": "https://github.com/Imagine-CX/imaginecx-library#readme",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "flowbite": "^1.6.5",
+    "flowbite-react": "^0.4.3"
+  }
 }
