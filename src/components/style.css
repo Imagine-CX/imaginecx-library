@@ -59,7 +59,7 @@
 
   .icx-checkbox-active {
     @apply icx-w-5 
-          icx-h-5 
+          icx-h-5
           icx-text-primary-400 
           icx-bg-neutral-100 
           icx-border-gray-300 
