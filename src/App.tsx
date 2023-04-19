@@ -1,4 +1,4 @@
-import { Button, CheckBox, Dropdown, Header, Radio } from './components';
+import { Button, CheckBox, Dropdown, Header, InputField, Radio } from './components';
 import { Helloworld } from './components/HelloWorld';
 
 const handleClick = () => {
@@ -18,13 +18,10 @@ const options = [
 function App() {
   return (
     <div className="icx-container icx-w-[100vw] icx-mx-2">
-      <Header text="Imagine CX Library" variant="h1" />
-      <Helloworld text={'probando this text'} />
-      <Dropdown title="Dropdown">
-        <option value="1">Hola</option>
-      </Dropdown>
       <div>
         <Header text="Imagine CX Library" variant="h1" />
+      </div>
+      <div>
         <Button text="Button Primary" color="icx-btn-primary" />
         <Button text="Button Secondary" color="icx-btn-secondary" />
         <Button text="Disable" color="icx-btn-secondary" disabled={true} />
@@ -44,6 +41,14 @@ function App() {
         ))}
 
         <Radio text="Radio Button onChange" handleChange={handleChange} name="change" />
+      </div>
+      <div className="icx-grid icx-grid-cols-2 icx-gap-4">
+        <div>
+          <InputField placeholder="Nombre" label="Nombre" name="nombre" />
+        </div>
+        <div>
+          <InputField placeholder="Apellido" name="apellido" required label="Apellido" />
+        </div>
       </div>
     </div>
   );
