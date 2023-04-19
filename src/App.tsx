@@ -1,5 +1,6 @@
-import { Button, CheckBox, Dropdown, Header, InputField, Radio } from './components';
-import { Helloworld } from './components/HelloWorld';
+import { BiCalendarX, BiSearch } from 'react-icons/bi';
+
+import { Button, CheckBox, Header, InputField, Radio } from './components';
 
 const handleClick = () => {
   // console.log("Haz hecho clic en el botón");
@@ -24,32 +25,44 @@ function App() {
       <div>
         <Button text="Button Primary" color="icx-btn-primary" />
         <Button text="Button Secondary" color="icx-btn-secondary" />
-        <Button text="Disable" color="icx-btn-secondary" disabled={true} />
-        <Button text="Alternative" color="icx-btn-alternative" handleClick={handleClick} />
+        <Button text="Disable" color="icx-btn-secondary" disabled />
+        <Button text="Alternative" color="icx-btn-alternative" />
       </div>
       <div>
-        <CheckBox text="Checkbox disable" disabled={true} />
+        <CheckBox text="Checkbox disable" disabled />
         <CheckBox text="Checkbox2" />
-        <CheckBox text="Checkbox checked" checked={true} />
-        <Radio text="Radio Button Disable" disabled={true} />
-        <Radio text="Radio Button checked" checked={true} />
+        <CheckBox text="Checkbox checked" checked />
+        <Radio text="Radio Button Disable" disabled />
+        <Radio text="Radio Button checked" checked />
 
         {options.map((option) => (
           <div key={option.id}>
-            <Radio text={option.label} id={option.id} name="options" />
+            <Radio text={option.label} id={`${option.id}`} name="options" />
           </div>
         ))}
-
-        <Radio text="Radio Button onChange" handleChange={handleChange} name="change" />
       </div>
-      <div className="icx-grid icx-grid-cols-2 icx-gap-4">
-        <div>
-          <InputField placeholder="Nombre" label="Nombre" name="nombre" />
+      <form action="">
+        <div className="icx-grid icx-grid-cols-2 icx-gap-4">
+          <div>
+            <InputField
+              placeholder="Nombre"
+              label="Nombre"
+              name="nombre"
+              icon={<BiSearch className="icx-w-5 icx-h-5" />}
+            />
+          </div>
+          <div>
+            <InputField
+              placeholder="Apellido"
+              name="apellido"
+              label="Apellido"
+              icon={<BiCalendarX className="icx-w-5 icx-h-5" />}
+              required
+            />
+          </div>
         </div>
-        <div>
-          <InputField placeholder="Apellido" name="apellido" required label="Apellido" />
-        </div>
-      </div>
+        <Button text="Subir" color="icx-btn-primary" type="submit" />
+      </form>
     </div>
   );
 }

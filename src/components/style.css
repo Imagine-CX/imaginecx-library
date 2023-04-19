@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   .h1 {
     font-size: 3.2em;
@@ -88,7 +87,7 @@
           checked:icx-bg-primary-400
           focus:icx-ring-1 
           focus:icx-ring-primary-400
-          icx-appearance-none
+          icx-appearance-none;
   }
 }
 
