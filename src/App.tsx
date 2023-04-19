@@ -48,6 +48,7 @@ function App() {
               placeholder="Nombre"
               label="Nombre"
               name="nombre"
+              required
               icon={<BiSearch className="icx-w-5 icx-h-5" />}
             />
           </div>
@@ -56,6 +57,7 @@ function App() {
               placeholder="Apellido"
               name="apellido"
               label="Apellido"
+              disabled
               icon={<BiCalendarX className="icx-w-5 icx-h-5" />}
               required
             />
