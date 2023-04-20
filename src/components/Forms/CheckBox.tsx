@@ -1,16 +1,22 @@
-export interface ICheckBox {
+import { InputHTMLAttributes } from 'react';
+
+export interface ICheckBox extends InputHTMLAttributes<HTMLInputElement> {
   text: string;
-  disabled?: boolean;
 }
-export const CheckBox = ({ text, disabled }: ICheckBox) => {
+export const CheckBox = ({ text, disabled, id, ...inputProps }: ICheckBox) => {
+  const estiloCheck: string = disabled ? 'icx-checkbox-disabled' : 'icx-checkbox-active';
+
   return (
-    <div className="icx-flex icx-items-center icx-m-2">
+    <div className="icx-flex icx-items-center icx-gap-x-2 icx-m-1">
       <input
-        disabled={disabled}
         type="checkbox"
-        className="icx-w-6 icx-h-6 icx-text-primary-500 icx-bg-gray-100 icx-border-gray-300 icx-rounded-lg icx-focus:icx-ring-primary-500 icx-dark:icx-focus:ring-primary-400 icx-dark:ring-offset-primary-400 icx-focus:icx-ring-2 icx-dark:icx-bg-gray-700 icx-dark:icx-border-gray-600"
+        id={id}
+        disabled={disabled}
+        className="icx-checkbox-item icx-peer icx-hidden"
+        {...inputProps}
       />
-      <label className="icx-ml-2 icx-text-gray-900 icx-dark:text-gray-300">{text}</label>
+      <label htmlFor={id} className={estiloCheck}></label>
+      <span>{text}</span>
     </div>
   );
 };

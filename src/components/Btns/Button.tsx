@@ -1,16 +1,17 @@
 import '../style.css';
 
-export interface IBtnPrimary {
+import { ButtonHTMLAttributes } from 'react';
+
+export interface IBtnPrimary extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   color: string;
-  disabled?: boolean;
 }
 
-export const Button = ({ text, color, disabled }: IBtnPrimary): JSX.Element => {
+export const Button = ({ text, color, disabled, ...btnProps }: IBtnPrimary): JSX.Element => {
   const estiloBtn: string = disabled ? 'icx-btn-disable' : `${color}`;
 
   return (
-    <button className={`${estiloBtn} icx-m-3 icx-px-8 icx-py-2 icx-rounded-full`} disabled={disabled}>
+    <button className={`${estiloBtn} icx-m-2 icx-px-5 icx-py-2 icx-rounded-xl`} {...btnProps}>
       <span>{text}</span>
     </button>
   );

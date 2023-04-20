@@ -41,11 +41,91 @@
   }
 
   .icx-btn-disable {
-    @apply icx-bg-disable-100 icx-text-disable-200;
+    @apply icx-bg-disable-100 icx-text-disable-200 icx-cursor-not-allowed;
   }
 
   .icx-btn-alternative {
     @apply icx-bg-neutral-100 icx-border icx-border-primary-400 icx-text-primary-400 hover:icx-bg-primary-400 hover:icx-text-white icx-transition-colors;
+  }
+
+  .icx-checkbox-disabled {
+    @apply icx-relative 
+            icx-flex 
+            icx-w-6 
+            icx-h-6 
+            icx-bg-gray-200
+            icx-border-gray-300 
+            peer-checked:icx-bg-neutral-200
+            peer-checked:icx-border-gray-300
+            icx-rounded-md 
+            icx-border
+            icx-cursor-not-allowed;
+  }
+
+  .icx-checkbox-active {
+    @apply icx-relative 
+            icx-flex 
+            icx-w-6 
+            icx-h-6 
+            icx-bg-white 
+            peer-checked:icx-bg-primary-400 
+            icx-rounded-md icx-border 
+            icx-ring-offset-2 
+            icx-ring-primary-400 
+            icx-duration-150 
+            peer-active:icx-ring 
+            icx-cursor-pointer 
+            after:icx-absolute 
+            after:icx-inset-x-0 
+            after:icx-top-[4px] 
+            after:icx-m-auto 
+            after:icx-w-1.5 
+            after:icx-h-3 
+            after:icx-border-r-2 
+            after:icx-border-b-2 
+            after:icx-border-white 
+            after:icx-rotate-45;
+  }
+
+  .icx-radio-disabled {
+    @apply icx-h-5 
+          icx-w-5 
+          icx-bg-neutral-200 
+          icx-text-neutral-200 
+          icx-border-gray-300 
+          indeterminate:icx-bg-neutral-200
+          icx-cursor-not-allowed;
+  }
+
+  .icx-radio-active {
+    @apply icx-h-5 
+          icx-w-5 
+          icx-text-primary-400 
+          icx-border-primary-500 
+          icx-accent-primary-400
+          icx-bg-white
+          hover:icx-text-primary-500 
+          checked:icx-bg-primary-400
+          focus:icx-ring-1
+          focus:icx-ring-primary-400
+          icx-cursor-pointer;
+  }
+
+  .icx-input-active {
+    @apply icx-border 
+            icx-border-neutral-200 
+            icx-text-gray-600 
+            icx-transition 
+            icx-duration-300 
+            icx-ease-out 
+            focus:icx-border-primary-400;
+  }
+  .icx-input-disabled {
+    @apply icx-border 
+            icx-border-neutral-200 
+            icx-bg-neutral-200
+            icx-text-gray-600
+            icx-cursor-not-allowed;
   }
 }
 
