@@ -47,6 +47,20 @@
   .icx-btn-alternative {
     @apply icx-bg-neutral-100 icx-border icx-border-primary-400 icx-text-primary-400 hover:icx-bg-primary-400 hover:icx-text-white icx-transition-colors;
   }
+
+  .icx-animate-fade-in {
+    animation: dropdpwn-fade 0.5s;
+  }
+
+  @keyframes dropdpwn-fade {
+    from {
+      @apply icx-transform icx-opacity-0;
+    }
+
+    to {
+      @apply icx-transform icx-opacity-100;
+    }
+  }
 }
 
 .text-red-red {

@@ -1,4 +1,4 @@
-import { Button, CheckBox, Dropdown, Header } from './components';
+import { Button, CheckBox, Header } from './components';
 import { Helloworld } from './components/HelloWorld';
 
 function App() {
@@ -6,9 +6,6 @@ function App() {
     <div className="icx-container icx-w-[100vw] icx-mx-2">
       <Header text="Imagine CX Library" variant="h1" />
       <Helloworld text={'probando this text'} />
-      <Dropdown title="Dropdown">
-        <option value="1">Hola</option>
-      </Dropdown>
       <div>
         <Header text="Imagine CX Library" variant="h1" />
         <Button text="Button Primary" color="icx-btn-primary" />
