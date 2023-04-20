@@ -12,7 +12,7 @@ export const Radio = ({ text, disabled, ...radioProps }: IRadio): JSX.Element =>
   return (
     <>
       <div className="icx-flex icx-items-center icx-m-2">
-        <input type="radio" className={`icx-form-radio ${estiloRadio}`} disabled={disabled} {...radioProps} />
+        <input type="radio" className={`${estiloRadio}`} disabled={disabled} {...radioProps} />
         <label className="icx-ml-2">{text}</label>
       </div>
     </>

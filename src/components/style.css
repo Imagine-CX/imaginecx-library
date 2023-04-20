@@ -49,24 +49,42 @@
   }
 
   .icx-checkbox-disabled {
-    @apply icx-w-5 
-          icx-h-5 
-          icx-text-primary-400 
-          icx-bg-neutral-200 
-          icx-border-gray-300 
-          icx-rounded-lg
-          icx-cursor-not-allowed;
+    @apply icx-relative 
+            icx-flex 
+            icx-w-6 
+            icx-h-6 
+            icx-bg-gray-200
+            icx-border-gray-300 
+            peer-checked:icx-bg-neutral-200
+            peer-checked:icx-border-gray-300
+            icx-rounded-md 
+            icx-border
+            icx-cursor-not-allowed;
   }
 
   .icx-checkbox-active {
-    @apply icx-w-5 
-          icx-h-5
-          icx-text-primary-400 
-          icx-bg-neutral-100 
-          icx-border-gray-300 
-          icx-rounded-lg 
-          focus:icx-ring-primary-400 
-          focus:icx-ring-1;
+    @apply icx-relative 
+            icx-flex 
+            icx-w-6 
+            icx-h-6 
+            icx-bg-white 
+            peer-checked:icx-bg-primary-400 
+            icx-rounded-md icx-border 
+            icx-ring-offset-2 
+            icx-ring-primary-400 
+            icx-duration-150 
+            peer-active:icx-ring 
+            icx-cursor-pointer 
+            after:icx-absolute 
+            after:icx-inset-x-0 
+            after:icx-top-[4px] 
+            after:icx-m-auto 
+            after:icx-w-1.5 
+            after:icx-h-3 
+            after:icx-border-r-2 
+            after:icx-border-b-2 
+            after:icx-border-white 
+            after:icx-rotate-45;
   }
 
   .icx-radio-disabled {
@@ -77,7 +95,6 @@
           icx-border-gray-300 
           indeterminate:icx-bg-neutral-200
           icx-cursor-not-allowed;
-          
   }
 
   .icx-radio-active {
@@ -86,7 +103,6 @@
           icx-text-primary-400 
           icx-border-primary-500 
           hover:icx-text-primary-500 
-          indeterminate:icx-bg-neutral-100 
           checked:icx-bg-primary-400
           focus:icx-ring-1 
           focus:icx-ring-primary-400

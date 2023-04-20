@@ -21,8 +21,8 @@ function App() {
         <Button text="Alternative" color="icx-btn-alternative" />
       </div>
       <div>
-        <CheckBox text="Checkbox disable" disabled />
-        <CheckBox text="Checkbox2" />
+        <CheckBox text="Checkbox" id="check1" />
+        <CheckBox text="Checkbox2" id="check2" disabled />
         <CheckBox text="Checkbox checked" checked />
         <Radio text="Radio Button Disable" disabled />
         <Radio text="Radio Button checked" checked />
