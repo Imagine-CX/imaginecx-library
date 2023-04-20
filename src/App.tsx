@@ -11,6 +11,7 @@ const options = [
 function App() {
   return (
     <div className="icx-container icx-w-[100vw] icx-mx-2">
+      <Header text="Imagine CX Library" variant="h1" />
       <div>
         <Header text="Imagine CX Library" variant="h1" />
       </div>
