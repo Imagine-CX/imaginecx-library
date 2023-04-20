@@ -102,11 +102,13 @@
           icx-w-5 
           icx-text-primary-400 
           icx-border-primary-500 
+          icx-accent-primary-400
+          icx-bg-white
           hover:icx-text-primary-500 
           checked:icx-bg-primary-400
-          focus:icx-ring-1 
+          focus:icx-ring-1
           focus:icx-ring-primary-400
-          icx-appearance-none;
+          icx-cursor-pointer;
   }
 
   .icx-input-active {
