@@ -31,6 +31,16 @@ export const Dropdown = ({ title, items, disabled = false, icon = null }: IDropd
   const activeIcon = 'icx-bg-primary-500';
   const disabledIcon = 'icx-text-disable-200 icx-bg-neutral-200 icx-cursor-not-allowed';
 
+  const getBackgroundColor = () => {
+    if (disabled) {
+      return disabledIcon;
+    }
+    if (open) {
+      return activeIcon;
+    }
+    return 'icx-bg-disable-200';
+  };
+
   const handleOpen: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
     setOpen(!open);
@@ -51,9 +61,7 @@ export const Dropdown = ({ title, items, disabled = false, icon = null }: IDropd
     <div ref={wrapperRef} className="icx-text-left icx-font-imagine icx-text-md icx-w-full icx-min-w-[10rem] icx-flex">
       {icon && (
         <div
-          className={`icx-inline-block icx-bg-neutral-200 icx-text-bg-neutral-100 icx-w-12 icx-p-2 icx-rounded-s-lg ${
-            open ? activeIcon : ''
-          } ${disabled ? disabledIcon : ''}`}
+          className={`${getBackgroundColor()} icx-inline-block  icx-text-bg-neutral-100 icx-w-12 icx-p-2 icx-rounded-s-lg`}
         >
           {icon}
         </div>

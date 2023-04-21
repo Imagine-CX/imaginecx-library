@@ -1,6 +1,6 @@
 import { BiSearch } from 'react-icons/bi';
 
-import { Button, CheckBox, Header, InputField, Radio, Toggle } from './components';
+import { Button, CheckBox, Dropdown, Header, InputField, Radio, Toggle } from './components';
 
 const options = [
   { id: 1, value: 'option1', label: 'Option 1' },
@@ -79,6 +79,14 @@ function App() {
       </form>
       <div>
         <Toggle text="Toggle" />
+      </div>
+      <div className="icx-w-64">
+        <Dropdown
+          title="hola"
+          items={[{ id: '1', value: 'action 1', click: () => {} }]}
+          disabled={false}
+          icon={<BiSearch size={19} className="icx-text-white icx-ml-1 icx-mt-1.5" />}
+        />
       </div>
     </div>
   );
