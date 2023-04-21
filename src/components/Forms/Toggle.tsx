@@ -4,33 +4,32 @@ export interface IToggle extends InputHTMLAttributes<HTMLInputElement> {
   text: string;
 }
 
-export const Toggle = ({ text, ...toggleProps }: IToggle): JSX.Element => {
+export const Toggle = ({ text, id = 'toggle', ...toggleProps }: IToggle): JSX.Element => {
   return (
     <>
-      <div className="icx-flex icx-items-center icx-m-2">
-        <div className="icx-cursor-pointer icx-my-2 icx-rounded-full icx-bg-gray-200 icx-relative icx-shadow-sm">
-          <input
-            type="checkbox"
-            {...toggleProps}
-            className="focus:icx-outline-none icx-checkbox icx-w-6 icx-h-6 icx-rounded-full icx-bg-white icx-absolute icx-shadow-sm icx-appearance-none icx-cursor-pointer icx-border icx-border-transparent icx-top-0 icx-bottom-0 icx-m-auto icx-transition-all"
-          />
-          <label
-            htmlFor="toggle1"
-            className="icx-toggle-label dark:icx-bg-gray-700 icx-block icx-w-14 icx-h-7 icx-overflow-hidden icx-rounded-full icx-bg-gray-300 icx-cursor-pointer icx-transition"
-          />
-        </div>
-        <label htmlFor="" className="icx-ml-2">
-          {text}
-        </label>
-        <style>
-          {`.icx-checkbox:checked {
-                      right: 0;
-                  }
-                  .icx-checkbox:checked + .icx-toggle-label {
-                      background-color: #F3901D;
-                  }`}
-        </style>
+      <style>
+        {`.icx-toggle-checkbox:checked {
+            right: 0;
+            border-color: #F3901D;
+            }
+            .icx-toggle-checkbox:checked + .icx-toggle-label {
+            background-color: #F3901D;
+            }`}
+      </style>
+
+      <div className="icx-relative icx-inline-block icx-w-14 icx-mr-2 icx-align-middle icx-transition-100 icx-select-none">
+        <input
+          type="checkbox"
+          id={id}
+          {...toggleProps}
+          className="icx-toggle-checkbox icx-absolute icx-block icx-w-8 icx-h-8 icx-rounded-full icx-bg-white icx-border-4 icx-border-gray-700 icx-appearance-none icx-cursor-pointer"
+        />
+        <label
+          htmlFor={id}
+          className="icx-toggle-label icx-block icx-overflow-hidden icx-h-8 icx-rounded-full icx-bg-gray-700 icx-cursor-pointer icx-transition-none"
+        ></label>
       </div>
+      <label htmlFor={id}>{text}</label>
     </>
   );
 };
