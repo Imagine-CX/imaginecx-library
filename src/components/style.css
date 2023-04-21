@@ -62,15 +62,34 @@
     }
   }
 
-  .icx-checkbox-disabled {
+  .icx-checked-disabled {
     @apply icx-relative 
             icx-flex 
             icx-w-6 
             icx-h-6 
-            icx-bg-gray-200
+            icx-bg-gray-300
             icx-border-gray-300 
-            peer-checked:icx-bg-neutral-200
-            peer-checked:icx-border-gray-300
+            icx-rounded-lg 
+            icx-border
+            after:icx-absolute 
+            after:icx-inset-x-0 
+            after:icx-top-[4px] 
+            after:icx-m-auto 
+            after:icx-w-1.5 
+            after:icx-h-3 
+            after:icx-border-r-2 
+            after:icx-border-b-2 
+            after:icx-border-white 
+            after:icx-rotate-45
+            icx-cursor-not-allowed;
+  }
+  .icx-unchecked-disabled {
+    @apply icx-relative 
+            icx-flex 
+            icx-w-6 
+            icx-h-6 
+            icx-bg-gray-300
+            icx-border-gray-300 
             icx-rounded-md 
             icx-border
             icx-cursor-not-allowed;
