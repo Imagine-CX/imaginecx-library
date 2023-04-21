@@ -1,9 +1,15 @@
-export interface IHeader {
+import React from 'react';
+
+export interface IHeader extends React.HTMLAttributes<HTMLDivElement> {
   text: string;
   variant: string;
 }
 
-export const Header = ({ text, variant }: IHeader) => {
+export const Header = ({ text, variant, ...divProps }: IHeader) => {
   // console.log(variant);
-  return <span className={`${variant}`}>{text}</span>;
+  return (
+    <div className={`${variant}`} {...divProps}>
+      {text}
+    </div>
+  );
 };

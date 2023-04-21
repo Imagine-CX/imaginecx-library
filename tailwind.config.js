@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', 'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -27,12 +27,12 @@ export default {
         },
         disable: {
           100: '#CECECE',
-          200: '#3F3F3F'
-        }, 
+          200: '#3F3F3F',
+        },
       },
       fontFamily: {
-        'font': ['Segoe UI', 'sans-serif']
-      }
+        imagine: ['Segoe UI', 'sans-serif'],
+      },
     },
   },
   plugins: [],
