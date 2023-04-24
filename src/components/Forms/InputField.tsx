@@ -15,7 +15,7 @@ export const InputField = ({ label, icon = null, disabled, required, ...inputPro
   const estiloInput: string = disabled ? 'icx-input-disabled' : 'icx-input-active';
 
   return (
-    <div className="px-4 py-8 flex flex-col md:flex-row md:items-center md:justify-center gap-8">
+    <div className="icx-px-2 icx-py-2 icx-flex icx-flex-col md:icx-flex-row md:icx-items-center md:icx-justify-center icx-gap-8">
       <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-2">
         <label>
           {label} {required ? <span className="icx-text-neutral-500">*</span> : ''}

@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 
-import { Button, CheckBox, Dropdown, Header, InputField, Radio, Toggle } from './components';
+import { Button, Calendar, CheckBox, Dropdown, Header, InputField, Radio, Toggle } from './components';
 
 const options = [
   { id: 1, value: 'option1', label: 'Option 1' },
@@ -9,6 +10,7 @@ const options = [
 ];
 
 function App() {
+  const [currentDate, setCurrentDate] = useState(new Date());
   return (
     <div className="icx-container icx-w-[100vw] icx-mx-2">
       <Header text="Imagine CX Library" variant="h1" />
@@ -26,8 +28,8 @@ function App() {
         <CheckBox text="Checkbox2" id="check2" disabled />
         <CheckBox text="Checkbox2" id="check2" disabled checked />
         <CheckBox text="Checkbox checked" checked />
-        <Radio text="Radio Button Disable" disabled />
-        <Radio text="Radio Button checked" checked />
+        <Radio text="Radio Button Disable" disabled id="radio1" />
+        <Radio text="Radio Button checked" checked id="radio2" />
 
         {options.map((option) => (
           <div key={option.id}>
@@ -88,6 +90,9 @@ function App() {
           disabled={false}
           icon={<BiSearch size={19} className="icx-text-white icx-ml-1 icx-mt-1.5" />}
         />
+      </div>
+      <div className="mt-10 icx-flex icx-flex-col icx-items-center">
+        <Calendar value={currentDate} onChange={setCurrentDate} />
       </div>
     </div>
   );

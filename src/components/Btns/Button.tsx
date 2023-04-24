@@ -11,8 +11,10 @@ export const Button = ({ text, color, disabled, ...btnProps }: IBtnPrimary): JSX
   const estiloBtn: string = disabled ? 'icx-btn-disable' : `${color}`;
 
   return (
-    <button className={`${estiloBtn} icx-m-2 icx-px-5 icx-py-2 icx-rounded-xl`} {...btnProps}>
-      <span>{text}</span>
-    </button>
+    <>
+      <button className={`${estiloBtn} icx-m-1 icx-px-5 icx-py-2 icx-rounded-xl`} {...btnProps}>
+        <span className="">{text}</span>
+      </button>
+    </>
   );
 };
