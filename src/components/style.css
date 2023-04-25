@@ -83,7 +83,7 @@
             after:icx-rotate-45
             icx-cursor-not-allowed;
   }
-  
+
   .icx-unchecked-disabled {
     @apply icx-relative 
             icx-flex 
@@ -132,11 +132,11 @@
   }
 
   .icx-radio input {
-    @apply icx-bg-white;  
+    @apply icx-bg-white;
   }
 
   .icx-radio input:checked ~ label {
-    @apply icx-bg-primary-400 icx-ring-offset-2 icx-ring-1 icx-ring-primary-400 ;
+    @apply icx-bg-primary-400 icx-ring-offset-2 icx-ring-1 icx-ring-primary-400;
   }
 
   .icx-input-active {

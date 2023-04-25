@@ -1,58 +1,65 @@
-import { getDaysWeek } from '../helpers';
+import { add, differenceInDays, endOfMonth, format, startOfMonth, sub } from 'date-fns';
+
+import { getDaysWeek, getMonths } from '../helpers';
 import { Cell } from './Cell';
 
 const daysOfWeek = getDaysWeek(6);
+// const months = getMonths(3);
 
 export interface ICalendar extends React.PropsWithChildren {
   value?: Date;
   onChange?: (value: Date) => void;
 }
 
-export const Calendar = ({ value, onChange, ...props }: ICalendar): JSX.Element => {
+export const Calendar = ({ value = new Date(), onChange, ...props }: ICalendar): JSX.Element => {
+  const startDate = startOfMonth(value);
+  const endDate = endOfMonth(value);
+  const numDays = differenceInDays(endDate, startDate) + 1;
+
+  const prefixDays = startDate.getDay();
+  const suffixDays = 6 - endDate.getDay();
+
+  const prevMonth = () => onChange && onChange(sub(value, { months: 1 }));
+  const nextMonth = () => onChange && onChange(add(value, { months: 1 }));
+  const prevYear = () => onChange && onChange(sub(value, { years: 1 }));
+  const nextYear = () => onChange && onChange(add(value, { years: 1 }));
+
   return (
-    <div className="icx-w-[400px] icx-border">
+    <div className="icx-w-[400px] icx-border icx-rounded-xl icx-p-8 icx-m-3 icx-drop-shadow-lg">
       <div className="icx-grid icx-grid-cols-7 icx-items-center icx-justify-center icx-text-center">
-        <Cell>{'<<'}</Cell>
-        <Cell>{'<'}</Cell>
-        <Cell className="icx-col-span-3">April 2023</Cell>
-        <Cell>{'>'}</Cell>
-        <Cell>{'>>'}</Cell>
+        <Cell onClick={prevMonth}>{'<'}</Cell>
+        <Cell>{format(value, 'MMMM')}</Cell>
+        <Cell onClick={nextMonth}>{'>'}</Cell>
+        <Cell />
+        <Cell onClick={prevYear}>{'<'}</Cell>
+        <Cell>{format(value, 'yyyy')}</Cell>
+        <Cell onClick={nextYear}>{'>'}</Cell>
+        {/* <Cell>
+          <select name="" id="months" onChange={ prevMonth }>
+            {
+              months.map( (mes) => (
+                <option value={ mes } key={ mes }> { mes }</option>
+              ))
+            }
+          </select>
+        </Cell> */}
         {daysOfWeek.map((day) => (
           <Cell className="icx-font-bold" key={day}>
             {day}
           </Cell>
         ))}
-        <Cell>1</Cell>
-        <Cell>2</Cell>
-        <Cell>3</Cell>
-        <Cell>4</Cell>
-        <Cell>5</Cell>
-        <Cell>6</Cell>
-        <Cell>7</Cell>
-        <Cell>8</Cell>
-        <Cell>9</Cell>
-        <Cell>10</Cell>
-        <Cell>11</Cell>
-        <Cell>12</Cell>
-        <Cell>13</Cell>
-        <Cell>14</Cell>
-        <Cell>15</Cell>
-        <Cell>16</Cell>
-        <Cell>17</Cell>
-        <Cell>18</Cell>
-        <Cell>19</Cell>
-        <Cell>20</Cell>
-        <Cell>21</Cell>
-        <Cell>22</Cell>
-        <Cell>23</Cell>
-        <Cell>24</Cell>
-        <Cell>25</Cell>
-        <Cell>26</Cell>
-        <Cell>27</Cell>
-        <Cell>28</Cell>
-        <Cell>29</Cell>
-        <Cell>30</Cell>
-        <Cell>31</Cell>
+
+        {Array.from({ length: prefixDays }).map((_, index) => (
+          <Cell key={index} />
+        ))}
+
+        {Array.from({ length: numDays }).map((_, index) => (
+          <Cell key={index + 1}>{index + 1}</Cell>
+        ))}
+
+        {Array.from({ length: suffixDays }).map((_, index) => (
+          <Cell key={index} />
+        ))}
       </div>
     </div>
   );

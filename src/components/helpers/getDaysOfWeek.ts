@@ -1,7 +1,7 @@
 import { add, format, lastDayOfWeek } from 'date-fns';
 import { es } from 'date-fns/locale';
 
-export const getDaysWeek = (formatQty: number) => {
+export const getDaysWeek = (formatQty: number | null = null): string[] => {
   let formatDays = 'EEEEE';
 
   if (formatQty) {
