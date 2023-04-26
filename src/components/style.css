@@ -136,7 +136,24 @@
   }
 
   .icx-radio input:checked ~ label {
-    @apply icx-bg-primary-400 icx-ring-offset-2 icx-ring-1 icx-ring-primary-400;
+    @apply
+          icx-bg-primary-400 
+            icx-ring-offset-2 
+            icx-ring-1 
+            icx-ring-primary-400;
+  }
+
+  .icx-radio input:disabled ~ label {
+    @apply icx-bg-gray-200 icx-border-gray-300 icx-cursor-not-allowed;
+  }
+
+  .icx-radio input:disabled:checked ~ label {
+    @apply icx-bg-gray-200 
+          icx-border-gray-300 
+          icx-ring-offset-2 
+          icx-ring-1
+          icx-ring-gray-300
+          icx-cursor-not-allowed; 
   }
 
   .icx-input-active {

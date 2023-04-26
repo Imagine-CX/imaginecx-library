@@ -29,7 +29,7 @@ function App() {
         <CheckBox text="Checkbox2" id="check2" disabled checked />
         <CheckBox text="Checkbox checked" checked />
         <Radio text="Radio Button Disable" disabled id="radio1" />
-        <Radio text="Radio Button checked" checked id="radio2" />
+        <Radio text="Radio Button checked disabled" checked disabled id="radio2" />
 
         {options.map((option) => (
           <div key={option.id}>
