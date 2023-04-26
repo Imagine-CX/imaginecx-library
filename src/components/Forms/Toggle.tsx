@@ -7,16 +7,6 @@ export interface IToggle extends InputHTMLAttributes<HTMLInputElement> {
 export const Toggle = ({ text, id = 'toggle', ...toggleProps }: IToggle): JSX.Element => {
   return (
     <>
-      <style>
-        {`.icx-toggle-checkbox:checked {
-            right: 0;
-            border-color: #F3901D;
-            }
-            .icx-toggle-checkbox:checked + .icx-toggle-label {
-            background-color: #F3901D;
-            }`}
-      </style>
-
       <div className="icx-relative icx-inline-block icx-w-14 icx-mr-2 icx-align-middle icx-transition-100 icx-select-none">
         <input
           type="checkbox"

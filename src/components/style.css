@@ -121,23 +121,12 @@
             after:icx-rotate-45;
   }
 
-  .icx-radio-disabled {
-    @apply icx-h-5 
-          icx-w-5 
-          icx-bg-neutral-200 
-          icx-text-neutral-200 
-          icx-border-gray-300 
-          indeterminate:icx-bg-neutral-200
-          icx-cursor-not-allowed;
-  }
-
   .icx-radio input {
     @apply icx-bg-white;
   }
 
   .icx-radio input:checked ~ label {
-    @apply
-          icx-bg-primary-400 
+    @apply icx-bg-primary-400 
             icx-ring-offset-2 
             icx-ring-1 
             icx-ring-primary-400;
@@ -153,7 +142,23 @@
           icx-ring-offset-2 
           icx-ring-1
           icx-ring-gray-300
-          icx-cursor-not-allowed; 
+          icx-cursor-not-allowed;
+  }
+
+  .icx-toggle-checkbox:checked {
+    @apply icx-right-0 icx-border-primary-400;
+  }
+
+  .icx-toggle-checkbox:disabled {
+    @apply icx-border-gray-300 icx-cursor-not-allowed;
+  }
+
+  .icx-toggle-checkbox:checked + .icx-toggle-label {
+    @apply icx-bg-primary-400;
+  }
+
+  .icx-toggle-checkbox:disabled + .icx-toggle-label {
+    @apply icx-bg-gray-300 icx-cursor-not-allowed;
   }
 
   .icx-input-active {

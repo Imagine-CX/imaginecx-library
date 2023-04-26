@@ -81,7 +81,8 @@ function App() {
         <Button text="Subir" color="icx-btn-primary" type="submit" />
       </form>
       <div>
-        <Toggle text="Toggle" />
+        <Toggle text="Toggle" id="toggle1" />
+        <Toggle text="Toggle disabled" id="toggle2" disabled checked />
       </div>
       <div className="icx-w-64">
         <Dropdown
