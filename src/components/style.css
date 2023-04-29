@@ -33,19 +33,34 @@
 
 @layer components {
   .icx-btn-primary {
-    @apply icx-bg-primary-400 hover:icx-bg-primary-500 focus:icx-bg-primary-400 icx-text-white;
+    @apply icx-bg-primary-400 
+          hover:icx-bg-primary-500
+          focus:icx-bg-primary-500 
+          active:icx-bg-primary-500
+          icx-text-white;
   }
 
   .icx-btn-secondary {
-    @apply icx-bg-secondary-400 hover:icx-bg-secondary-500 focus:icx-bg-secondary-400 icx-text-white;
+    @apply icx-bg-secondary-400 
+          hover:icx-bg-secondary-500 
+          focus:icx-bg-secondary-500 
+          active:icx-bg-secondary-500
+          icx-text-white;
   }
 
   .icx-btn-disable {
-    @apply icx-bg-disable-100 icx-text-disable-200 icx-cursor-not-allowed;
+    @apply icx-bg-disable-100 
+          icx-text-disable-200 
+            icx-cursor-not-allowed;
   }
 
   .icx-btn-alternative {
-    @apply icx-bg-neutral-100 icx-border icx-border-primary-400 icx-text-primary-400 hover:icx-bg-primary-400 hover:icx-text-white icx-transition-colors;
+    @apply icx-bg-neutral-100 
+          icx-border 
+          icx-border-primary-400 
+          icx-text-primary-400 
+          hover:icx-bg-primary-400 
+          hover:icx-text-white;
   }
 
   .icx-animate-fade-in {
@@ -63,13 +78,8 @@
   }
 
   .icx-checked-disabled {
-    @apply icx-relative 
-            icx-flex 
-            icx-w-6 
-            icx-h-6 
-            icx-bg-gray-300
+    @apply icx-bg-gray-300
             icx-border-gray-300 
-            icx-rounded-lg 
             icx-border
             after:icx-absolute 
             after:icx-inset-x-0 
@@ -85,25 +95,16 @@
   }
 
   .icx-unchecked-disabled {
-    @apply icx-relative 
-            icx-flex 
-            icx-w-6 
-            icx-h-6 
-            icx-bg-gray-300
+    @apply icx-bg-gray-300
             icx-border-gray-300 
-            icx-rounded-md 
             icx-border
             icx-cursor-not-allowed;
   }
 
   .icx-checkbox-active {
-    @apply icx-relative 
-            icx-flex 
-            icx-w-6 
-            icx-h-6 
-            icx-bg-white 
+    @apply icx-bg-white 
             peer-checked:icx-bg-primary-400 
-            icx-rounded-md icx-border 
+            icx-border
             icx-ring-offset-2 
             icx-ring-primary-400 
             icx-duration-150 

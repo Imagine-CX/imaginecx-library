@@ -23,7 +23,16 @@ export const CheckBox = ({ text, disabled, checked, id, ...inputProps }: ICheckB
         className="icx-checkbox-item icx-peer icx-hidden"
         {...inputProps}
       />
-      <label htmlFor={id} className={estiloCheck}></label>
+      <label
+        htmlFor={id}
+        className={`
+          icx-relative 
+          icx-flex 
+          icx-w-6 
+          icx-h-6
+          icx-rounded-md
+          ${estiloCheck}`}
+      ></label>
       <span>{text}</span>
     </div>
   );

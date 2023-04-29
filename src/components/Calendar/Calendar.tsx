@@ -1,17 +1,17 @@
-import { add, differenceInDays, endOfMonth, format, setDate, startOfMonth, sub, toDate } from 'date-fns';
+import { add, differenceInDays, endOfMonth, format, setDate, startOfMonth, sub } from 'date-fns';
 
-import { getDaysWeek, getMonths } from '../helpers';
+import { getDaysWeek } from '../helpers';
 import { Cell } from './Cell';
 
 const daysOfWeek = getDaysWeek(6);
-const months = getMonths(3);
 
 export interface ICalendar extends React.PropsWithChildren {
   value?: Date;
   onChange?: (value: Date) => void;
+  showMonths: (value: boolean) => void;
 }
 
-export const Calendar = ({ value = new Date(), onChange }: ICalendar): JSX.Element => {
+export const Calendar = ({ value = new Date(), onChange, showMonths }: ICalendar): JSX.Element => {
   const startDate = startOfMonth(value);
   const endDate = endOfMonth(value);
   const numDays = differenceInDays(endDate, startDate) + 1;
@@ -19,11 +19,15 @@ export const Calendar = ({ value = new Date(), onChange }: ICalendar): JSX.Eleme
   const prefixDays = startDate.getDay();
   const suffixDays = 6 - endDate.getDay();
 
-  const handleChangeMonth = (event: any) => {
-    event.preventDefault();
-    const month = event.target.value;
-    const newMonth = toDate(value.setMonth(month));
-    onChange && onChange(newMonth);
+  // const handleChangeMonth = (event: any) => {
+  //   event.preventDefault();
+  //   const month = event.target.value;
+  //   const newMonth = toDate(value.setMonth(month));
+  //   onChange && onChange(newMonth);
+  // };
+
+  const handleShowMonth = () => {
+    showMonths(true);
   };
 
   const prevMonth = () => onChange && onChange(sub(value, { months: 1 }));
@@ -37,20 +41,10 @@ export const Calendar = ({ value = new Date(), onChange }: ICalendar): JSX.Eleme
   };
 
   return (
-    <div className="icx-w-[400px] icx-border icx-rounded-xl icx-p-8 icx-m-3 icx-drop-shadow-lg">
+    <div className="icx-w-[400px] icx-h-[450px] icx-border icx-rounded-lg icx-p-10 icx-m-3 icx-drop-shadow-xl">
       <div className="icx-grid icx-grid-cols-7 icx-items-center icx-justify-center icx-text-center">
         <Cell onClick={prevMonth}>{'<'}</Cell>
-        {/* <Cell>{format(value, 'MMMM')}</Cell> */}
-        <Cell>
-          <select name="" id="months" onChange={handleChangeMonth}>
-            {months.map((mes, index) => (
-              <option value={index} key={mes}>
-                {' '}
-                {mes}
-              </option>
-            ))}
-          </select>
-        </Cell>
+        <Cell onClick={handleShowMonth}>{format(value, 'MMMM')}</Cell>
         <Cell onClick={nextMonth}>{'>'}</Cell>
         <Cell />
         <Cell onClick={prevYear}>{'<'}</Cell>

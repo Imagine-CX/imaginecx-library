@@ -1,0 +1,43 @@
+import { setMonth } from 'date-fns';
+import { useEffect } from 'react';
+
+import { getMonths } from '../helpers';
+import { Cell } from './Cell';
+
+export interface IMonth extends React.PropsWithChildren {
+  value?: Date;
+  onChange?: (value: Date) => void;
+  showMonths: (value: boolean) => void;
+}
+
+export const MonthView = ({ value = new Date(), onChange, showMonths }: IMonth): JSX.Element => {
+  const months = getMonths(3);
+
+  const handleClickMonth = (index: number) => {
+    const month = setMonth(value, index);
+    onChange && onChange(month);
+  };
+
+  const handleClickCell = (date: number) => {
+    handleClickMonth(date);
+    showMonths(false);
+  };
+
+  useEffect(() => {}, [showMonths]);
+
+  return (
+    <div className="icx-w-[400px] icx-h-[450px] icx-border icx-rounded-lg icx-p-10 icx-m-3 icx-grid icx-grid-cols-1 icx-items-center icx-justify-center">
+      <div className="icx-grid icx-grid-cols-3 icx-items-center icx-justify-center icx-text-center animate__animated animate__fadeInDown">
+        {months.map((month, index) => {
+          const date = index;
+          const isCurrentMonth = date === value.getMonth();
+          return (
+            <Cell isActive={isCurrentMonth} key={month} className="icx-font-bold" onClick={() => handleClickCell(date)}>
+              {month}
+            </Cell>
+          );
+        })}
+      </div>
+    </div>
+  );
+};

@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 
-import { Button, Calendar, CheckBox, Dropdown, Header, InputField, Radio, Toggle } from './components';
+import { Button, CheckBox, Dropdown, Header, InputField, Radio, Toggle } from './components';
+import { ContCalendar } from './components/Calendar/ContCalendar';
 
 const options = [
   { id: 1, value: 'option1', label: 'Option 1' },
@@ -10,14 +11,13 @@ const options = [
 ];
 
 function App() {
-  const [currentDate, setCurrentDate] = useState(new Date());
   return (
-    <div className="icx-container icx-w-[100vw] icx-mx-2">
+    <div className="">
       <Header text="Imagine CX Library" variant="h1" />
       <div>
         <Header text="Imagine CX Library" variant="h1" />
       </div>
-      <div className="icx-grid icx-grid-cols-4 icx-gap-4 icx-mt-3">
+      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 md:icx-grid-cols-2 lg:icx-grid-cols-4">
         <Button
           text="Button Primary"
           color="icx-btn-primary"
@@ -43,7 +43,7 @@ function App() {
             </svg>
           }
         />
-        <Button text="Button Secondary" color="icx-btn-secondary" />
+        <Button text="Button Secondary" color="icx-btn-secondary" animation />
         <Button text="Disable" color="icx-btn-secondary" disabled />
         <Button text="Alternative" color="icx-btn-alternative" />
       </div>
@@ -106,7 +106,7 @@ function App() {
       </form>
       <div>
         <Toggle text="Toggle" id="toggle1" />
-        <Toggle text="Toggle disabled" id="toggle2" disabled checked />
+        <Toggle text="Toggle disabled" id="toggle2" disabled />
       </div>
       <div className="icx-w-64">
         <Dropdown
@@ -117,7 +117,7 @@ function App() {
         />
       </div>
       <div className="mt-10 icx-flex icx-flex-col icx-items-center">
-        <Calendar value={currentDate} onChange={setCurrentDate} />
+        <ContCalendar />
       </div>
     </div>
   );
