@@ -1,4 +1,5 @@
 import { add, differenceInDays, endOfMonth, format, setDate, startOfMonth, sub } from 'date-fns';
+import { es } from 'date-fns/locale';
 
 import { getDaysWeek } from '../helpers';
 import { Cell } from './Cell';
@@ -9,9 +10,10 @@ export interface ICalendar extends React.PropsWithChildren {
   value?: Date;
   onChange?: (value: Date) => void;
   showMonths: (value: boolean) => void;
+  showYears: (value: boolean) => void;
 }
 
-export const Calendar = ({ value = new Date(), onChange, showMonths }: ICalendar): JSX.Element => {
+export const Calendar = ({ value = new Date(), onChange, showMonths, showYears }: ICalendar): JSX.Element => {
   const startDate = startOfMonth(value);
   const endDate = endOfMonth(value);
   const numDays = differenceInDays(endDate, startDate) + 1;
@@ -30,6 +32,10 @@ export const Calendar = ({ value = new Date(), onChange, showMonths }: ICalendar
     showMonths(true);
   };
 
+  const handleShowYear = () => {
+    showYears(true);
+  };
+
   const prevMonth = () => onChange && onChange(sub(value, { months: 1 }));
   const nextMonth = () => onChange && onChange(add(value, { months: 1 }));
   const prevYear = () => onChange && onChange(sub(value, { years: 1 }));
@@ -41,14 +47,18 @@ export const Calendar = ({ value = new Date(), onChange, showMonths }: ICalendar
   };
 
   return (
-    <div className="icx-w-[400px] icx-h-[450px] icx-border icx-rounded-lg icx-p-10 icx-m-3 icx-drop-shadow-xl">
-      <div className="icx-grid icx-grid-cols-7 icx-items-center icx-justify-center icx-text-center">
+    <div className="icx-w-[400px] icx-h-[450px] icx-border icx-rounded-lg icx-p-10 icx-m-3 icx-drop-shadow-xl icx-overflow-auto">
+      <div className="icx-grid icx-grid-cols-7 icx-items-center icx-justify-center icx-text-center animate__animated animate__zoomIn animate__faster">
         <Cell onClick={prevMonth}>{'<'}</Cell>
-        <Cell onClick={handleShowMonth}>{format(value, 'MMMM')}</Cell>
+        <Cell onClick={handleShowMonth} className="icx-font-bold icx-text-sm">
+          {format(value, 'MMMM', { locale: es }).toUpperCase()}
+        </Cell>
         <Cell onClick={nextMonth}>{'>'}</Cell>
         <Cell />
         <Cell onClick={prevYear}>{'<'}</Cell>
-        <Cell>{format(value, 'yyyy')}</Cell>
+        <Cell onClick={handleShowYear} className="icx-font-bold icx-text-sm">
+          {format(value, 'yyyy')}
+        </Cell>
         <Cell onClick={nextYear}>{'>'}</Cell>
 
         {daysOfWeek.map((day) => (
