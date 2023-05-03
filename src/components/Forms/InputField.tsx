@@ -11,7 +11,7 @@ export const InputField = ({ label, icon = null, disabled, required, ...inputPro
   ) : (
     <div></div>
   );
-  const padding: string = icon ? 'icx-pl-12' : 'icx-pl-4';
+  const padding: string = icon ? 'icx-pl-[50px]' : 'icx-pl-4';
   const estiloInput: string = disabled ? 'icx-input-disabled' : 'icx-input-active';
 
   return (

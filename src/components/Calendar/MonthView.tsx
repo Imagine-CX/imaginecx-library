@@ -26,13 +26,18 @@ export const MonthView = ({ value = new Date(), onChange, showMonths }: IMonth):
   useEffect(() => {}, [showMonths]);
 
   return (
-    <div className="icx-w-[400px] icx-h-[450px] icx-border icx-rounded-lg icx-p-10 icx-m-3 icx-grid icx-grid-cols-1 icx-items-center icx-justify-center icx-overflow-auto">
+    <div className="icx-w-[400px] icx-h-[470px] icx-border icx-rounded-lg icx-p-10 icx-m-3 icx-grid icx-grid-cols-1 icx-items-center icx-justify-center icx-overflow-auto">
       <div className="icx-grid icx-grid-cols-3 icx-items-center icx-justify-center icx-text-center animate__animated animate__zoomIn animate__faster">
         {months.map((month, index) => {
           const date = index;
           const isCurrentMonth = date === value.getMonth();
           return (
-            <Cell isActive={isCurrentMonth} key={month} className="icx-font-bold" onClick={() => handleClickCell(date)}>
+            <Cell
+              isActive={isCurrentMonth}
+              key={month}
+              className="icx-font-bold icx-mt-3 icx-mb-3"
+              onClick={() => handleClickCell(date)}
+            >
               {month}
             </Cell>
           );

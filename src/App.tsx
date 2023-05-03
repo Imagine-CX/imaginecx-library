@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 
-import { Button, CheckBox, Dropdown, Header, InputField, Radio, Toggle } from './components';
+import { Alert, Button, CheckBox, Dropdown, Header, InputField, Radio, Toggle } from './components';
 import { ContCalendar } from './components/Calendar/ContCalendar';
 
 const options = [
@@ -117,7 +116,10 @@ function App() {
         />
       </div>
       <div className="mt-10 icx-flex icx-flex-col icx-items-center">
-        <ContCalendar />
+        <ContCalendar beforeYear={6} afterYear={6} />
+      </div>
+      <div>
+        <Alert />
       </div>
     </div>
   );

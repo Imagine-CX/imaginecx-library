@@ -1,4 +1,6 @@
 import './style.css';
+
+export * from './Alerts/Alert';
 export * from './Btns';
 export * from './Calendar';
 export * from './Forms';
