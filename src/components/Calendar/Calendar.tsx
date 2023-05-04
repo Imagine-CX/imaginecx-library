@@ -52,6 +52,8 @@ export interface ICalendar extends React.PropsWithChildren {
   value?: Date;
   beforeYear?: number;
   afterYear?: number;
+  disableAfter?: Date | null;
+  disableBefore?: Date | null;
   onChange?: (value: Date) => void;
   showMonths: (value: boolean) => void;
   showYears: (value: boolean) => void;
@@ -62,8 +64,10 @@ export const Calendar = ({
   onChange,
   showMonths,
   showYears,
-  beforeYear = 5,
-  afterYear = 5,
+  beforeYear = 7,
+  afterYear = 7,
+  disableAfter = null,
+  disableBefore = null,
 }: ICalendar): JSX.Element => {
   const startDate = startOfMonth(value);
   const endDate = endOfMonth(value);
@@ -107,17 +111,19 @@ export const Calendar = ({
     onChange && onChange(date);
   };
 
-  const currentDate = new Date();
+  const isPastDisableDate = (date: number) => {
+    if (!disableBefore) return false;
 
-  const isPastDate = (date: number) => {
     const pastDate = new Date(value.getFullYear(), value.getMonth(), date + 1);
-    return pastDate <= currentDate;
+    return pastDate <= disableBefore;
   };
 
-  // const isFutureDisableDate = (date: number) => {
-  //   const futureDate = new Date(value.getFullYear(), value.getMonth(), date);
-  //   return futureDate > disabledAfterTo;
-  // };
+  const isFutureDisableDate = (date: number) => {
+    if (!disableAfter) return false;
+
+    const futureDate = new Date(value.getFullYear(), value.getMonth(), date);
+    return futureDate > disableAfter;
+  };
 
   return (
     <div className="icx-w-[400px] icx-h-[470px] icx-border icx-rounded-lg icx-p-10 icx-m-3 icx-drop-shadow-xl icx-overflow-auto">
@@ -147,9 +153,16 @@ export const Calendar = ({
         {Array.from({ length: numDays }).map((_, index) => {
           const date = index + 1;
           const isCurrentDate = date === value.getDate();
-          const isDisabled = isPastDate(date);
+          const isDisabledBefore = isPastDisableDate(date);
+          const isDisabledAfter = isFutureDisableDate(date);
           return (
-            <Cell isActive={isCurrentDate} isDisabled={isDisabled} onClick={() => handleClickDate(date)} key={date}>
+            <Cell
+              isActive={isCurrentDate}
+              isDisabledBefore={isDisabledBefore}
+              isDisabledAfter={isDisabledAfter}
+              onClick={() => handleClickDate(date)}
+              key={date}
+            >
               {date}
             </Cell>
           );

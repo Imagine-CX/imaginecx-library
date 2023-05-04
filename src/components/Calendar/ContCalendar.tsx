@@ -7,10 +7,11 @@ import { YearView } from './YearView';
 export interface IContCalendar extends React.PropsWithChildren {
   beforeYear?: number;
   afterYear?: number;
-  disableAfter?: Date;
+  disableAfter?: Date | null;
+  disableBefore?: Date | null;
 }
 
-export const ContCalendar = ({ beforeYear, afterYear }: IContCalendar): JSX.Element => {
+export const ContCalendar = ({ beforeYear, afterYear, disableAfter, disableBefore }: IContCalendar): JSX.Element => {
   const [showMonths, setshowMonths] = useState(false);
   const [showYears, setShowYears] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -35,6 +36,8 @@ export const ContCalendar = ({ beforeYear, afterYear }: IContCalendar): JSX.Elem
           showYears={setShowYears}
           beforeYear={beforeYear}
           afterYear={afterYear}
+          disableAfter={disableAfter}
+          disableBefore={disableBefore}
         />
       )}
     </>

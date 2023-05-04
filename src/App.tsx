@@ -116,7 +116,7 @@ function App() {
         />
       </div>
       <div className="mt-10 icx-flex icx-flex-col icx-items-center">
-        <ContCalendar beforeYear={6} afterYear={6} />
+        <ContCalendar beforeYear={7} afterYear={7} disableAfter={new Date('2023-08-10')} disableBefore={new Date()} />
       </div>
       <div>
         <Alert />
