@@ -115,8 +115,13 @@ function App() {
           icon={<BiSearch size={19} className="icx-text-white icx-ml-1 icx-mt-1.5" />}
         />
       </div>
-      <div className="mt-10 icx-flex icx-flex-col icx-items-center">
-        <ContCalendar beforeYear={7} afterYear={7} disableAfter={new Date('2023-08-10')} disableBefore={new Date()} />
+      <div className="mt-10">
+        <ContCalendar
+          beforeYear={7}
+          afterYear={7}
+          disableAfter={new Date('2023-08-10')}
+          disableBefore={new Date('2023-05-08')}
+        />
       </div>
       <div>
         <Alert />

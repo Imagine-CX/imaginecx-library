@@ -5,7 +5,14 @@ export interface IInputField extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
-export const InputField = ({ label, icon = null, disabled, required, ...inputProps }: IInputField): JSX.Element => {
+export const InputField = ({
+  label,
+  icon = null,
+  disabled,
+  required,
+  className,
+  ...inputProps
+}: IInputField): JSX.Element => {
   const showIcon: JSX.Element = icon ? (
     <div className="icx-text-gray-700 icx-absolute icx-top-1/2 icx--translate-y-1/2 icx-left-4">{icon}</div>
   ) : (
@@ -15,7 +22,7 @@ export const InputField = ({ label, icon = null, disabled, required, ...inputPro
   const estiloInput: string = disabled ? 'icx-input-disabled' : 'icx-input-active';
 
   return (
-    <div className="icx-px-2 icx-py-2 icx-flex icx-flex-col md:icx-flex-row md:icx-items-center md:icx-justify-center icx-gap-8">
+    <div className="icx-px-1 icx-py-1 icx-flex icx-flex-col icx-gap-8">
       <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-2">
         <label>
           {label} {required ? <span className="icx-text-neutral-500">*</span> : ''}
@@ -23,7 +30,7 @@ export const InputField = ({ label, icon = null, disabled, required, ...inputPro
         <div className="icx-relative">
           {showIcon}
           <input
-            className={`icx-w-full icx-py-2 ${padding} icx-pr-4 icx-rounded-lg icx-outline-none ${estiloInput}`}
+            className={`icx-w-full icx-py-2 ${padding} icx-pr-4 icx-rounded-lg icx-outline-none ${estiloInput} ${className}`}
             required={required}
             disabled={disabled}
             {...inputProps}

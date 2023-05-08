@@ -1,4 +1,4 @@
-import { add, differenceInDays, endOfMonth, format, getYear, setDate, startOfMonth, sub } from 'date-fns';
+import { add, compareAsc, differenceInDays, endOfMonth, format, getYear, setDate, startOfMonth, sub } from 'date-fns';
 import { es } from 'date-fns/locale';
 
 import { getDaysWeek } from '../helpers';
@@ -66,8 +66,8 @@ export const Calendar = ({
   showYears,
   beforeYear = 7,
   afterYear = 7,
-  disableAfter = null,
-  disableBefore = null,
+  disableAfter,
+  disableBefore,
 }: ICalendar): JSX.Element => {
   const startDate = startOfMonth(value);
   const endDate = endOfMonth(value);
@@ -89,11 +89,15 @@ export const Calendar = ({
   };
 
   const prevMonth = () => {
-    onChange && onChange(sub(value, { months: 1 }));
+    if (compareAsc(value, sub(new Date(), { years: beforeYear })) === 1) {
+      onChange && onChange(sub(value, { months: 1 }));
+    }
   };
 
   const nextMonth = () => {
-    onChange && onChange(add(value, { months: 1 }));
+    if (compareAsc(value, add(new Date(), { years: afterYear })) === -1) {
+      onChange && onChange(add(value, { months: 1 }));
+    }
   };
 
   const prevYear = () => {
@@ -108,13 +112,21 @@ export const Calendar = ({
 
   const handleClickDate = (index: number) => {
     const date = setDate(value, index);
+
+    if (disableBefore) {
+      if (compareAsc(date, disableBefore) === -1) return;
+    }
+
+    if (disableAfter) {
+      if (compareAsc(date, disableAfter) === 1) return;
+    }
     onChange && onChange(date);
   };
 
   const isPastDisableDate = (date: number) => {
     if (!disableBefore) return false;
 
-    const pastDate = new Date(value.getFullYear(), value.getMonth(), date + 1);
+    const pastDate = new Date(value.getFullYear(), value.getMonth(), date);
     return pastDate <= disableBefore;
   };
 
@@ -126,7 +138,7 @@ export const Calendar = ({
   };
 
   return (
-    <div className="icx-w-[400px] icx-h-[470px] icx-border icx-rounded-lg icx-p-10 icx-m-3 icx-drop-shadow-xl icx-overflow-auto">
+    <div className="icx-w-[400px] icx-h-[470px] icx-border icx-rounded-lg icx-p-10 icx-m-1 icx-drop-shadow-xl icx-overflow-auto icx-fixed icx-bg-white">
       <div className="icx-grid icx-grid-cols-7 icx-items-center icx-justify-center icx-text-center animate__animated animate__zoomIn animate__faster">
         <Cell onClick={prevMonth}>{prevIcon}</Cell>
         <Cell onClick={handleShowMonth} className="icx-font-bold icx-text-sm">
