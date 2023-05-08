@@ -1,3 +1,5 @@
+import 'animate.css';
+
 import { add, compareAsc, differenceInDays, endOfMonth, format, getYear, setDate, startOfMonth, sub } from 'date-fns';
 import { es } from 'date-fns/locale';
 

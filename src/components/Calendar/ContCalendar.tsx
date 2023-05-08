@@ -1,3 +1,5 @@
+import 'animate.css';
+
 import { format } from 'date-fns';
 import { useEffect, useRef, useState } from 'react';
 

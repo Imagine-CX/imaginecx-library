@@ -1,3 +1,5 @@
+import 'animate.css';
+
 import { getYear, setYear, sub } from 'date-fns';
 import React from 'react';
 

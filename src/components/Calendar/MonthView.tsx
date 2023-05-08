@@ -1,3 +1,5 @@
+import 'animate.css';
+
 import { setMonth } from 'date-fns';
 import { useEffect } from 'react';
 
