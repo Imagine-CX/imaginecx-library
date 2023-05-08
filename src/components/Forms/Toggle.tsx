@@ -4,33 +4,24 @@ export interface IToggle extends InputHTMLAttributes<HTMLInputElement> {
   text: string;
 }
 
-export const Toggle = ({ text, ...toggleProps }: IToggle): JSX.Element => {
+export const Toggle = ({ text, id = 'toggle', ...toggleProps }: IToggle): JSX.Element => {
   return (
     <>
-      <div className="icx-flex icx-items-center icx-m-2">
-        <div className="icx-cursor-pointer icx-my-2 icx-rounded-full icx-bg-gray-200 icx-relative icx-shadow-sm">
-          <input
-            type="checkbox"
-            {...toggleProps}
-            className="focus:icx-outline-none icx-checkbox icx-w-6 icx-h-6 icx-rounded-full icx-bg-white icx-absolute icx-shadow-sm icx-appearance-none icx-cursor-pointer icx-border icx-border-transparent icx-top-0 icx-bottom-0 icx-m-auto icx-transition-all"
-          />
-          <label
-            htmlFor="toggle1"
-            className="icx-toggle-label dark:icx-bg-gray-700 icx-block icx-w-14 icx-h-7 icx-overflow-hidden icx-rounded-full icx-bg-gray-300 icx-cursor-pointer icx-transition"
-          />
-        </div>
-        <label htmlFor="" className="icx-ml-2">
-          {text}
-        </label>
-        <style>
-          {`.icx-checkbox:checked {
-                      right: 0;
-                  }
-                  .icx-checkbox:checked + .icx-toggle-label {
-                      background-color: #F3901D;
-                  }`}
-        </style>
+      <div className="icx-relative icx-inline-block icx-w-12 icx-m-1 icx-align-middle icx-select-none">
+        <input
+          type="checkbox"
+          id={id}
+          {...toggleProps}
+          className="icx-toggle-checkbox icx-absolute icx-block icx-w-7 icx-h-7 icx-rounded-full icx-bg-white icx-border-4 icx-border-disable-200 icx-appearance-none icx-cursor-pointer"
+        />
+        <label
+          htmlFor={id}
+          className="icx-toggle-label icx-block icx-overflow-hidden icx-h-7 icx-rounded-full icx-bg-disable-200 icx-cursor-pointer"
+        ></label>
       </div>
+      <label className="icx-ml-[5px]" htmlFor={id}>
+        {text}
+      </label>
     </>
   );
 };

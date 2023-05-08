@@ -6,14 +6,18 @@ export interface IRadio extends InputHTMLAttributes<HTMLInputElement> {
   text: string;
 }
 
-export const Radio = ({ text, disabled, ...radioProps }: IRadio): JSX.Element => {
-  const estiloRadio: string = disabled ? 'icx-radio-disabled' : 'icx-radio-active';
+export const Radio = ({ text, disabled, name, id, ...radioProps }: IRadio): JSX.Element => {
+  // const estiloRadio: string = disabled ? 'icx-radio-disabled' : 'icx-radio-active';
 
   return (
     <>
-      <div className="icx-flex icx-items-center icx-m-2">
-        <input type="radio" className={`${estiloRadio}`} disabled={disabled} {...radioProps} />
-        <label className="icx-ml-2">{text}</label>
+      <div className="icx-radio icx-flex icx-items-center icx-gap-x-2 icx-m-0.5">
+        <input name={name} type="radio" id={id} className="icx-hidden" disabled={disabled} {...radioProps} />
+        <label
+          htmlFor={id}
+          className="icx-mt-2 icx-rounded-full icx-border icx-border-orange-400 icx-flex icx-w-4 icx-h-4"
+        ></label>
+        <span className="icx-font-imagine icx-pt-1">{text}</span>
       </div>
     </>
   );
