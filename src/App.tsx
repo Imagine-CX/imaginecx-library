@@ -1,6 +1,6 @@
 import { BiSearch } from 'react-icons/bi';
 
-import { Button, Card, CheckBox, Dropdown, Header, InputField, Radio, Toggle } from './components';
+import { Button, Card, CheckBox, Dropdown, Header, InputField, Radio, Tabs, Toggle } from './components';
 import { ContCalendar } from './components/Calendar/ContCalendar';
 
 const options = [
@@ -133,8 +133,14 @@ function App() {
           </p>
         </Card>
       </div>
-      <div className="icx-mt-10">
-        <h1>Hola mundo</h1>
+      <div className="icx-my-10">
+        <Tabs
+          tabs={['Campañas Activas', 'Campañas Finalizadas']}
+          content={[
+            <Button key="one" text="Button Secondary" color="icx-btn-secondary" animation />,
+            <CheckBox key="two" text="Checkbox" id="check11" />,
+          ]}
+        />
       </div>
     </div>
   );

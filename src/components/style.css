@@ -179,16 +179,16 @@
             icx-cursor-not-allowed;
   }
 
-  .icx-card-error{
+  .icx-card-error {
     @apply icx-bg-error;
   }
-  .icx-card-finish{
+  .icx-card-finish {
     @apply icx-bg-finish;
   }
-  .icx-card-success{
+  .icx-card-success {
     @apply icx-bg-success;
   }
-  .icx-card-pending{
+  .icx-card-pending {
     @apply icx-bg-pending;
   }
 }
