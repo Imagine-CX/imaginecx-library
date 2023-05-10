@@ -29,6 +29,10 @@ export default {
           100: '#CECECE',
           200: '#3F3F3F',
         },
+        error: '#d80000',
+        finish: '#0288d1',
+        success: '#2e7d32',
+        pending: '#f3c200'
       },
       fontFamily: {
         imagine: ['Segoe UI', 'sans-serif'],

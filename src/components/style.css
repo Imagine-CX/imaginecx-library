@@ -178,6 +178,19 @@
             icx-text-gray-600
             icx-cursor-not-allowed;
   }
+
+  .icx-card-error{
+    @apply icx-bg-error;
+  }
+  .icx-card-finish{
+    @apply icx-bg-finish;
+  }
+  .icx-card-success{
+    @apply icx-bg-success;
+  }
+  .icx-card-pending{
+    @apply icx-bg-pending;
+  }
 }
 
 .text-red-red {
