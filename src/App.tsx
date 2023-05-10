@@ -1,6 +1,6 @@
 import { BiSearch } from 'react-icons/bi';
 
-import { Alert, Button, CheckBox, Dropdown, Header, InputField, Radio, Toggle } from './components';
+import { Button, Card, CheckBox, Dropdown, Header, InputField, Radio, Tabs, Toggle } from './components';
 import { ContCalendar } from './components/Calendar/ContCalendar';
 
 const options = [
@@ -123,8 +123,24 @@ function App() {
           disableBefore={new Date('2023-05-08')}
         />
       </div>
-      <div>
-        <Alert />
+      <div className="">
+        <Card title="Card Test" color="icx-card-success">
+          <p>
+            Dolore dolor mollit tempor aliquip minim aute magna irure. Ipsum commodo commodo do commodo ut aliqua mollit
+            aliquip amet dolor. Cillum mollit laborum enim exercitation culpa ipsum incididunt cillum mollit quis quis
+            laborum. Reprehenderit non labore magna duis nisi fugiat ut fugiat veniam. Labore dolor enim eu laboris
+            fugiat sunt consequat sint. Mollit et officia adipisicing do qui id enim dolore aliquip ullamco officia.
+          </p>
+        </Card>
+      </div>
+      <div className="icx-my-10">
+        <Tabs
+          tabs={['Campañas Activas', 'Campañas Finalizadas']}
+          content={[
+            <Button key="one" text="Button Secondary" color="icx-btn-secondary" animation />,
+            <CheckBox key="two" text="Checkbox" id="check11" />,
+          ]}
+        />
       </div>
     </div>
   );
