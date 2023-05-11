@@ -48,6 +48,22 @@
           icx-text-white;
   }
 
+  .icx-btn-success {
+    @apply icx-bg-success-100 
+          hover:icx-bg-success-200  
+          focus:icx-bg-success-200 
+          active:icx-bg-success-200 
+          icx-text-white;
+  }
+
+  .icx-btn-error {
+    @apply icx-bg-error-100 
+          hover:icx-bg-error-200  
+          focus:icx-bg-error-200 
+          active:icx-bg-error-200 
+          icx-text-white;
+  }
+
   .icx-btn-disable {
     @apply icx-bg-disable-100 
           icx-text-disable-200 
@@ -62,6 +78,7 @@
           hover:icx-bg-primary-400 
           hover:icx-text-white;
   }
+
 
   .icx-animate-fade-in {
     animation: dropdpwn-fade 0.5s;
@@ -190,6 +207,12 @@
   }
   .icx-card-pending {
     @apply icx-bg-pending;
+  }
+  .icx-card-primary {
+    @apply icx-bg-primary-400;
+  }
+  .icx-card-inactive {
+    @apply icx-bg-neutral-200;
   }
 }
 

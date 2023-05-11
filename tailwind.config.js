@@ -29,9 +29,15 @@ export default {
           100: '#CECECE',
           200: '#3F3F3F',
         },
-        error: '#d80000',
+        error: {
+          100: '#d80000',
+          200: '#a40000'
+        },
+        success: {
+          100: '#2e7d32',
+          200: '#1b491d'
+        },
         finish: '#0288d1',
-        success: '#2e7d32',
         pending: '#f3c200'
       },
       fontFamily: {
