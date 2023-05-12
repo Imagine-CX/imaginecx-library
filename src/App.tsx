@@ -43,7 +43,7 @@ function App() {
           }
         />
         <Button text="Button Secondary" color="icx-btn-secondary" animation />
-        <Button text="Disable" color="icx-btn-secondary" disabled />
+        <Button text="Error" color="icx-btn-success" />
         <Button text="Alternative" color="icx-btn-alternative" />
       </div>
       <div>
@@ -124,7 +124,7 @@ function App() {
         />
       </div>
       <div className="">
-        <Card title="Card Test" color="icx-card-success">
+        <Card title="Card Test" color="icx-card-finish">
           <p>
             Dolore dolor mollit tempor aliquip minim aute magna irure. Ipsum commodo commodo do commodo ut aliqua mollit
             aliquip amet dolor. Cillum mollit laborum enim exercitation culpa ipsum incididunt cillum mollit quis quis
