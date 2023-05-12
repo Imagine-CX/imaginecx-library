@@ -10,3 +10,4 @@ export * from './Headers';
 export type { IHelloWorld } from './HelloWorld';
 export { Helloworld } from './HelloWorld';
 export * from './Selects';
+export * from './Table/Table';
