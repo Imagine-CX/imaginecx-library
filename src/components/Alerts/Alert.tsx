@@ -4,11 +4,24 @@ export interface IAlert extends React.HTMLAttributes<HTMLDivElement> {
   type: string;
 }
 
+const selectStyleAlert = (type: string): string => {
+  if (type === 'success') {
+    type = `icx-bg-success-100`;
+  } else if (type === 'error') {
+    type = `icx-bg-error-100`;
+  } else {
+    type = 'icx-bg-gray-600';
+  }
+
+  return type;
+};
+
 export const Alert = ({ message, icon, type }: IAlert): JSX.Element => {
   const validTypes = ['success', 'error'];
 
   const messageType = validTypes.includes(type) ? message : 'El tipo de alerta ingresado no existe';
-  const styleAlert = validTypes.includes(type) ? `icx-bg-${type}-100` : 'icx-bg-gray-600';
+  // const styleAlert = validTypes.includes(type) ? `icx-bg-success-100` : 'icx-bg-gray-600';
+  const styleAlert = selectStyleAlert(type);
 
   return (
     <div
