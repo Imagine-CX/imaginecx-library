@@ -8,9 +8,26 @@ export interface IBtnPrimary extends ButtonHTMLAttributes<HTMLButtonElement> {
   animation?: boolean;
   icon?: JSX.Element | null;
 }
-
+const selectStyleButton = (type: string | undefined): string => {
+  if (type === 'success') {
+    return `icx-btn-success`;
+  } else if (type === 'error') {
+    return `icx-btn-error`;
+  } else if (type === 'secondary') {
+    return `icx-btn-secondary`;
+  } else if (type === 'primary') {
+    return `icx-btn-primary`;
+  } else if (type === 'alternative') {
+    return `icx-btn-alternative`;
+  }
+  return '';
+};
 export const Button = ({ text, color, animation, disabled, icon, ...btnProps }: IBtnPrimary): JSX.Element => {
-  const estiloBtn: string = disabled ? 'icx-btn-disable' : `${color}`;
+  let estiloBtn = selectStyleButton(color);
+
+  if (disabled) {
+    estiloBtn = 'icx-btn-disable';
+  }
 
   return (
     <>
