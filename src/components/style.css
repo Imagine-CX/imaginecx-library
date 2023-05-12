@@ -79,7 +79,6 @@
           hover:icx-text-white;
   }
 
-
   .icx-animate-fade-in {
     animation: dropdpwn-fade 0.5s;
   }
@@ -197,13 +196,13 @@
   }
 
   .icx-card-error {
-    @apply icx-bg-error;
+    @apply icx-bg-error-100;
   }
   .icx-card-finish {
     @apply icx-bg-finish;
   }
   .icx-card-success {
-    @apply icx-bg-success;
+    @apply icx-bg-success-100;
   }
   .icx-card-pending {
     @apply icx-bg-pending;
