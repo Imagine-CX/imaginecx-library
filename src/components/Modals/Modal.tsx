@@ -1,18 +1,18 @@
-import { useState } from 'react';
-
 import header from '../../assets/SMS-Cards.png';
-import { Button } from '../Btns';
 
-export const Modal = () => {
-  const [state, setState] = useState(true);
+interface IModal extends React.PropsWithChildren {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
+export const Modal = ({ open, setOpen, children }: IModal): JSX.Element => {
   return (
     <>
-      {state ? (
+      {open && (
         <div className="icx-fixed icx-inset-0 icx-z-10 icx-overflow-y-auto">
           <div
             className="icx-fixed icx-inset-0 icx-w-full icx-h-full icx-bg-black icx-opacity-40"
-            onClick={() => setState(false)}
+            onClick={() => setOpen(false)}
           ></div>
           <div className="icx-flex icx-items-center icx-min-h-screen icx-px-4 icx-py-8">
             <div className="icx-relative icx-w-full icx-max-w-lg icx-mx-auto icx-bg-white icx-rounded-lg icx-shadow-lg">
@@ -20,7 +20,7 @@ export const Modal = () => {
                 className="icx-flex icx-items-center icx-justify-end icx-p-4 icx-rounded-t-lg icx-border-b icx-bg-cover icx-bg-center"
                 style={{ backgroundImage: `url(${header})` }}
               >
-                <button className="icx-p-2 icx-text-gray-400 icx-rounded-md " onClick={() => setState(false)}>
+                <button className="icx-p-2 icx-text-gray-400 icx-rounded-md " onClick={() => setOpen(false)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="icx-w-6 icx-h-6 icx-mx-auto icx-text-white"
@@ -35,18 +35,10 @@ export const Modal = () => {
                   </svg>
                 </button>
               </div>
-              <div className="icx-flex icx-items-center icx-justify-center icx-p-4 icx-mt-3">
-                <p>¿Estás seguro de que quieres actualizar la campaña sin hacer ninguna prueba de envío?</p>
-              </div>
-              <div className="icx-flex icx-items-center icx-gap-3 icx-p-4 icx-mt-5">
-                <Button color="primary" text="No" onClick={() => setState(false)} />
-                <Button color="primary" text="Si" onClick={() => setState(false)} />
-              </div>
+              {children}
             </div>
           </div>
         </div>
-      ) : (
-        ''
       )}
     </>
   );

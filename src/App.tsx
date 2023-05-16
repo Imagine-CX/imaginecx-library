@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 
 import {
@@ -71,6 +72,7 @@ const itemsBread = [
 ];
 
 function App() {
+  const [open, setOpen] = useState(false);
   return (
     <div className="">
       <Header text="Imagine CX Library" variant="h1" />
@@ -182,7 +184,18 @@ function App() {
         <BreadCrumb items={itemsBread} selected="Inicio" home="/" />
       </div>
       <div>
-        <Modal />
+        <Button color="success" text="Modal" onClick={() => setOpen(!open)} />
+        <Modal open={open} setOpen={setOpen}>
+          <div className="icx-flex icx-items-center icx-justify-center icx-p-4 icx-mt-3">
+            <p>¿Estás seguro de que quieres actualizar la campaña sin hacer ninguna prueba de envío?</p>
+          </div>
+          <div className="icx-flex icx-items-center icx-gap-3 icx-p-4 icx-mt-5">
+            {/* <Button color="primary" text="Si" onClick={() => setState(false)} />
+            <Button color="primary" text="No" onClick={() => setState(false)} /> */}
+            <Button color="primary" text="No" />
+            <Button color="primary" text="Si" />
+          </div>
+        </Modal>
       </div>
     </div>
   );
