@@ -1,6 +1,7 @@
 import './style.css';
 
 export * from './Alerts/Alert';
+export * from './BreadCrumb/BreadCrumb';
 export * from './Btns';
 export * from './Calendar';
 export * from './Card/Card';

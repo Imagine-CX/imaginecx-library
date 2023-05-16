@@ -1,6 +1,20 @@
 import { BiSearch } from 'react-icons/bi';
 
-import { Alert, Button, Card, CheckBox, Dropdown, Header, InputField, Radio, Table, Tabs, Toggle } from './components';
+import {
+  Alert,
+  BreadCrumb,
+  Button,
+  Card,
+  CheckBox,
+  Dropdown,
+  Header,
+  InputField,
+  Radio,
+  Selector,
+  Table,
+  Tabs,
+  Toggle,
+} from './components';
 import { ContCalendar } from './components/Calendar/ContCalendar';
 
 const options = [
@@ -12,17 +26,6 @@ const options = [
 const tableTitles = ['Id', 'Campaña', 'Próximo Envío', 'Estado', 'SMS Enviados', 'SMS Fallidos'];
 
 const tableItems = [
-  // {
-  //   id: 1,
-  //   name: {
-  //     first: 'Hola',
-  //     second: 'Mundo',
-  //   },
-  //   date: 'Oct 9, 2023',
-  //   status: 'Active',
-  //   enviados: 5,
-  //   fallidos: 0,
-  // },
   {
     id: 2,
     name: 'Vigente',
@@ -39,6 +42,31 @@ const tableItems = [
     enviados: 4,
     fallidos: 2,
   },
+];
+
+const optionsSelect = [
+  {
+    id: 2,
+    name: 'Programada',
+  },
+  {
+    id: 3,
+    name: 'Recurrente',
+  },
+  {
+    id: 6,
+    name: 'Programada2',
+  },
+  {
+    id: 7,
+    name: 'Recurrente2',
+  },
+];
+
+const itemsBread = [
+  { label: 'Inicio', link: '/' },
+  { label: 'Productos', link: '/productos' },
+  { label: 'Detalles del producto', link: 'details' },
 ];
 
 function App() {
@@ -73,6 +101,9 @@ function App() {
       <form action="">
         <div className="icx-grid icx-grid-cols-2 icx-gap-4">
           <div>
+            <Selector options={optionsSelect} />
+          </div>
+          <div>
             <InputField
               placeholder="Nombre"
               label="Nombre"
@@ -85,7 +116,7 @@ function App() {
             <InputField placeholder="Apellido" name="apellido" label="Apellido" disabled required />
           </div>
         </div>
-        <Button text="Subir" color="icx-btn-primary" type="submit" />
+        <Button text="Subir" color="primary" type="submit" />
       </form>
       <div>
         <Toggle text="Toggle" id="toggle1" />
@@ -121,7 +152,7 @@ function App() {
         <Tabs
           tabs={['Campañas Activas', 'Campañas Finalizadas']}
           content={[
-            <Button key="one" text="Button Secondary" color="icx-btn-secondary" animation />,
+            <Button key="one" text="Button Secondary" color="secondary" animation />,
             <CheckBox key="two" text="Checkbox" id="check11" />,
           ]}
         />
@@ -143,6 +174,9 @@ function App() {
           }
           type="success"
         />
+      </div>
+      <div>
+        <BreadCrumb items={itemsBread} selected="Inicio" home="/" />
       </div>
     </div>
   );

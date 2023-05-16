@@ -10,8 +10,8 @@ const selectStyleCard = (type: string | undefined): string => {
     return `icx-card-error icx-justify-center icx-text-white`;
   } else if (type === 'finish') {
     return `icx-card-finish icx-justify-center icx-text-white`;
-  } else if (type === 'pendig') {
-    return `icx-card-pendig icx-justify-center icx-text-white`;
+  } else if (type === 'pending') {
+    return `icx-card-pending icx-justify-center icx-text-white`;
   } else if (type === 'primary') {
     return `icx-card-primary icx-justify-center icx-text-white`;
   } else if (type === 'inactive') {
