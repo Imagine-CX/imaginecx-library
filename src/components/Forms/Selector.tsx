@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { HTMLProps, useState } from 'react';
 import { BsChevronDown } from 'react-icons/bs';
 
-interface ISelector {
+interface ISelector extends HTMLProps<HTMLUListElement> {
   options: Array<{
     id: number;
     name: string;
   }>;
 }
 
-export const Selector = ({ options }: ISelector): JSX.Element => {
+export const Selector = ({ options, ...props }: ISelector): JSX.Element => {
   const [selected, setSelected] = useState('');
   const [open, setOpen] = useState(false);
 
@@ -30,6 +30,7 @@ export const Selector = ({ options }: ISelector): JSX.Element => {
                 icx-ease-out
                 ${!selected && 'icx-text-gray-500'}
                 icx-bg-white
+                icx-text-gray-700
                 icx-border
                 icx-flex
                 icx-justify-between
@@ -43,17 +44,18 @@ export const Selector = ({ options }: ISelector): JSX.Element => {
           <BsChevronDown size={20} className="icx-mt-0.5" />
         </div>
         <ul
-          className={`icx-absolute icx-w-full icx-mt-20 icx-z-10 icx-bg-white icx-overflow-y-auto icx-border icx-rounded-lg ${
+          className={`icx-absolute icx-w-full icx-mt-20 icx-z-10 icx-bg-white icx-text-gray-700 icx-overflow-y-auto icx-border icx-rounded-lg ${
             open ? 'icx-block icx-max-h-60' : 'icx-hidden'
           }`}
+          {...props}
         >
           {options.map((option) => (
             <li
               key={option.id}
               className={`icx-p-2
                         icx-cursor-pointer 
-                        hover:icx-bg-primary-400 
-                        hover:icx-text-white
+                        hover:icx-bg-gray-200
+                        hover:icx-text-gray-600
                         ${option.name === selected && 'icx-bg-primary-400 icx-text-white'}`}
               onClick={() => {
                 setSelected(option.name);

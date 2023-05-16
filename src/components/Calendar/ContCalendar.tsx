@@ -1,21 +1,31 @@
 import 'animate.css';
 
 import { format } from 'date-fns';
-import { useEffect, useRef, useState } from 'react';
+import { InputHTMLAttributes, useEffect, useRef, useState } from 'react';
 
 import { InputField } from '../Forms';
 import { Calendar } from './Calendar';
 import { MonthView } from './MonthView';
 import { YearView } from './YearView';
 
-export interface IContCalendar extends React.PropsWithChildren {
+export interface IContCalendar extends InputHTMLAttributes<HTMLInputElement> {
   beforeYear?: number;
   afterYear?: number;
   disableAfter?: Date | null;
   disableBefore?: Date | null;
+  icon?: JSX.Element | null;
+  label?: string;
 }
 
-export const ContCalendar = ({ beforeYear, afterYear, disableAfter, disableBefore }: IContCalendar): JSX.Element => {
+export const ContCalendar = ({
+  beforeYear,
+  afterYear,
+  disableAfter,
+  disableBefore,
+  label,
+  icon = null,
+  ...inputProps
+}: IContCalendar): JSX.Element => {
   const [showMonths, setshowMonths] = useState<boolean>(false);
   const [showYears, setShowYears] = useState<boolean>(false);
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -40,11 +50,14 @@ export const ContCalendar = ({ beforeYear, afterYear, disableAfter, disableBefor
         readOnly
         className="icx-cursor-pointer"
         onClick={() => setOpen((open) => !open)}
+        icon={icon}
+        label={label}
+        {...inputProps}
       />
 
       <div ref={refOne} className="">
         {open && (
-          <div className="animate__animated animate__zoomIn animate__faster">
+          <div className="icx-relative icx-bg-white animate__animated animate__zoomIn animate__faster">
             {showMonths && !showYears ? (
               <MonthView value={currentDate} onChange={setCurrentDate} showMonths={setshowMonths} />
             ) : showYears ? (

@@ -9,6 +9,7 @@ import {
   Dropdown,
   Header,
   InputField,
+  Modal,
   Radio,
   Selector,
   Table,
@@ -115,6 +116,16 @@ function App() {
           <div>
             <InputField placeholder="Apellido" name="apellido" label="Apellido" disabled required />
           </div>
+          <div>
+            <ContCalendar
+              beforeYear={7}
+              afterYear={7}
+              disableAfter={new Date('2023-08-10')}
+              disableBefore={new Date('2023-05-08')}
+              label="Calendario"
+              required
+            />
+          </div>
         </div>
         <Button text="Subir" color="primary" type="submit" />
       </form>
@@ -128,14 +139,6 @@ function App() {
           items={[{ id: '1', value: 'action 1', click: () => {} }]}
           disabled={false}
           icon={<BiSearch size={19} className="icx-text-white icx-ml-1 icx-mt-1.5" />}
-        />
-      </div>
-      <div className="mt-10">
-        <ContCalendar
-          beforeYear={7}
-          afterYear={7}
-          disableAfter={new Date('2023-08-10')}
-          disableBefore={new Date('2023-05-08')}
         />
       </div>
       <div className="icx-mt-2">
@@ -177,6 +180,9 @@ function App() {
       </div>
       <div>
         <BreadCrumb items={itemsBread} selected="Inicio" home="/" />
+      </div>
+      <div>
+        <Modal />
       </div>
     </div>
   );

@@ -181,7 +181,7 @@
   .icx-input-active {
     @apply icx-border 
             icx-border-neutral-200 
-            icx-text-gray-600 
+            icx-text-gray-700 
             icx-transition 
             icx-duration-300 
             icx-ease-out 
@@ -191,7 +191,7 @@
     @apply icx-border 
             icx-border-neutral-200 
             icx-bg-neutral-200
-            icx-text-gray-600
+            icx-text-gray-700
             icx-cursor-not-allowed;
   }
 
