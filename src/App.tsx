@@ -1,6 +1,22 @@
+import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 
-import { Alert, Button, Card, CheckBox, Dropdown, Header, InputField, Radio, Table, Tabs, Toggle } from './components';
+import {
+  Alert,
+  BreadCrumb,
+  Button,
+  Card,
+  CheckBox,
+  Dropdown,
+  Header,
+  InputField,
+  Modal,
+  Radio,
+  Selector,
+  Table,
+  Tabs,
+  Toggle,
+} from './components';
 import { ContCalendar } from './components/Calendar/ContCalendar';
 
 const options = [
@@ -12,17 +28,6 @@ const options = [
 const tableTitles = ['Id', 'Campaña', 'Próximo Envío', 'Estado', 'SMS Enviados', 'SMS Fallidos'];
 
 const tableItems = [
-  // {
-  //   id: 1,
-  //   name: {
-  //     first: 'Hola',
-  //     second: 'Mundo',
-  //   },
-  //   date: 'Oct 9, 2023',
-  //   status: 'Active',
-  //   enviados: 5,
-  //   fallidos: 0,
-  // },
   {
     id: 2,
     name: 'Vigente',
@@ -41,7 +46,33 @@ const tableItems = [
   },
 ];
 
+const optionsSelect = [
+  {
+    id: 2,
+    name: 'Programada',
+  },
+  {
+    id: 3,
+    name: 'Recurrente',
+  },
+  {
+    id: 6,
+    name: 'Programada2',
+  },
+  {
+    id: 7,
+    name: 'Recurrente2',
+  },
+];
+
+const itemsBread = [
+  { label: 'Inicio', link: '/' },
+  { label: 'Productos', link: '/productos' },
+  { label: 'Detalles del producto', link: 'details' },
+];
+
 function App() {
+  const [open, setOpen] = useState(false);
   return (
     <div className="">
       <Header text="Imagine CX Library" variant="h1" />
@@ -73,6 +104,9 @@ function App() {
       <form action="">
         <div className="icx-grid icx-grid-cols-2 icx-gap-4">
           <div>
+            <Selector options={optionsSelect} />
+          </div>
+          <div>
             <InputField
               placeholder="Nombre"
               label="Nombre"
@@ -84,8 +118,18 @@ function App() {
           <div>
             <InputField placeholder="Apellido" name="apellido" label="Apellido" disabled required />
           </div>
+          <div>
+            <ContCalendar
+              beforeYear={7}
+              afterYear={7}
+              disableAfter={new Date('2023-08-10')}
+              disableBefore={new Date('2023-05-08')}
+              label="Calendario"
+              required
+            />
+          </div>
         </div>
-        <Button text="Subir" color="icx-btn-primary" type="submit" />
+        <Button text="Subir" color="primary" type="submit" />
       </form>
       <div>
         <Toggle text="Toggle" id="toggle1" />
@@ -97,14 +141,6 @@ function App() {
           items={[{ id: '1', value: 'action 1', click: () => {} }]}
           disabled={false}
           icon={<BiSearch size={19} className="icx-text-white icx-ml-1 icx-mt-1.5" />}
-        />
-      </div>
-      <div className="mt-10">
-        <ContCalendar
-          beforeYear={7}
-          afterYear={7}
-          disableAfter={new Date('2023-08-10')}
-          disableBefore={new Date('2023-05-08')}
         />
       </div>
       <div className="icx-mt-2">
@@ -121,7 +157,7 @@ function App() {
         <Tabs
           tabs={['Campañas Activas', 'Campañas Finalizadas']}
           content={[
-            <Button key="one" text="Button Secondary" color="icx-btn-secondary" animation />,
+            <Button key="one" text="Button Secondary" color="secondary" animation />,
             <CheckBox key="two" text="Checkbox" id="check11" />,
           ]}
         />
@@ -143,6 +179,23 @@ function App() {
           }
           type="success"
         />
+      </div>
+      <div>
+        <BreadCrumb items={itemsBread} selected="Inicio" home="/" />
+      </div>
+      <div>
+        <Button color="success" text="Modal" onClick={() => setOpen(!open)} />
+        <Modal open={open} setOpen={setOpen}>
+          <div className="icx-flex icx-items-center icx-justify-center icx-p-4 icx-mt-3">
+            <p>¿Estás seguro de que quieres actualizar la campaña sin hacer ninguna prueba de envío?</p>
+          </div>
+          <div className="icx-flex icx-items-center icx-gap-3 icx-p-4 icx-mt-5">
+            {/* <Button color="primary" text="Si" onClick={() => setState(false)} />
+            <Button color="primary" text="No" onClick={() => setState(false)} /> */}
+            <Button color="primary" text="No" />
+            <Button color="primary" text="Si" />
+          </div>
+        </Modal>
       </div>
     </div>
   );
