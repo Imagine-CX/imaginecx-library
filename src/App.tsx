@@ -15,6 +15,7 @@ import {
   Selector,
   Table,
   Tabs,
+  TextArea,
   Toggle,
 } from './components';
 import { ContCalendar } from './components/Calendar/ContCalendar';
@@ -104,7 +105,7 @@ function App() {
       <form action="">
         <div className="icx-grid icx-grid-cols-2 icx-gap-4">
           <div>
-            <Selector options={optionsSelect} />
+            <Selector options={optionsSelect} label="Opciones" required />
           </div>
           <div>
             <InputField
@@ -128,6 +129,9 @@ function App() {
               required
             />
           </div>
+          <div>
+            <TextArea label="Mensaje" placeholder="Mensaje" content="Hola Mundo" disabled />
+          </div>
         </div>
         <Button text="Subir" color="primary" type="submit" />
       </form>
@@ -146,10 +150,9 @@ function App() {
       <div className="icx-mt-2">
         <Card title="Card Test" type="success">
           <p>
-            Dolore dolor mollit tempor aliquip minim aute magna irure. Ipsum commodo commodo do commodo ut aliqua mollit
-            aliquip amet dolor. Cillum mollit laborum enim exercitation culpa ipsum incididunt cillum mollit quis quis
-            laborum. Reprehenderit non labore magna duis nisi fugiat ut fugiat veniam. Labore dolor enim eu laboris
-            fugiat sunt consequat sint. Mollit et officia adipisicing do qui id enim dolore aliquip ullamco officia.
+            Ipsum cillum ipsum pariatur labore adipisicing occaecat quis ut. Officia ipsum mollit sit occaecat qui id
+            nulla. Occaecat exercitation voluptate aliqua veniam ea pariatur excepteur non. Ipsum mollit velit excepteur
+            culpa qui velit minim.
           </p>
         </Card>
       </div>

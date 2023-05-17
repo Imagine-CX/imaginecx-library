@@ -213,6 +213,35 @@
   .icx-card-inactive {
     @apply icx-bg-neutral-200;
   }
+
+  .icx-selector-disabled{
+    @apply 
+    icx-bg-neutral-200
+    icx-cursor-not-allowed;
+  }
+  .icx-selector-active{
+    @apply
+    focus:icx-outline-none 
+    focus:icx-border-primary-400
+    icx-bg-white
+    icx-cursor-pointer;
+  }
+
+  .icx-area-disabled{
+    @apply 
+    icx-bg-neutral-200 
+    icx-cursor-not-allowed;
+  }
+
+  .icx-area-active{
+    @apply 
+    icx-bg-white 
+    icx-transition 
+    icx-duration-300 
+    icx-ease-out 
+    focus:icx-outline-none
+    focus:icx-border-primary-400;
+  }
 }
 
 .text-red-red {
