@@ -6,30 +6,31 @@ interface ISelector extends HTMLProps<HTMLUListElement> {
     id: number;
     name: string;
   }>;
+  label?: string;
 }
 
-export const Selector = ({ options, ...props }: ISelector): JSX.Element => {
+export const Selector = ({ options, label, required, disabled, ...props }: ISelector): JSX.Element => {
   const [selected, setSelected] = useState('');
   const [open, setOpen] = useState(false);
+  const estiloInput: string = disabled ? 'icx-selector-disabled' : 'icx-selector-active';
 
   return (
     <div className="icx-relative icx-px-1 icx-py-1 icx-flex icx-flex-col icx-gap-8">
       <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-2">
         <label>
-          {/* {label} {required ? <span className="icx-text-neutral-500">*</span> : ''} */}
-          Label
+          {label} {required ? <span className="icx-text-neutral-500">*</span> : ''}
         </label>
-        <div
+        <fieldset
           onClick={() => setOpen(!open)}
+          disabled={disabled}
           className={`icx-w-full
                 icx-py-2
                 icx-px-4
-                focus:icx-border-primary-400
+                ${estiloInput}
                 icx-transition
                 icx-duration-300
                 icx-ease-out
                 ${!selected && 'icx-text-gray-500'}
-                icx-bg-white
                 icx-text-gray-700
                 icx-border
                 icx-flex
@@ -38,13 +39,15 @@ export const Selector = ({ options, ...props }: ISelector): JSX.Element => {
                 icx-shadow-sm
                 icx-outline-none
                 icx-appearance-none
-                icx-cursor-pointer`}
+                `}
         >
           {selected ? (selected?.length > 30 ? selected?.substring(0.3) + '...' : selected) : 'Seleccione...'}
           <BsChevronDown size={20} className="icx-mt-0.5" />
-        </div>
+        </fieldset>
         <ul
-          className={`icx-absolute icx-w-full icx-mt-20 icx-z-10 icx-bg-white icx-text-gray-700 icx-overflow-y-auto icx-border icx-rounded-lg ${
+          className={`icx-absolute icx-w-full ${
+            !label ? 'icx-mt-14' : 'icx-mt-20'
+          } icx-z-10 icx-bg-white icx-text-gray-700 icx-overflow-y-auto icx-border icx-rounded-lg ${
             open ? 'icx-block icx-max-h-60' : 'icx-hidden'
           }`}
           {...props}
