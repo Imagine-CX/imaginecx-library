@@ -12,6 +12,7 @@ import {
   InputField,
   Modal,
   Radio,
+  Select,
   Selector,
   Table,
   Tabs,
@@ -19,6 +20,7 @@ import {
   Toggle,
 } from './components';
 import { ContCalendar } from './components/Calendar/ContCalendar';
+import { useForm } from './components/hooks/useForm';
 
 const options = [
   { id: 1, value: 'option1', label: 'Option 1' },
@@ -66,14 +68,56 @@ const optionsSelect = [
   },
 ];
 
+const optionsSelect2 = [
+  {
+    value: 2,
+    label: 'Programada',
+  },
+  {
+    value: 3,
+    label: 'Recurrente',
+  },
+  {
+    value: 6,
+    label: 'Programada2',
+  },
+  {
+    value: 7,
+    label: 'Recurrente2',
+  },
+];
+
 const itemsBread = [
   { label: 'Inicio', link: '/' },
   { label: 'Productos', link: '/productos' },
   { label: 'Detalles del producto', link: 'details' },
 ];
 
+type FormState = {
+  selector: string;
+  nombre: string;
+  calendar: string;
+  area: string;
+  check: boolean;
+};
+
+const FormFields: FormState = {
+  selector: '',
+  nombre: '',
+  calendar: '',
+  area: '',
+  check: false,
+};
+
 function App() {
   const [open, setOpen] = useState(false);
+
+  const { selector, nombre, calendar, check, onInputChange, onCheckChange } = useForm(FormFields);
+
+  const handleChange = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log({ selector, nombre, calendar, check });
+  };
   return (
     <div className="">
       <Header text="Imagine CX Library" variant="h1" />
@@ -102,7 +146,7 @@ function App() {
           </div>
         ))}
       </div>
-      <form action="">
+      <form action="" onSubmit={handleChange}>
         <div className="icx-grid icx-grid-cols-2 icx-gap-4">
           <div>
             <Selector options={optionsSelect} label="Opciones" required />
@@ -112,9 +156,14 @@ function App() {
               placeholder="Nombre"
               label="Nombre"
               name="nombre"
+              value={nombre}
+              onChange={onInputChange}
               required
               icon={<BiSearch className="icx-w-5 icx-h-5" />}
             />
+          </div>
+          <div>
+            <CheckBox text="Checkbox" id="checkPrueba" name="check" checked={check} onChange={onCheckChange} />
           </div>
           <div>
             <InputField placeholder="Apellido" name="apellido" label="Apellido" disabled required />
@@ -127,10 +176,16 @@ function App() {
               disableBefore={new Date('2023-05-08')}
               label="Calendario"
               required
+              name="calendar"
+              value={calendar}
+              onChange={onInputChange}
             />
           </div>
           <div>
             <TextArea label="Mensaje" placeholder="Mensaje" content="Hola Mundo" disabled />
+          </div>
+          <div>
+            <Select options={optionsSelect2} name="selector" value={selector} onChange={onInputChange} />
           </div>
         </div>
         <Button text="Subir" color="primary" type="submit" />

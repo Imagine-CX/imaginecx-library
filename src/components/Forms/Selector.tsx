@@ -1,7 +1,7 @@
-import { HTMLProps, useState } from 'react';
+import { InputHTMLAttributes, useEffect, useState } from 'react';
 import { BsChevronDown } from 'react-icons/bs';
 
-interface ISelector extends HTMLProps<HTMLUListElement> {
+interface ISelector extends InputHTMLAttributes<HTMLInputElement> {
   options: Array<{
     id: number;
     name: string;
@@ -9,9 +9,14 @@ interface ISelector extends HTMLProps<HTMLUListElement> {
   label?: string;
 }
 
-export const Selector = ({ options, label, required, disabled, ...props }: ISelector): JSX.Element => {
+export const Selector = ({ options, label, required, value, disabled, ...props }: ISelector): JSX.Element => {
   const [selected, setSelected] = useState('');
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setSelected((value as string) || '');
+  }, [value]);
+
   const estiloInput: string = disabled ? 'icx-selector-disabled' : 'icx-selector-active';
 
   return (
@@ -22,7 +27,6 @@ export const Selector = ({ options, label, required, disabled, ...props }: ISele
         </label>
         <fieldset
           onClick={() => setOpen(!open)}
-          disabled={disabled}
           className={`icx-w-full
                 icx-py-2
                 icx-px-4
@@ -36,12 +40,18 @@ export const Selector = ({ options, label, required, disabled, ...props }: ISele
                 icx-flex
                 icx-justify-between
                 icx-rounded-md
-                icx-shadow-sm
                 icx-outline-none
                 icx-appearance-none
                 `}
         >
-          {selected ? (selected?.length > 30 ? selected?.substring(0.3) + '...' : selected) : 'Seleccione...'}
+          <input
+            disabled={disabled}
+            type="text"
+            value={selected}
+            readOnly
+            className="icx-w-full icx-bg-transparent icx-outline-none icx-cursor-pointer"
+            {...props}
+          />
           <BsChevronDown size={20} className="icx-mt-0.5" />
         </fieldset>
         <ul
@@ -50,7 +60,6 @@ export const Selector = ({ options, label, required, disabled, ...props }: ISele
           } icx-z-10 icx-bg-white icx-text-gray-700 icx-overflow-y-auto icx-border icx-rounded-lg ${
             open ? 'icx-block icx-max-h-60' : 'icx-hidden'
           }`}
-          {...props}
         >
           {options.map((option) => (
             <li
