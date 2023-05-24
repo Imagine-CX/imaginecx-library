@@ -17,7 +17,7 @@ export const Modal = ({ open, setOpen, children }: IModal): JSX.Element => {
           <div className="icx-flex icx-items-center icx-min-h-screen icx-px-4 icx-py-8">
             <div className="icx-relative icx-w-full icx-max-w-lg icx-mx-auto icx-bg-white icx-rounded-lg icx-shadow-lg">
               <div
-                className="icx-flex icx-items-center icx-justify-end icx-p-4 icx-rounded-t-lg icx-border-b icx-bg-cover icx-bg-center"
+                className="icx-flex icx-items-center icx-justify-end icx-p-3 icx-rounded-t-lg icx-border-b icx-bg-cover icx-bg-center"
                 style={{ backgroundImage: `url(${header})` }}
               >
                 <button className="icx-p-2 icx-text-gray-400 icx-rounded-md " onClick={() => setOpen(false)}>
@@ -35,7 +35,7 @@ export const Modal = ({ open, setOpen, children }: IModal): JSX.Element => {
                   </svg>
                 </button>
               </div>
-              {children}
+              <div>{children}</div>
             </div>
           </div>
         </div>
