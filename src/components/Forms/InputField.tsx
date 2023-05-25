@@ -30,7 +30,7 @@ export const InputField = ({
         <div className="icx-relative">
           {showIcon}
           <input
-            className={`icx-w-full icx-py-2 ${padding} icx-pr-4 icx-rounded-lg icx-outline-none ${estiloInput} ${className}`}
+            className={`icx-w-full ${padding} icx-pr-4 icx-py-1.5 icx-rounded-lg icx-outline-none ${estiloInput} ${className}`}
             required={required}
             disabled={disabled}
             {...inputProps}

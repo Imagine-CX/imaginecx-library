@@ -125,7 +125,7 @@ function App() {
         <Header text="Imagine CX Library" variant="h1" />
       </div>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 md:icx-grid-cols-2 lg:icx-grid-cols-4">
-        <Button text="Button Primary" color="primary" />
+        <Button text="Button Primary" color="primary" className="icx-py-1" />
         <Button text="Button Secondary" color="secondary" animation />
         <Button text="Error" color="error" />
         <Button text="Alternative" color="alternative" />
@@ -156,6 +156,7 @@ function App() {
               placeholder="Nombre"
               label="Nombre"
               name="nombre"
+              className="icx-py-1.5"
               value={nombre}
               onChange={onInputChange}
               required
@@ -235,14 +236,14 @@ function App() {
               <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
             </svg>
           }
-          type="success"
+          type="error"
         />
       </div>
       <div>
         <BreadCrumb items={itemsBread} selected="Inicio" home="/" />
       </div>
       <div>
-        <Button color="success" text="Modal" onClick={() => setOpen(!open)} />
+        <Button color="success" className="icx-py-1.5" text="Modal" onClick={() => setOpen(!open)} />
         <Modal open={open} setOpen={setOpen}>
           <div className="icx-flex icx-items-center icx-justify-center icx-p-4 icx-mt-3">
             <p>¿Estás seguro de que quieres actualizar la campaña sin hacer ninguna prueba de envío?</p>

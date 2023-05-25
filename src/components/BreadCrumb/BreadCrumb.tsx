@@ -13,7 +13,7 @@ export const BreadCrumb = ({ items, selected, home }: BreadcrumbProps): JSX.Elem
       <nav className="icx-flex icx-text-gray-700 icx-py-3" aria-label="Breadcrumb">
         <ol className="icx-inline-flex icx-items-center icx-space-x-1 md:icx-space-x-3">
           <li className="icx-inline-flex icx-items-center">
-            <a href={home} className="icx-text-gray-700 hover:icx-text-gray-900 icx-inline-flex icx-items-center">
+            <a href={home} className="icx-text-gray-300 hover:icx-text-gray-900 icx-inline-flex icx-items-center">
               <svg
                 className="icx-w-6 icx-h-6 "
                 fill="currentColor"
@@ -28,7 +28,7 @@ export const BreadCrumb = ({ items, selected, home }: BreadcrumbProps): JSX.Elem
             <li key={item.label}>
               <div className="icx-flex icx-items-center">
                 <svg
-                  className="icx-w-6 icx-h-6 icx-text-gray-400"
+                  className="icx-w-6 icx-h-6 icx-text-gray-300"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"

@@ -22,7 +22,15 @@ const selectStyleButton = (type: string | undefined): string => {
   }
   return '';
 };
-export const Button = ({ text, color, animation, disabled, icon, ...btnProps }: IBtnPrimary): JSX.Element => {
+export const Button = ({
+  text,
+  color,
+  animation,
+  disabled,
+  icon,
+  className,
+  ...btnProps
+}: IBtnPrimary): JSX.Element => {
   let estiloBtn = selectStyleButton(color);
 
   if (disabled) {
@@ -35,10 +43,10 @@ export const Button = ({ text, color, animation, disabled, icon, ...btnProps }: 
         type="button"
         className={`
         ${estiloBtn} 
+        ${className}
           icx-flex 
-          icx-rounded-lg 
-          icx-py-2 
-          icx-mb-1 
+          icx-py-1.5
+          icx-rounded-lg
           icx-w-full
           ${animation ? 'hover:icx-scale-[1.02]' : ''}
           icx-transition-all

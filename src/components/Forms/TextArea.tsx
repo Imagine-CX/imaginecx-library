@@ -5,7 +5,7 @@ export interface ITextArea extends InputHTMLAttributes<HTMLTextAreaElement> {
   content?: string;
 }
 
-export const TextArea = ({ label, content, disabled, required, ...areaProps }: ITextArea): JSX.Element => {
+export const TextArea = ({ label, content, className, disabled, required, ...areaProps }: ITextArea): JSX.Element => {
   const estiloArea: string = disabled ? 'icx-area-disabled' : 'icx-area-active';
 
   return (
@@ -27,6 +27,7 @@ export const TextArea = ({ label, content, disabled, required, ...areaProps }: I
                     icx-py-2 
                     icx-text-gray-700 
                     ${estiloArea}
+                    ${className}
                     `}
           required={required}
           disabled={disabled}
