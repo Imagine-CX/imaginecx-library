@@ -22,7 +22,7 @@ export const InputField = ({
   const estiloInput: string = disabled ? 'icx-input-disabled' : 'icx-input-active';
 
   return (
-    <div className="icx-px-1 icx-py-1 icx-flex icx-flex-col icx-gap-8">
+    <div className="icx-flex icx-flex-col icx-gap-8">
       <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-2">
         <label>
           {label} {required ? <span className="icx-text-neutral-500">*</span> : ''}

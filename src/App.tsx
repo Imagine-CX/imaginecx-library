@@ -18,6 +18,7 @@ import {
   Tabs,
   TextArea,
   Toggle,
+  Tooltip,
 } from './components';
 import { ContCalendar } from './components/Calendar/ContCalendar';
 import { useForm } from './components/hooks/useForm';
@@ -116,7 +117,7 @@ function App() {
 
   const handleChange = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log({ selector, nombre, calendar, check });
+    // console.log({ selector, nombre, calendar, check });
   };
   return (
     <div className="">
@@ -168,6 +169,13 @@ function App() {
           </div>
           <div>
             <InputField placeholder="Apellido" name="apellido" label="Apellido" disabled required />
+            <div>
+              <div className="icx-flex">
+                <label htmlFor="">Hola</label>
+                <Tooltip text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar." />
+              </div>
+              <InputField placeholder="Apellid2" name="apellido2" disabled />
+            </div>
           </div>
           <div>
             <ContCalendar
