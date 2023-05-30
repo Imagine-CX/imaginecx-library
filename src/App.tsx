@@ -112,6 +112,7 @@ const FormFields: FormState = {
 
 function App() {
   const [open, setOpen] = useState(false);
+  const [open1, setOpen1] = useState(false);
 
   const { selector, nombre, calendar, check, onInputChange, onCheckChange } = useForm(FormFields);
 
@@ -126,12 +127,20 @@ function App() {
         <Header text="Imagine CX Library" variant="h1" />
       </div>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 md:icx-grid-cols-2 lg:icx-grid-cols-4">
-        <Button text="Button Primary" color="primary" className="icx-py-1" />
-        <Button text="Button Secondary" color="secondary" animation />
-        <Button text="Error" color="error" />
-        <Button text="Alternative" color="alternative" />
-        <Button text="Success" color="success" />
-        <Button text="Success" color="success" disabled />
+        <Button color="primary" className="icx-py-1">
+          Button Primary
+        </Button>
+        <Button color="secondary" animation>
+          Button Seondary
+        </Button>
+        <Button color="error">Error</Button>
+        <Button color="alternative">Alternative</Button>
+        <Button color="success">
+          <p className="icx-font-bold">Success</p>
+        </Button>
+        <Button color="success" disabled>
+          Success
+        </Button>
       </div>
       <div>
         <CheckBox text="Checkbox" id="check1" />
@@ -197,7 +206,9 @@ function App() {
             <Select options={optionsSelect2} name="selector" value={selector} onChange={onInputChange} />
           </div>
         </div>
-        <Button text="Subir" color="primary" type="submit" />
+        <Button color="primary" type="submit">
+          Subir
+        </Button>
       </form>
       <div>
         <Toggle text="Toggle" id="toggle1" />
@@ -224,7 +235,9 @@ function App() {
         <Tabs
           tabs={['Campañas Activas', 'Campañas Finalizadas']}
           content={[
-            <Button key="one" text="Button Secondary" color="secondary" animation />,
+            <Button key="one" color="secondary" animation>
+              Secondary
+            </Button>,
             <CheckBox key="two" text="Checkbox" id="check11" />,
           ]}
         />
@@ -233,25 +246,35 @@ function App() {
         <Table headers={tableTitles} data={tableItems.map(Object.values)} />
       </div>
       <div>
-        <Alert
-          message="¡La campaña fue creada exitosamente!"
-          icon={
-            <svg
-              className="icx-w-8 icx-h-8 icx-text-white icx-fill-current"
-              viewBox="0 0 40 40"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
-            </svg>
-          }
-          type="error"
-        />
+        <Button color="primary" className="icx-py-1.5" onClick={() => setOpen1(!open1)}>
+          Alert
+        </Button>
+        <div className="icx-fixed icx-bottom-0 icx-right-0 icx-m-8 icx-w-5/6 md:icx-w-full icx-max-w-sm">
+          <Alert
+            open={open1}
+            setOpen={setOpen1}
+            icon={
+              <svg
+                className="icx-w-8 icx-h-8 icx-text-white icx-fill-current"
+                viewBox="0 0 40 40"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
+              </svg>
+            }
+            type="success"
+          >
+            Se ha producido un error, cierra este cuadro para recargar la pagina
+          </Alert>
+        </div>
       </div>
       <div>
         <BreadCrumb items={itemsBread} selected="Inicio" home="/" />
       </div>
       <div>
-        <Button color="success" className="icx-py-1.5" text="Modal" onClick={() => setOpen(!open)} />
+        <Button color="success" className="icx-py-1.5" onClick={() => setOpen(!open)}>
+          Modal
+        </Button>
         <Modal open={open} setOpen={setOpen}>
           <div className="icx-flex icx-items-center icx-justify-center icx-p-4 icx-mt-3">
             <p>¿Estás seguro de que quieres actualizar la campaña sin hacer ninguna prueba de envío?</p>
@@ -259,8 +282,8 @@ function App() {
           <div className="icx-flex icx-items-center icx-gap-3 icx-p-4 icx-mt-5">
             {/* <Button color="primary" text="Si" onClick={() => setState(false)} />
             <Button color="primary" text="No" onClick={() => setState(false)} /> */}
-            <Button color="primary" text="No" />
-            <Button color="primary" text="Si" />
+            <Button color="primary">No</Button>
+            <Button color="primary">Si</Button>
           </div>
         </Modal>
       </div>

@@ -3,10 +3,10 @@ import '../style.css';
 import { ButtonHTMLAttributes } from 'react';
 
 export interface IBtnPrimary extends ButtonHTMLAttributes<HTMLButtonElement> {
-  text: string;
   color: string;
   animation?: boolean;
   icon?: JSX.Element | null;
+  children: string | JSX.Element | JSX.Element[];
 }
 const selectStyleButton = (type: string | undefined): string => {
   if (type === 'success') {
@@ -23,11 +23,11 @@ const selectStyleButton = (type: string | undefined): string => {
   return '';
 };
 export const Button = ({
-  text,
   color,
   animation,
   disabled,
   icon,
+  children,
   className,
   ...btnProps
 }: IBtnPrimary): JSX.Element => {
@@ -59,7 +59,7 @@ export const Button = ({
         <div className="icx-m-auto">
           <div className="icx-flex icx-items-center icx-space-x-2">
             {icon ? <div>{icon}</div> : <div></div>}
-            <span>{text}</span>
+            <span>{children}</span>
           </div>
         </div>
       </button>

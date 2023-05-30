@@ -1,7 +1,11 @@
+import { Close } from 'src/assets/Close';
+
 export interface IAlert extends React.HTMLAttributes<HTMLDivElement> {
-  message: string;
   icon: JSX.Element;
   type: string;
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  children: string | JSX.Element | JSX.Element[];
 }
 
 const selectStyleAlert = (type: string): string => {
@@ -16,24 +20,27 @@ const selectStyleAlert = (type: string): string => {
   return type;
 };
 
-export const Alert = ({ message, icon, type }: IAlert): JSX.Element => {
-  const validTypes = ['success', 'error'];
-
-  const messageType = validTypes.includes(type) ? message : 'El tipo de alerta ingresado no existe';
-  // const styleAlert = validTypes.includes(type) ? `icx-bg-success-100` : 'icx-bg-gray-600';
+export const Alert = ({ icon, type, open, setOpen, children }: IAlert): JSX.Element => {
   const styleAlert = selectStyleAlert(type);
 
   return (
-    <div
-      className={`icx-flex icx-w-full icx-py-3 icx-max-w-sm icx-overflow-hidden ${styleAlert} icx-rounded-lg icx-shadow-md`}
-    >
-      <div className={`icx-flex icx-items-center icx-justify-center icx-w-12 icx-ml-3 ${styleAlert}`}>{icon}</div>
-
-      <div className="icx-px-4 icx-py-2 icx--mx-3">
-        <div className="icx-mx-3">
-          <p className=" icx-text-white ">{messageType}</p>
+    <>
+      {open && (
+        <div className={`alert icx-w-full icx-max-w-sm icx-overflow-hidden ${styleAlert} icx-rounded-lg icx-shadow-md`}>
+          <div className="icx-container icx-flex icx-items-center icx-justify-between icx-mx-auto icx-px-3 icx-py-5">
+            <div className="icx-flex">
+              <div className={`icx-flex icx-items-center icx-justify-center icx-w-14 ${styleAlert}`}>{icon}</div>
+              <p className="icx-mx-3 icx-pt-1 icx-text-white">{children}</p>
+            </div>
+            <button
+              className="icx-p-1 icx-transition-colors icx-duration-300 icx-transform icx-rounded-md hover:icx-bg-opacity-25 hover:icx-bg-gray-600 focus:icx-outline-none"
+              onClick={() => setOpen(false)}
+            >
+              <Close />
+            </button>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
