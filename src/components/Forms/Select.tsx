@@ -8,7 +8,7 @@ interface ISelectorTest extends InputHTMLAttributes<HTMLSelectElement> {
   }>;
 }
 
-export const Select = ({ label, options, disabled, required, ...props }: ISelectorTest) => {
+export const Select = ({ label, options, className, disabled, required, ...props }: ISelectorTest) => {
   const estiloSelect: string = disabled ? 'icx-selector-disabled' : 'icx-selector-active';
   return (
     <div className="icx-px-1 icx-py-1 icx-flex icx-flex-col icx-gap-8">
@@ -19,7 +19,7 @@ export const Select = ({ label, options, disabled, required, ...props }: ISelect
         <select
           disabled={disabled}
           required={required}
-          className={`icx-w-full icx-p-2 icx-border icx-rounded-lg ${estiloSelect}`}
+          className={`icx-w-full icx-border icx-py-1.5 icx-rounded-lg ${estiloSelect} ${className}`}
           {...props}
         >
           {options.map((option) => (

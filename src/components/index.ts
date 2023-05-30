@@ -13,3 +13,4 @@ export { Helloworld } from './HelloWorld';
 export * from './Modals/Modal';
 export * from './Selects';
 export * from './Table/Table';
+export * from './ToolTip/Tooltip';
