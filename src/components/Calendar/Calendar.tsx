@@ -6,7 +6,7 @@ import { es } from 'date-fns/locale';
 import { getDaysWeek } from '../helpers';
 import { Cell } from './Cell';
 
-const daysOfWeek = getDaysWeek(6);
+const daysOfWeek = getDaysWeek(5);
 
 const nextIcon: JSX.Element = (
   <svg
@@ -140,7 +140,7 @@ export const Calendar = ({
   };
 
   return (
-    <div className="icx-w-[400px] icx-h-[470px] icx-border icx-rounded-lg icx-p-10 icx-m-1 icx-drop-shadow-xl icx-overflow-auto icx-bg-white icx-absolute icx-z-20">
+    <div className="icx-w-[300px] icx-h-[370px] icx-border icx-rounded-lg icx-p-10 icx-m-1 icx-drop-shadow-xl icx-overflow-auto icx-bg-white icx-absolute icx-z-20">
       <div className="icx-grid icx-grid-cols-7 icx-items-center icx-justify-center icx-text-center animate__animated animate__zoomIn animate__faster">
         <Cell onClick={prevMonth}>{prevIcon}</Cell>
         <Cell onClick={handleShowMonth} className="icx-font-bold icx-text-sm">

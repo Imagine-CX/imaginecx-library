@@ -22,7 +22,7 @@ export const Cell = ({
     <div
       onClick={isActive && isDisabledBefore && isDisabledAfter ? undefined : onClick}
       className={clsx(
-        'icx-h-12 icx-flex icx-items-center icx-justify-center icx-cursor-pointer icx-rounded-full',
+        'icx-h-9 icx-flex icx-items-center icx-justify-center icx-cursor-pointer icx-rounded-full',
         {
           'icx-text-white icx-bg-primary-400 hover:icx-bg-primary-500':
             isActive && !isDisabledBefore && !isDisabledAfter,
