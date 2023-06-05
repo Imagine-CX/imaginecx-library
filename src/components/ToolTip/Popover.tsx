@@ -4,6 +4,7 @@ import {
   ReactElement,
   ReactNode,
   useContext,
+  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -53,6 +54,15 @@ export const Popover = ({
     triggerRect,
     setTriggerRect,
   };
+
+  useEffect(() => {
+    if (isShow) {
+      document.body.classList.add('popover-open'); // Agregando clase CSS al cuerpo cuando se muestra el popover
+    } else {
+      document.body.classList.remove('popover-open'); // Eliminando clase CSS del cuerpo cuando se cierra el popover
+    }
+  }, [isShow]);
+
   return <PopoverContext.Provider value={contextValue}>{children}</PopoverContext.Provider>;
 };
 
@@ -116,11 +126,11 @@ function ContentInternal({ children }: { children: ReactNode }) {
       ref={ref}
       className="icx-rounded-md icx-shadow-lg"
       style={{
-        position: 'absolute',
+        position: 'fixed',
         left: `${coords.left}px`,
         top: `${coords.top}px`,
         margin: 0,
-        zIndex: 1,
+        // zIndex: 1,
       }}
     >
       {children}

@@ -120,7 +120,7 @@ function App() {
 
   const handleChange = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log({ selector, nombre, check, currentDate });
+    // console.log({ selector, nombre, check, currentDate });
   };
   return (
     <div className="">
@@ -223,20 +223,23 @@ function App() {
           icon={<BiSearch size={19} className="icx-text-white icx-ml-1 icx-mt-1.5" />}
         />
       </div>
-      <div className="icx-grid icx-grid-cols-3">
-        <Popover position="bottom-center">
-          <Popover.Trigger>
-            <div className="icx-relative icx-inline-block">
-              <input type="text" className="icx-border icx-w-full icx-py-2" />
-            </div>
-          </Popover.Trigger>
-          <Popover.Content>
-            <p className="icx-w-96">
-              Recuerda que, en la primera columna del informe, debe ir el número telefónico del contacto. debe ir el
-              número telefónico del contacto.
-            </p>
-          </Popover.Content>
-        </Popover>
+      <div className="icx-grid icx-grid-cols-3" style={{ position: 'relative' }}>
+        <div>
+          <input type="text" className="icx-border icx-w-full icx-py-1.5" />
+        </div>
+        <div>
+          <Popover position="bottom-center">
+            <Popover.Trigger>
+              <input type="text" className="icx-border icx-w-full icx-py-1.5" />
+            </Popover.Trigger>
+            <Popover.Content>
+              <p className="icx-w-96">
+                Recuerda que, en la primera columna del informe, debe ir el número telefónico del contacto. debe ir el
+                número telefónico del contacto.
+              </p>
+            </Popover.Content>
+          </Popover>
+        </div>
       </div>
       <div className="icx-mt-2">
         <Card title="Card Test" type="success">
