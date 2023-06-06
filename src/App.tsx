@@ -11,6 +11,7 @@ import {
   Header,
   InputField,
   Modal,
+  Popover,
   Radio,
   Select,
   Selector,
@@ -113,12 +114,13 @@ const FormFields: FormState = {
 function App() {
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
+  const [currentDate, setCurrentDate] = useState(new Date());
 
-  const { selector, nombre, calendar, check, onInputChange, onCheckChange } = useForm(FormFields);
+  const { selector, nombre, check, onInputChange, onCheckChange } = useForm(FormFields);
 
   const handleChange = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // console.log({ selector, nombre, calendar, check });
+    // console.log({ selector, nombre, check, currentDate });
   };
   return (
     <div className="">
@@ -177,6 +179,18 @@ function App() {
             <CheckBox text="Checkbox" id="checkPrueba" name="check" checked={check} onChange={onCheckChange} />
           </div>
           <div>
+            <ContCalendar
+              beforeYear={7}
+              afterYear={7}
+              disableAfter={new Date('2023-08-10')}
+              disableBefore={new Date('2023-05-08')}
+              label="Calendario"
+              currentDate={currentDate}
+              setCurrentDate={setCurrentDate}
+              onChange={setCurrentDate}
+            />
+          </div>
+          <div>
             <InputField placeholder="Apellido" name="apellido" label="Apellido" disabled required />
             <div>
               <div className="icx-flex">
@@ -185,19 +199,6 @@ function App() {
               </div>
               <InputField placeholder="Apellid2" name="apellido2" disabled />
             </div>
-          </div>
-          <div>
-            <ContCalendar
-              beforeYear={7}
-              afterYear={7}
-              disableAfter={new Date('2023-08-10')}
-              disableBefore={new Date('2023-05-08')}
-              label="Calendario"
-              required
-              name="calendar"
-              value={calendar}
-              onChange={onInputChange}
-            />
           </div>
           <div>
             <TextArea label="Mensaje" placeholder="Mensaje" content="Hola Mundo" disabled />
@@ -222,8 +223,26 @@ function App() {
           icon={<BiSearch size={19} className="icx-text-white icx-ml-1 icx-mt-1.5" />}
         />
       </div>
+      <div className="icx-grid icx-grid-cols-3" style={{ position: 'relative' }}>
+        <div>
+          <input type="text" className="icx-border icx-w-full icx-py-1.5" />
+        </div>
+        <div>
+          <Popover position="bottom-center">
+            <Popover.Trigger>
+              <input type="text" className="icx-border icx-w-full icx-py-1.5" />
+            </Popover.Trigger>
+            <Popover.Content>
+              <p className="icx-w-96">
+                Recuerda que, en la primera columna del informe, debe ir el número telefónico del contacto. debe ir el
+                número telefónico del contacto.
+              </p>
+            </Popover.Content>
+          </Popover>
+        </div>
+      </div>
       <div className="icx-mt-2">
-        <Card title="Card Test" type="success">
+        <Card title="Card Test" type="warning">
           <p>
             Ipsum cillum ipsum pariatur labore adipisicing occaecat quis ut. Officia ipsum mollit sit occaecat qui id
             nulla. Occaecat exercitation voluptate aliqua veniam ea pariatur excepteur non. Ipsum mollit velit excepteur

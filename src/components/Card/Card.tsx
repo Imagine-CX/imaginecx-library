@@ -6,12 +6,14 @@ interface ICard extends React.PropsWithChildren {
 const selectStyleCard = (type: string | undefined): string => {
   if (type === 'success') {
     return `icx-card-success icx-justify-center icx-text-white`;
+  } else if (type === 'success-light') {
+    return `icx-card-success-light icx-justify-center icx-text-white`;
   } else if (type === 'error') {
     return `icx-card-error icx-justify-center icx-text-white`;
-  } else if (type === 'finish') {
-    return `icx-card-finish icx-justify-center icx-text-white`;
-  } else if (type === 'pending') {
-    return `icx-card-pending icx-justify-center icx-text-white`;
+  } else if (type === 'info') {
+    return `icx-card-info icx-justify-center icx-text-white`;
+  } else if (type === 'warning') {
+    return `icx-card-warning icx-justify-center icx-text-white`;
   } else if (type === 'primary') {
     return `icx-card-primary icx-justify-center icx-text-white`;
   } else if (type === 'inactive') {

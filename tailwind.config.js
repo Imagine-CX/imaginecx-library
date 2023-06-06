@@ -35,10 +35,11 @@ export default {
         },
         success: {
           100: '#2e7d32',
-          200: '#1b491d'
+          200: '#1b491d',
+          300: '#3EA843'
         },
-        finish: '#0288d1',
-        pending: '#f3c200'
+        info: '#0288d1',
+        warning: '#f3c200'
       },
       fontFamily: {
         imagine: ['Segoe UI', 'sans-serif'],

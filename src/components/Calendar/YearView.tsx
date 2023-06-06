@@ -35,7 +35,7 @@ export const YearView = ({
   };
 
   return (
-    <div className="icx-w-[400px] icx-h-[470px] icx-border icx-rounded-lg icx-p-10 icx-m-3 icx-grid icx-grid-cols-1 icx-items-center icx-justify-center icx-overflow-auto icx-bg-white icx-absolute icx-z-20">
+    <div className="icx-w-[300px] icx-h-[370px] icx-border icx-rounded-lg icx-p-8 icx-m-3 icx-grid icx-grid-cols-1 icx-items-center icx-justify-center icx-overflow-auto icx-bg-white icx-absolute icx-z-20">
       <div className="icx-grid icx-grid-cols-3 icx-items-center icx-justify-center icx-text-center animate__animated animate__zoomIn animate__faster">
         {years.map((year, index) => {
           const date = index + anteriores;
