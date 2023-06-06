@@ -49,10 +49,10 @@
   }
 
   .icx-btn-success {
-    @apply icx-bg-success-100 
-          hover:icx-bg-success-200  
-          focus:icx-bg-success-200 
-          active:icx-bg-success-200 
+    @apply icx-bg-success-300 
+          hover:icx-bg-success-100  
+          focus:icx-bg-success-100 
+          active:icx-bg-success-100 
           icx-text-white;
   }
 
@@ -198,14 +198,17 @@
   .icx-card-error {
     @apply icx-bg-error-100;
   }
-  .icx-card-finish {
-    @apply icx-bg-finish;
+  .icx-card-info {
+    @apply icx-bg-info;
   }
   .icx-card-success {
     @apply icx-bg-success-100;
   }
-  .icx-card-pending {
-    @apply icx-bg-pending;
+  .icx-card-success-light {
+    @apply icx-bg-success-300;
+  }
+  .icx-card-warning {
+    @apply icx-bg-warning;
   }
   .icx-card-primary {
     @apply icx-bg-primary-400;
