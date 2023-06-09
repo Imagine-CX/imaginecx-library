@@ -35,7 +35,8 @@
     "./style.css": {
       "import": "./dist/style.css",
       "require": "./dist/style.css"
-    }
+    },
+    "./dist/*": "./dist/*.d.ts"
   },
   "main": "./dist/imaginecx-library.umd.js",
   "module": "./dist/imaginecx-library.es.js",
