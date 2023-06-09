@@ -90,7 +90,7 @@ const Trigger = ({ children }: { children: ReactElement }) => {
 };
 
 //* Renderiza condicionalmente basado en el state
-const Content = ({ children }: { children: ReactNode }) => {
+const Content = ({ children }: { children: ReactElement }) => {
   const { isShow } = useContext(PopoverContext);
 
   if (!isShow) {
@@ -100,7 +100,7 @@ const Content = ({ children }: { children: ReactNode }) => {
   return <ContentInternal>{children}</ContentInternal>;
 };
 
-function ContentInternal({ children }: { children: ReactNode }) {
+function ContentInternal({ children }: { children: ReactElement }) {
   const { triggerRect, position } = useContext(PopoverContext);
   const ref = useRef<HTMLDialogElement>(null);
   const [coords, setCoords] = useState({
@@ -130,7 +130,7 @@ function ContentInternal({ children }: { children: ReactNode }) {
         left: `${coords.left}px`,
         top: `${coords.top}px`,
         margin: 0,
-        // zIndex: 1,
+        zIndex: 10,
       }}
     >
       {children}

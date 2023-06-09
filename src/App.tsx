@@ -231,6 +231,7 @@ function App() {
           <Popover position="bottom-center">
             <Popover.Trigger>
               <input type="text" className="icx-border icx-w-full icx-py-1.5" />
+              {/* <InputField placeholder="Click" type="text" /> */}
             </Popover.Trigger>
             <Popover.Content>
               <p className="icx-w-96">
@@ -240,6 +241,18 @@ function App() {
             </Popover.Content>
           </Popover>
         </div>
+      </div>
+      <div>
+        <ContCalendar
+          beforeYear={7}
+          afterYear={7}
+          disableAfter={new Date('2023-08-10')}
+          disableBefore={new Date('2023-05-08')}
+          label="Calendario"
+          currentDate={currentDate}
+          setCurrentDate={setCurrentDate}
+          onChange={setCurrentDate}
+        />
       </div>
       <div className="icx-mt-2">
         <Card title="Card Test" type="warning">

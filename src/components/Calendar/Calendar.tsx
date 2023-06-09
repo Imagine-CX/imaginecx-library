@@ -140,7 +140,7 @@ export const Calendar = ({
   };
 
   return (
-    <div className="icx-w-[300px] icx-h-[370px] icx-border icx-rounded-lg icx-p-10 icx-m-1 icx-drop-shadow-xl icx-overflow-auto icx-bg-white icx-absolute icx-z-20">
+    <div className="icx-w-[300px] icx-h-[370px] icx-border icx-rounded-lg icx-p-10 icx-m-1 icx-drop-shadow-xl icx-overflow-auto icx-bg-white icx-absolute icx-z-50">
       <div className="icx-grid icx-grid-cols-7 icx-items-center icx-justify-center icx-text-center animate__animated animate__zoomIn animate__faster">
         <Cell onClick={prevMonth}>{prevIcon}</Cell>
         <Cell onClick={handleShowMonth} className="icx-font-bold icx-text-sm">
@@ -154,8 +154,8 @@ export const Calendar = ({
         </Cell>
         <Cell onClick={nextYear}>{nextIcon}</Cell>
 
-        {daysOfWeek.map((day) => (
-          <Cell className="icx-font-bold" key={day}>
+        {daysOfWeek.map((day, index) => (
+          <Cell className="icx-font-bold" key={index}>
             {day}
           </Cell>
         ))}
