@@ -1,19 +1,20 @@
 import { InputHTMLAttributes } from 'react';
 
 export interface ITextArea extends InputHTMLAttributes<HTMLTextAreaElement> {
-  label?: string;
+  title?: string;
   content?: string;
 }
 
-export const TextArea = ({ label, content, className, disabled, required, ...areaProps }: ITextArea): JSX.Element => {
+export const TextArea = ({ title, content, className, disabled, required, ...areaProps }: ITextArea): JSX.Element => {
   const estiloArea: string = disabled ? 'icx-area-disabled' : 'icx-area-active';
+  const estiloTitle = disabled ? 'icx-text-gray-300' : 'icx-text-neutral-500';
 
   return (
     <div className="icx-px-1 icx-py-1 icx-flex icx-flex-col icx-gap-8">
       <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-2">
-        {label && (
-          <label>
-            {label} {required ? <span className="icx-text-neutral-500">*</span> : ''}
+        {title && (
+          <label htmlFor={title} className={estiloTitle}>
+            {title} {required ? <span>*</span> : ''}
           </label>
         )}
         <textarea
@@ -31,6 +32,7 @@ export const TextArea = ({ label, content, className, disabled, required, ...are
                     `}
           required={required}
           disabled={disabled}
+          id={title}
           {...areaProps}
         >
           {content}

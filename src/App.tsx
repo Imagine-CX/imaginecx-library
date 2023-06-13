@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
+import { BsQuestionCircle } from 'react-icons/bs';
 
 import {
   Alert,
@@ -122,6 +123,7 @@ function App() {
     event.preventDefault();
     // console.log({ selector, nombre, check, currentDate });
   };
+
   return (
     <div className="">
       <Header text="Imagine CX Library" variant="h1" />
@@ -166,13 +168,18 @@ function App() {
           <div>
             <InputField
               placeholder="Nombre"
-              label="Nombre"
+              title="Nombre"
               name="nombre"
               className="icx-py-1.5"
               value={nombre}
               onChange={onInputChange}
               required
               icon={<BiSearch className="icx-w-5 icx-h-5" />}
+              action={
+                <button>
+                  <BiSearch className="icx-w-5 icx-h-5" />
+                </button>
+              }
             />
           </div>
           <div>
@@ -184,27 +191,36 @@ function App() {
               afterYear={7}
               disableAfter={new Date('2023-08-10')}
               disableBefore={new Date('2023-05-08')}
-              label="Calendario"
+              title="Calendario"
               currentDate={currentDate}
               setCurrentDate={setCurrentDate}
-              onChange={setCurrentDate}
+              onChangeCalendar={setCurrentDate}
+              icon={<BiSearch className="icx-w-5 icx-h-5" />}
             />
           </div>
           <div>
-            <InputField placeholder="Apellido" name="apellido" label="Apellido" disabled required />
+            <InputField placeholder="Apellido" name="apellido" title="Apellido" required />
             <div>
               <div className="icx-flex">
                 <label htmlFor="">Hola</label>
-                <Tooltip text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar." />
+                <Tooltip text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar.">
+                  <BsQuestionCircle className="icx-w-5 icx-h-5" />
+                </Tooltip>
               </div>
               <InputField placeholder="Apellid2" name="apellido2" disabled />
             </div>
           </div>
           <div>
-            <TextArea label="Mensaje" placeholder="Mensaje" content="Hola Mundo" disabled />
+            <TextArea title="Mensaje" placeholder="Mensaje" content="Hola Mundo" required />
           </div>
           <div>
-            <Select options={optionsSelect2} name="selector" value={selector} onChange={onInputChange} />
+            <Select
+              options={optionsSelect2}
+              name="selector"
+              value={selector}
+              onChange={onInputChange}
+              title="opciones"
+            />
           </div>
         </div>
         <Button color="primary" type="submit">
@@ -248,10 +264,10 @@ function App() {
           afterYear={7}
           disableAfter={new Date('2023-08-10')}
           disableBefore={new Date('2023-05-08')}
-          label="Calendario"
+          title="Calendario"
           currentDate={currentDate}
           setCurrentDate={setCurrentDate}
-          onChange={setCurrentDate}
+          onChangeCalendar={setCurrentDate}
         />
       </div>
       <div className="icx-mt-2">
