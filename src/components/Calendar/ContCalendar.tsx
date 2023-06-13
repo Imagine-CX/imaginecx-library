@@ -1,23 +1,23 @@
 import 'animate.css';
 
 import { format } from 'date-fns';
-import { useEffect, useRef, useState } from 'react';
+import { InputHTMLAttributes, useEffect, useRef, useState } from 'react';
 
 import { InputField } from '../Forms';
 import { Calendar } from './Calendar';
 import { MonthView } from './MonthView';
 import { YearView } from './YearView';
 
-export interface IContCalendar {
+export interface IContCalendar extends InputHTMLAttributes<HTMLInputElement> {
   beforeYear?: number;
   afterYear?: number;
   disableAfter?: Date | null;
   disableBefore?: Date | null;
   icon?: JSX.Element | null;
-  label?: string;
+  title?: string;
   currentDate: Date;
   setCurrentDate: React.Dispatch<React.SetStateAction<Date>>;
-  onChange?: (value: Date) => void;
+  onChangeCalendar?: (value: Date) => void;
 }
 
 export const ContCalendar = ({
@@ -25,11 +25,12 @@ export const ContCalendar = ({
   afterYear,
   disableAfter,
   disableBefore,
-  label,
+  title,
   currentDate,
   setCurrentDate,
-  onChange,
+  onChangeCalendar,
   icon = null,
+  ...inputProps
 }: IContCalendar): JSX.Element => {
   const [showMonths, setshowMonths] = useState<boolean>(false);
   const [showYears, setShowYears] = useState<boolean>(false);
@@ -40,7 +41,7 @@ export const ContCalendar = ({
 
   useEffect(() => {
     document.addEventListener('click', hideOnClickOutside, true);
-    onChange && onChange(currentDate);
+    onChangeCalendar && onChangeCalendar(currentDate);
   }, []);
 
   const hideOnClickOutside = (e: Event) => {
@@ -57,7 +58,8 @@ export const ContCalendar = ({
         className="icx-cursor-pointer"
         onClick={() => setOpen((open) => !open)}
         icon={icon}
-        label={label}
+        title={title}
+        {...inputProps}
       />
 
       <div ref={refOne}>

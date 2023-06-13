@@ -1,25 +1,28 @@
 import { InputHTMLAttributes } from 'react';
 
 interface ISelectorTest extends InputHTMLAttributes<HTMLSelectElement> {
-  label?: string;
+  title?: string;
   options: Array<{
     value: number;
     label: string;
   }>;
 }
 
-export const Select = ({ label, options, className, disabled, required, ...props }: ISelectorTest) => {
+export const Select = ({ title, options, className, disabled, required, ...props }: ISelectorTest) => {
   const estiloSelect: string = disabled ? 'icx-selector-disabled' : 'icx-selector-active';
+  const estiloTitle = disabled ? 'icx-text-gray-300' : 'icx-text-neutral-500';
+
   return (
     <div className="icx-px-1 icx-py-1 icx-flex icx-flex-col icx-gap-8">
       <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-2">
-        <label>
-          {label} {required ? <span className="icx-text-neutral-500">*</span> : ''}
+        <label className={estiloTitle} htmlFor={title}>
+          {title} {required ? <span>*</span> : ''}
         </label>
         <select
           disabled={disabled}
           required={required}
-          className={`icx-w-full icx-border icx-py-1.5 icx-rounded-lg ${estiloSelect} ${className}`}
+          id={title}
+          className={`icx-w-full icx-border icx-px-2 icx-py-1.5 icx-rounded-lg ${estiloSelect} ${className}`}
           {...props}
         >
           {options.map((option) => (
