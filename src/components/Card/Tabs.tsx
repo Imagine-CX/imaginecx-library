@@ -3,9 +3,10 @@ import { useState } from 'react';
 export interface ITabs {
   tabs: string[];
   content: JSX.Element[];
+  navElement?: JSX.Element;
 }
 
-export const Tabs = ({ tabs, content }: ITabs): JSX.Element => {
+export const Tabs = ({ tabs, content, navElement }: ITabs): JSX.Element => {
   const [selectedItem, setSelectedItem] = useState(0);
 
   return (
@@ -32,6 +33,7 @@ export const Tabs = ({ tabs, content }: ITabs): JSX.Element => {
             </button>
           </li>
         ))}
+        <div className="icx-flex icx-items-center">{navElement}</div>
       </ul>
       <div className="icx-max-w-screen-xl icx-mx-auto icx-px-1 icx-py-3">
         {content.map((item, index) => (
