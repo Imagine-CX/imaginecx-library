@@ -18,7 +18,6 @@ export const InputField = ({
   const showIcon: JSX.Element = icon ? (
     <div className="icx-text-gray-700 icx-absolute icx-top-1/2 icx--translate-y-1/2 icx-left-4">{icon}</div>
   ) : (
-    // <div className="icx-text-gray-700 icx-absolute icx-top-1/2 icx-cursor-pointer icx--translate-y-1/2 icx-right-3 icx-flex icx-justify-end">{icon}</div>
     <div></div>
   );
 
@@ -37,7 +36,7 @@ export const InputField = ({
 
   return (
     <div className="icx-flex icx-flex-col icx-gap-8">
-      <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-2">
+      <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-1">
         <label htmlFor={title} className={estiloTitle}>
           {title} {required ? <span className={estiloTitle}>*</span> : ''}
         </label>

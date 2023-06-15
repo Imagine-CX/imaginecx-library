@@ -288,6 +288,11 @@ function App() {
             </Button>,
             <CheckBox key="two" text="Checkbox" id="check11" />,
           ]}
+          navElement={
+            <div className="icx-w-96">
+              <InputField type="text" placeholder="Escribe aquí" />
+            </div>
+          }
         />
       </div>
       <div>
