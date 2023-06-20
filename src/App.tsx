@@ -16,6 +16,7 @@ import {
   Radio,
   Select,
   Selector,
+  Skeleton,
   Table,
   Tabs,
   TextArea,
@@ -339,6 +340,20 @@ function App() {
             <Button color="primary">Si</Button>
           </div>
         </Modal>
+      </div>
+      <div className="icx-flex icx-flex-col icx-items-center icx-justify-center">
+        <div className="icx-my-2 icx-w-64 icx-h-20">
+          <Skeleton variant="rectangular" />
+        </div>
+        <div className="icx-my-2 icx-w-64 icx-h-20">
+          <Skeleton variant="rounded" />
+        </div>
+        <div className="icx-my-2 icx-w-64">
+          <Skeleton variant="text" />
+        </div>
+        <div className="icx-my-2 icx-w-64 icx-h-20">
+          <Skeleton variant="circular" width={'5rem'} height={'5rem'} />
+        </div>
       </div>
     </div>
   );

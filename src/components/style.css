@@ -285,3 +285,27 @@
 .popover-open {
   overflow: hidden;
 }
+
+.icx-skeleton {
+  opacity: .7;
+  animation: icx-skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes icx-skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+.icx-header-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 100%;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}

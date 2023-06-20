@@ -12,6 +12,7 @@ export type { IHelloWorld } from './HelloWorld';
 export { Helloworld } from './HelloWorld';
 export * from './Modals/Modal';
 export * from './Selects';
+export * from './Skeleton/Skeleton';
 export * from './Table/Table';
 export * from './ToolTip/Popover';
 export * from './ToolTip/Tooltip';
