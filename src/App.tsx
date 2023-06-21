@@ -344,16 +344,14 @@ function App() {
       </div>
       <div className="icx-flex icx-flex-col icx-items-center icx-justify-center">
         <div className="icx-my-2 icx-w-64 icx-h-20">
-          <Skeleton variant="rectangular" />
+          <Skeleton variant="rectangular" animation />
         </div>
-        <div className="icx-my-2 icx-w-64 icx-h-20">
-          <Skeleton variant="rounded" />
-        </div>
+        <Skeleton variant="rounded" width="90%" height="50px" animation />
         <div className="icx-my-2 icx-w-64">
-          <Skeleton variant="text" />
+          <Skeleton variant="text" animation />
         </div>
         <div className="icx-my-2 icx-w-64 icx-h-20">
-          <Skeleton variant="circular" width={'5rem'} height={'5rem'} />
+          <Skeleton variant="circular" width={'5rem'} height={'5rem'} animation />
         </div>
       </div>
       {/* <div>
