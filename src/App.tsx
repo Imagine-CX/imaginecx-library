@@ -11,6 +11,7 @@ import {
   Dropdown,
   Header,
   InputField,
+  Loader,
   Modal,
   Popover,
   Radio,
@@ -355,6 +356,11 @@ function App() {
           <Skeleton variant="circular" width={'5rem'} height={'5rem'} />
         </div>
       </div>
+      {/* <div>
+        <Loader>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlTZdgzlxDOgNfaEgPT1tD2EFS5PaLxJ0lBg&usqp=CAU" alt="icx" width={'100px'} height={'100px'}/>
+        </Loader>
+      </div> */}
     </div>
   );
 }
