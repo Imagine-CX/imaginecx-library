@@ -11,11 +11,13 @@ import {
   Dropdown,
   Header,
   InputField,
+  Loader,
   Modal,
   Popover,
   Radio,
   Select,
   Selector,
+  Skeleton,
   Table,
   Tabs,
   TextArea,
@@ -340,6 +342,23 @@ function App() {
           </div>
         </Modal>
       </div>
+      <div className="icx-flex icx-flex-col icx-items-center icx-justify-center">
+        <div className="icx-my-2 icx-w-64 icx-h-20">
+          <Skeleton variant="rectangular" animation />
+        </div>
+        <Skeleton variant="rounded" width="90%" height="50px" animation />
+        <div className="icx-my-2 icx-w-64">
+          <Skeleton variant="text" animation />
+        </div>
+        <div className="icx-my-2 icx-w-64 icx-h-20">
+          <Skeleton variant="circular" width={'5rem'} height={'5rem'} animation />
+        </div>
+      </div>
+      {/* <div>
+        <Loader>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlTZdgzlxDOgNfaEgPT1tD2EFS5PaLxJ0lBg&usqp=CAU" alt="icx" width={'100px'} height={'100px'}/>
+        </Loader>
+      </div> */}
     </div>
   );
 }

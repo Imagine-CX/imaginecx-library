@@ -1,22 +1,32 @@
 interface ICard extends React.PropsWithChildren {
   title?: string;
-  type?: string;
+  type?: 'success' | 'success-light' | 'error' | 'info' | 'warning' | 'primary' | 'inactive';
+}
+
+enum TYPES_CARD {
+  SUCCESS = 'success',
+  'SUCCESS-LIGHT' = 'success-light',
+  ERROR = 'error',
+  INFO = 'info',
+  WARNING = 'warning',
+  PRIMARY = 'primary',
+  INACTIVE = 'inactive',
 }
 
 const selectStyleCard = (type: string | undefined): string => {
-  if (type === 'success') {
+  if (type === TYPES_CARD.SUCCESS) {
     return `icx-card-success icx-justify-center icx-text-white`;
-  } else if (type === 'success-light') {
+  } else if (type === TYPES_CARD['SUCCESS-LIGHT']) {
     return `icx-card-success-light icx-justify-center icx-text-white`;
-  } else if (type === 'error') {
+  } else if (type === TYPES_CARD.ERROR) {
     return `icx-card-error icx-justify-center icx-text-white`;
-  } else if (type === 'info') {
+  } else if (type === TYPES_CARD.INFO) {
     return `icx-card-info icx-justify-center icx-text-white`;
-  } else if (type === 'warning') {
+  } else if (type === TYPES_CARD.WARNING) {
     return `icx-card-warning icx-justify-center icx-text-white`;
-  } else if (type === 'primary') {
+  } else if (type === TYPES_CARD.PRIMARY) {
     return `icx-card-primary icx-justify-center icx-text-white`;
-  } else if (type === 'inactive') {
+  } else if (type === TYPES_CARD.INACTIVE) {
     return `icx-card-inactive icx-justify-center icx-text-white`;
   } else if (!type) {
     return `icx-justify-start`;
@@ -25,7 +35,6 @@ const selectStyleCard = (type: string | undefined): string => {
 };
 
 export const Card = ({ title, type, children }: ICard): JSX.Element => {
-  // const estiloCard: string = !color ? 'icx-justify-start' : `${color} icx-justify-center icx-text-white`;
   const estiloCard = selectStyleCard(type);
 
   return (
