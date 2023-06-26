@@ -2,7 +2,7 @@ import { Close } from 'src/assets/Close';
 
 export interface IAlert extends React.HTMLAttributes<HTMLDivElement> {
   icon: JSX.Element;
-  type: string;
+  type: 'success' | 'error' | string;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   children: string | JSX.Element | JSX.Element[];
