@@ -3,7 +3,7 @@ import '../style.css';
 import { ButtonHTMLAttributes } from 'react';
 
 export interface IBtnPrimary extends ButtonHTMLAttributes<HTMLButtonElement> {
-  color: string;
+  color: 'success' | 'error' | 'secondary' | 'primary' | 'alternative';
   animation?: boolean;
   icon?: JSX.Element | null;
   children: string | JSX.Element | JSX.Element[];

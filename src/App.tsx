@@ -273,7 +273,7 @@ function App() {
         />
       </div>
       <div className="icx-mt-2">
-        <Card title="Card Test" type="warning">
+        <Card title="Card Test" type="success">
           <p>
             Ipsum cillum ipsum pariatur labore adipisicing occaecat quis ut. Officia ipsum mollit sit occaecat qui id
             nulla. Occaecat exercitation voluptate aliqua veniam ea pariatur excepteur non. Ipsum mollit velit excepteur

@@ -1,6 +1,6 @@
 interface ICard extends React.PropsWithChildren {
   title?: string;
-  type?: 'success' | 'success-light' | 'error' | 'info' | 'warning' | 'primary' | 'inactive';
+  type?: 'success' | 'success-light' | 'error' | 'info' | 'warning' | 'primary' | 'inactive' | '';
 }
 
 enum TYPES_CARD {
