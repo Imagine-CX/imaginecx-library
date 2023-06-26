@@ -11,7 +11,7 @@ import {
   Dropdown,
   Header,
   InputField,
-  Loader,
+  // Loader,
   Modal,
   Popover,
   Radio,
@@ -272,8 +272,8 @@ function App() {
           onChangeCalendar={setCurrentDate}
         />
       </div>
-      <div className="icx-mt-2">
-        <Card title="Card Test" type="success">
+      <div className="icx-mt-2 icx-px-4">
+        <Card title="Card Test" type="error12">
           <p>
             Ipsum cillum ipsum pariatur labore adipisicing occaecat quis ut. Officia ipsum mollit sit occaecat qui id
             nulla. Occaecat exercitation voluptate aliqua veniam ea pariatur excepteur non. Ipsum mollit velit excepteur
