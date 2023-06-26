@@ -1,6 +1,6 @@
 interface ICard extends React.PropsWithChildren {
   title?: string;
-  type?: 'success' | 'success-light' | 'error' | 'info' | 'warning' | 'primary' | 'inactive' | '';
+  type?: 'success' | 'success-light' | 'error' | 'info' | 'warning' | 'primary' | 'inactive' | string;
 }
 
 enum TYPES_CARD {
@@ -38,7 +38,7 @@ export const Card = ({ title, type, children }: ICard): JSX.Element => {
   const estiloCard = selectStyleCard(type);
 
   return (
-    <div className="icx-mx-auto icx-shadow-lg icx-border-t-2 icx-rounded-lg icx-w-full icx-pb-2">
+    <div className="icx-mx-auto element-shadow icx-border-t-2 icx-rounded-lg icx-w-full icx-pb-2">
       <div className={`icx-flex icx-rounded-t-lg icx-items-center icx-px-5 icx-py-3 ${estiloCard}`}>
         <p className="icx-font-bold">{title}</p>
       </div>

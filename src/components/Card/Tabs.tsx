@@ -10,7 +10,7 @@ export const Tabs = ({ tabs, content, navElement }: ITabs): JSX.Element => {
   const [selectedItem, setSelectedItem] = useState(0);
 
   return (
-    <div className="icx-bg-white icx-mx-auto icx-shadow-lg icx-border icx-rounded-lg icx-w-full icx-pb-1">
+    <div className="icx-bg-white icx-mx-auto element-shadow icx-rounded-lg icx-w-full icx-pb-1">
       <ul
         role="tablist"
         className="icx-max-w-screen-xl icx-mx-auto icx-border-b icx-flex icx-items-center icx-gap-x-2 icx-justify-between"
