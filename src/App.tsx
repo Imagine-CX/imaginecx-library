@@ -53,6 +53,11 @@ const tableItems = [
 ];
 const optionsSelect2 = [
   {
+    value: 1,
+    label: 'Selecciona...',
+    hidden: true,
+  },
+  {
     value: 2,
     label: 'Programada',
   },
@@ -103,13 +108,11 @@ function App() {
   return (
     <div className="icx-container icx-ml-3">
       <Header variant="h2">Buttons</Header>
-      <div className="icx-grid icx-grid-cols-2 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-3 lg:icx-grid-cols-6">
+      <div className="icx-grid icx-grid-cols-2 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-3 lg:icx-grid-cols-4">
         <Button color="primary" className="icx-py-1">
           Primary
         </Button>
-        <Button color="secondary" animation>
-          Secondary
-        </Button>
+        <Button color="secondary">Secondary</Button>
         <Button color="error">Error</Button>
         <Button color="alternative">Alternative</Button>
         <Button color="success">
@@ -117,6 +120,12 @@ function App() {
         </Button>
         <Button color="success" disabled>
           Disabled
+        </Button>
+        <Button color="success" icon={<BiSearch className="icx-w-5 icx-h-5" />}>
+          Button with Icon
+        </Button>
+        <Button color="primary" animation>
+          Primary with animation
         </Button>
       </div>
       <Header variant="h2">Checkbox</Header>
