@@ -5,6 +5,7 @@ interface ISelectorTest extends InputHTMLAttributes<HTMLSelectElement> {
   options: Array<{
     value: number;
     label: string;
+    hidden?: boolean;
   }>;
 }
 
@@ -26,7 +27,12 @@ export const Select = ({ title, options, className, disabled, required, ...props
           {...props}
         >
           {options.map((option) => (
-            <option className="hover:icx-bg-neutral-200 icx-rounded-lg" key={option.value} value={option.label}>
+            <option
+              className="hover:icx-bg-neutral-200 icx-rounded-lg"
+              key={option.value}
+              value={option.label}
+              hidden={option.hidden}
+            >
               {option.label}
             </option>
           ))}
