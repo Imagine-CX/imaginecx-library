@@ -124,7 +124,7 @@ function ContentInternal({ children }: { children: ReactElement }) {
     <dialog
       open={true}
       ref={ref}
-      className="icx-rounded-md icx-shadow-lg"
+      className="icx-rounded-md element-shadow"
       style={{
         position: 'fixed',
         left: `${coords.left}px`,
