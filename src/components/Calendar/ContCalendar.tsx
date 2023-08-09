@@ -52,45 +52,46 @@ export const ContCalendar = ({
 
   return (
     <>
-      <InputField
-        value={format(currentDate, 'dd/MM/yyyy')}
-        readOnly
-        className="icx-cursor-pointer"
-        onClick={() => setOpen((open) => !open)}
-        icon={icon}
-        title={title}
-        {...inputProps}
-      />
-
-      <div ref={refOne}>
-        {open && (
-          <div className="icx-relative icx-bg-white animate__animated animate__zoomIn animate__faster">
-            {showMonths && !showYears ? (
-              <MonthView key="month" value={currentDate} onChange={setCurrentDate} showMonths={setshowMonths} />
-            ) : showYears ? (
-              <YearView
-                key="year"
-                value={currentDate}
-                onChange={setCurrentDate}
-                showYears={setShowYears}
-                beforeYear={beforeYear}
-                afterYear={afterYear}
-              />
-            ) : (
-              <Calendar
-                key="calendar"
-                value={currentDate}
-                onChange={setCurrentDate}
-                showMonths={setshowMonths}
-                showYears={setShowYears}
-                beforeYear={beforeYear}
-                afterYear={afterYear}
-                disableAfter={disableAfter}
-                disableBefore={disableBefore}
-              />
-            )}
-          </div>
-        )}
+      <div>
+        <InputField
+          value={format(currentDate, 'dd/MM/yyyy')}
+          readOnly
+          className="icx-cursor-pointer"
+          onClick={() => setOpen((open) => !open)}
+          icon={icon}
+          title={title}
+          {...inputProps}
+        />
+        <div ref={refOne}>
+          {open && (
+            <div className="icx-relative icx-bg-white animate__animated animate__zoomIn animate__faster">
+              {showMonths && !showYears ? (
+                <MonthView key="month" value={currentDate} onChange={setCurrentDate} showMonths={setshowMonths} />
+              ) : showYears ? (
+                <YearView
+                  key="year"
+                  value={currentDate}
+                  onChange={setCurrentDate}
+                  showYears={setShowYears}
+                  beforeYear={beforeYear}
+                  afterYear={afterYear}
+                />
+              ) : (
+                <Calendar
+                  key="calendar"
+                  value={currentDate}
+                  onChange={setCurrentDate}
+                  showMonths={setshowMonths}
+                  showYears={setShowYears}
+                  beforeYear={beforeYear}
+                  afterYear={afterYear}
+                  disableAfter={disableAfter}
+                  disableBefore={disableBefore}
+                />
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
