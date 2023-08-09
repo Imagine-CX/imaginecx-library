@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { BsQuestionCircle } from 'react-icons/bs';
 
+import smsIcon from './assets/Messages.svg';
 import {
   Alert,
   BreadCrumb,
@@ -11,14 +12,13 @@ import {
   Dropdown,
   Header,
   InputField,
-  Loader,
   // Loader,
   Modal,
   Popover,
   Radio,
   Select,
+  Selector,
   Skeleton,
-  Table,
   Tabs,
   TextArea,
   Toggle,
@@ -32,26 +32,6 @@ const options = [
   { id: 2, value: 'option2', label: 'Radio Button 2' },
 ];
 
-const tableTitles = ['Id', 'Campaña', 'Próximo Envío', 'Estado', 'SMS Enviados', 'SMS Fallidos'];
-
-const tableItems = [
-  {
-    id: 2,
-    name: 'Vigente',
-    date: 'Oct 12, 2023',
-    status: 'Finalizada',
-    enviados: 4,
-    fallidos: 2,
-  },
-  {
-    id: 3,
-    name: 'Vigente',
-    date: 'Oct 12, 2023',
-    status: 'Finalizada',
-    enviados: 4,
-    fallidos: 2,
-  },
-];
 const optionsSelect2 = [
   {
     value: 1,
@@ -69,6 +49,25 @@ const optionsSelect2 = [
   {
     value: 6,
     label: 'Periodica',
+  },
+];
+
+const optionsSelect3 = [
+  {
+    id: 1,
+    name: 'Selecciona...',
+  },
+  {
+    id: 2,
+    name: 'Programada',
+  },
+  {
+    id: 3,
+    name: 'Recurrente',
+  },
+  {
+    id: 6,
+    name: 'Periodica',
   },
 ];
 
@@ -123,12 +122,13 @@ function App() {
         <Button color="success" disabled>
           Disabled
         </Button>
-        <Button color="success" icon={<BiSearch className="icx-w-5 icx-h-5" />}>
+        <Button color="success" icon={smsIcon}>
           Button with Icon
         </Button>
         <Button color="primary" animation>
           Primary with animation
         </Button>
+        <img src={smsIcon} alt="" />
       </div>
       <Header variant="h2">Checkbox</Header>
       <div className="icx-grid icx-grid-cols-2 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-4">
@@ -257,6 +257,7 @@ function App() {
           title="Select disabled"
           disabled
         />
+        <Selector options={optionsSelect3} />
       </div>
       <Header variant="h2">Dropdown</Header>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3">

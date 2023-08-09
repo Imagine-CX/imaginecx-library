@@ -1,11 +1,11 @@
 import '../style.css';
 
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 export interface IBtnPrimary extends ButtonHTMLAttributes<HTMLButtonElement> {
   color: 'success' | 'error' | 'secondary' | 'primary' | 'alternative';
   animation?: boolean;
-  icon?: JSX.Element | null;
+  icon?: ReactNode;
   children: string | JSX.Element | JSX.Element[];
 }
 const selectStyleButton = (type: string | undefined): string => {
