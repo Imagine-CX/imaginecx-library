@@ -1,9 +1,10 @@
-import { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, RefObject } from 'react';
 
 export interface IInputField extends InputHTMLAttributes<HTMLInputElement> {
   icon?: JSX.Element | null;
   title?: string;
   action?: JSX.Element | null;
+  refInput?: RefObject<HTMLInputElement>;
 }
 
 export const InputField = ({
@@ -13,6 +14,7 @@ export const InputField = ({
   disabled,
   required,
   className,
+  refInput,
   ...inputProps
 }: IInputField): JSX.Element => {
   const showIcon: JSX.Element = icon ? (
@@ -48,6 +50,7 @@ export const InputField = ({
             id={title}
             required={required}
             disabled={disabled}
+            ref={refInput}
             {...inputProps}
           />
         </div>
