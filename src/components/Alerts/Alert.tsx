@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { Close } from 'src/assets/Close';
 
 export interface IAlert extends React.HTMLAttributes<HTMLDivElement> {
@@ -6,6 +7,7 @@ export interface IAlert extends React.HTMLAttributes<HTMLDivElement> {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   close?: boolean;
+  closeCustom?: ReactNode;
 }
 
 const selectStyleAlert = (type: string): string => {
@@ -20,7 +22,7 @@ const selectStyleAlert = (type: string): string => {
   return type;
 };
 
-export const Alert: React.FC<IAlert> = ({ icon, type, open, setOpen, close, children }): JSX.Element => {
+export const Alert: React.FC<IAlert> = ({ icon, type, open, setOpen, close, closeCustom, children }): JSX.Element => {
   const styleAlert = selectStyleAlert(type);
 
   return (
@@ -41,6 +43,7 @@ export const Alert: React.FC<IAlert> = ({ icon, type, open, setOpen, close, chil
                   <Close />
                 </button>
               )}
+              {closeCustom && <>{closeCustom}</>}
             </div>
           </div>
         </div>

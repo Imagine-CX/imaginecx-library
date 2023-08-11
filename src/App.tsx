@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { BsQuestionCircle } from 'react-icons/bs';
 
+import { Close } from './assets/Close';
 import smsIcon from './assets/Messages.svg';
 import {
   Alert,
@@ -490,7 +491,14 @@ function App() {
               </svg>
             }
             type="error"
-            close
+            closeCustom={
+              <button
+                className="icx-p-1 icx-transition-colors icx-duration-300 icx-transform icx-rounded-md hover:icx-bg-opacity-25 hover:icx-bg-gray-600 focus:icx-outline-none"
+                onClick={() => setOpen4(false)}
+              >
+                <Close />
+              </button>
+            }
           >
             Se ha producido un error, cierra este cuadro para recar gar la pagina
           </Alert>
