@@ -16,6 +16,7 @@ export interface IContCalendar extends InputHTMLAttributes<HTMLInputElement> {
   icon?: JSX.Element | null;
   title?: string;
   currentDate: Date;
+  disabled?: boolean;
   setCurrentDate: React.Dispatch<React.SetStateAction<Date>>;
   onChangeCalendar?: (value: Date) => void;
 }
@@ -30,6 +31,7 @@ export const ContCalendar = ({
   setCurrentDate,
   onChangeCalendar,
   icon = null,
+  disabled,
   ...inputProps
 }: IContCalendar): JSX.Element => {
   const [showMonths, setshowMonths] = useState<boolean>(false);
@@ -56,10 +58,11 @@ export const ContCalendar = ({
         <InputField
           value={format(currentDate, 'dd/MM/yyyy')}
           readOnly
-          className="icx-cursor-pointer"
+          className={`${disabled ? 'icx-cursor-not-allowed' : ' icx-cursor-pointer'}`}
           onClick={() => setOpen((open) => !open)}
           icon={icon}
           title={title}
+          disabled={disabled}
           {...inputProps}
         />
         <div ref={refOne}>
