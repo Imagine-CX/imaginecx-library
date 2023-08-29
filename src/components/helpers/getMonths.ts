@@ -12,13 +12,12 @@ export const getMonths = (formatM: number | null = null): string[] => {
   }
 
   const result = [];
-  const fecha = new Date();
+  const fecha = new Date('2023-01-02');
 
   for (let i = 0; i < 12; i++) {
     fecha.setMonth(i);
     const month = format(fecha, `${formatMonth}`, { locale: es }).toUpperCase();
     result.push(month);
   }
-
   return result;
 };
