@@ -206,8 +206,8 @@ function App() {
         <ContCalendar
           beforeYear={7}
           afterYear={7}
-          disableAfter={new Date('2023-08-10')}
-          disableBefore={new Date('2023-05-08')}
+          // disableAfter={new Date('2023-08-10')}
+          disableBefore={new Date('Tue Aug 29 2023 00:00:00')}
           title="Calendar with icon"
           currentDate={currentDate}
           setCurrentDate={setCurrentDate}
@@ -218,7 +218,7 @@ function App() {
           beforeYear={7}
           afterYear={7}
           disableAfter={new Date('2023-08-10')}
-          disableBefore={new Date('2023-05-08')}
+          disableBefore={new Date()}
           title="Calendar disabled"
           currentDate={currentDate}
           setCurrentDate={setCurrentDate}

@@ -48,9 +48,21 @@ export const ContCalendar = ({
 
   const hideOnClickOutside = (e: Event) => {
     if (refOne.current && !refOne.current.contains(e.target as Node)) {
-      setOpen(false);
+      if (open && e.target !== refOne.current) {
+        if (disableBefore && currentDate < disableBefore) {
+          setCurrentDate(new Date());
+        }
+        setOpen(false);
+      }
     }
   };
+
+  useEffect(() => {
+    document.addEventListener('click', hideOnClickOutside, true);
+    return () => {
+      document.removeEventListener('click', hideOnClickOutside, true);
+    };
+  }, [open]);
 
   return (
     <>
