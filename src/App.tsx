@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { BsQuestionCircle } from 'react-icons/bs';
 
@@ -103,6 +103,8 @@ function App() {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const { selector, onInputChange } = useForm(FormFields);
+
+  const areaRef = useRef(null);
 
   return (
     <div className="icx-container icx-ml-3">
