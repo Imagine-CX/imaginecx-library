@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { BsQuestionCircle } from 'react-icons/bs';
 
@@ -104,6 +104,8 @@ function App() {
 
   const { selector, onInputChange } = useForm(FormFields);
 
+  const areaRef = useRef(null);
+
   return (
     <div className="icx-container icx-ml-3">
       <div className="icx-text-center">
@@ -206,8 +208,8 @@ function App() {
         <ContCalendar
           beforeYear={7}
           afterYear={7}
-          disableAfter={new Date('2023-08-10')}
-          disableBefore={new Date('2023-05-08')}
+          // disableAfter={new Date('2023-08-10')}
+          disableBefore={new Date('Tue Aug 29 2023 00:00:00')}
           title="Calendar with icon"
           currentDate={currentDate}
           setCurrentDate={setCurrentDate}
@@ -218,7 +220,7 @@ function App() {
           beforeYear={7}
           afterYear={7}
           disableAfter={new Date('2023-08-10')}
-          disableBefore={new Date('2023-05-08')}
+          disableBefore={new Date()}
           title="Calendar disabled"
           currentDate={currentDate}
           setCurrentDate={setCurrentDate}
