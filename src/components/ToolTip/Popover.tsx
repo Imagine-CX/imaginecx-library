@@ -71,18 +71,29 @@ const Trigger = ({ children }: { children: ReactElement }) => {
   const { setIsShow, setTriggerRect } = useContext(PopoverContext);
   const ref = useRef<HTMLElement>(null);
 
-  const onClick = () => {
+  const onMouseEnter = () => {
     const element = ref.current;
     if (element === null) {
       return;
     }
     const rect = element.getBoundingClientRect();
     setTriggerRect(rect);
-    setIsShow((isShow) => !isShow);
+    setIsShow(true);
+  };
+
+  const onMouseLeave = () => {
+    const element = ref.current;
+    if (element === null) {
+      return;
+    }
+    const rect = element.getBoundingClientRect();
+    setTriggerRect(rect);
+    setIsShow(false);
   };
 
   const childrenToTriggerPopover = cloneElement(children, {
-    onClick,
+    onMouseEnter,
+    onMouseLeave,
     ref,
   });
 

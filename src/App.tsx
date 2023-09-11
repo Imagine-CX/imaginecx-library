@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { BsQuestionCircle } from 'react-icons/bs';
 
@@ -103,8 +103,6 @@ function App() {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const { selector, onInputChange } = useForm(FormFields);
-
-  const areaRef = useRef(null);
 
   return (
     <div className="icx-container icx-ml-3">
@@ -286,6 +284,17 @@ function App() {
               className="icx-border icx-rounded-md icx-w-full icx-py-1.5 focus:icx-border-primary-400"
             />
             {/* <InputField placeholder="Click" type="text" /> */}
+          </Popover.Trigger>
+          <Popover.Content>
+            <p className="icx-w-96">
+              Recuerda que, en la primera columna del informe, debe ir el número telefónico del contacto. debe ir el
+              número telefónico del contacto.
+            </p>
+          </Popover.Content>
+        </Popover>
+        <Popover position="bottom-center">
+          <Popover.Trigger>
+            <Button color="success">Hola</Button>
           </Popover.Trigger>
           <Popover.Content>
             <p className="icx-w-96">
