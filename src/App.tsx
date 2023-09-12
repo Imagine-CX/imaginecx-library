@@ -396,22 +396,20 @@ function App() {
         <div>
           <h1 className="icx-mb-3 icx-font-bold">Tabs with navElement</h1>
           <Tabs
-            tabs={['Tab 1', 'Tab 2']}
+            tabs={['Tab 1', 'Tab 2', 'Tab 3']}
             content={[
               <p key="one" className="icx-p-4">
-                Culpa cillum nostrud nostrud est proident et dolore excepteur dolor. Deserunt aliqua magna voluptate
-                voluptate ea commodo in est id non. Nulla id pariatur mollit esse eu pariatur cillum. Eiusmod ullamco
-                excepteur non anim sit eu eiusmod et. Dolore culpa exercitation aliquip veniam aliquip aliqua ullamco.
+                Otro
               </p>,
               <p key="two" className="icx-p-4">
-                Dolore officia irure veniam excepteur ut commodo culpa esse id. Laboris sunt in non et. Voluptate
-                pariatur veniam voluptate voluptate ut ut est in incididunt. Proident laborum aute consectetur eiusmod
-                ad. Aliqua ut fugiat qui voluptate qui reprehenderit officia aliqua amet. Sint exercitation dolore anim
-                sit.
+                Hola
+              </p>,
+              <p key="two" className="icx-p-4">
+                Nuevo 3
               </p>,
             ]}
             navElement={
-              <div className="icx-w-40 icx-mr-4">
+              <div className="icx-w-64 icx-mr-4">
                 <InputField type="text" placeholder="Escribe aquí" />
               </div>
             }
