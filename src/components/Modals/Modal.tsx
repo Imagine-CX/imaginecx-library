@@ -23,7 +23,7 @@ export const Modal = ({ open, setOpen, children }: IModal): JSX.Element => {
                 style={{ backgroundImage: `url(${header})` }}
               >
                 <button className="icx-p-2 icx-text-gray-400 icx-rounded-md " onClick={() => setOpen(false)}>
-                  <Close />
+                  <Close className="icx-w-5 icx-h-5 icx-mx-auto icx-text-white" />
                 </button>
               </div>
               <div>{children}</div>
