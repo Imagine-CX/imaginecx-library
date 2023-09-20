@@ -1,12 +1,14 @@
 import { ChangeEvent, ReactElement, useState } from 'react';
+import { Close } from 'src/assets/Close';
 
 export interface ITabs {
   tabs: (string | null)[];
   content: (ReactElement | null)[];
   navElement?: ReactElement | ReactElement[];
+  iconSmScreen?: ReactElement | ReactElement[] | string;
 }
 
-export const Tabs = ({ tabs, content, navElement }: ITabs): JSX.Element => {
+export const Tabs = ({ tabs, content, navElement, iconSmScreen }: ITabs): JSX.Element => {
   const [selectedItem, setSelectedItem] = useState(0);
 
   const filteredTabs = tabs.filter((item) => item !== null);
@@ -17,6 +19,8 @@ export const Tabs = ({ tabs, content, navElement }: ITabs): JSX.Element => {
     const selectedIndex = tabs.indexOf(selectedValue);
     setSelectedItem(selectedIndex);
   };
+
+  const [hiddenElement, setHiddenElement] = useState(false);
 
   return (
     <>
@@ -38,18 +42,31 @@ export const Tabs = ({ tabs, content, navElement }: ITabs): JSX.Element => {
             </svg>
           </div>
           <div className="icx-flex icx-border-b">
-            <select
-              role="tablist"
-              onChange={handleSelectChange}
-              className="icx-form-select icx-block icx-w-full icx-py-3 icx-rounded icx-appearance-none icx-bg-transparent icx-relative icx-z-10 icx-font-bold icx-pl-12"
-            >
-              {filteredTabs.map((item, index) => (
-                <option key={index} className="icx-text-sm icx-text-gray-600">
-                  {item}
-                </option>
-              ))}
-            </select>
-            <div className="icx-flex icx-items-center">{navElement}</div>
+            {!hiddenElement ? (
+              <div className="icx-w-full icx-flex icx-justify-between">
+                <select
+                  role="tablist"
+                  onChange={handleSelectChange}
+                  className="icx-form-select icx-block icx-w-full icx-py-3 icx-rounded icx-appearance-none icx-bg-transparent icx-relative icx-z-10 icx-font-bold icx-pl-12"
+                >
+                  {filteredTabs.map((item, index) => (
+                    <option key={index} className="icx-text-sm icx-text-gray-600">
+                      {item}
+                    </option>
+                  ))}
+                </select>
+                <button className="icx-mr-4" onClick={() => setHiddenElement(true)}>
+                  {iconSmScreen}
+                </button>
+              </div>
+            ) : (
+              <div className="icx-w-full icx-flex icx-justify-between icx-pb-1">
+                <div className="icx-flex icx-items-center">{navElement}</div>
+                <button className="icx-mr-4" onClick={() => setHiddenElement(false)}>
+                  <Close className="icx-w-5 icx-h-5 icx-mx-auto icx-text-black" />
+                </button>
+              </div>
+            )}
           </div>
         </div>
         <div className="xl:icx-w-full xl:icx-mx-0 icx-hidden sm:icx-block">

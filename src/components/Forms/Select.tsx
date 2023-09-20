@@ -3,7 +3,7 @@ import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react';
 interface ISelectorTest extends InputHTMLAttributes<HTMLSelectElement> {
   title?: string;
   options: Array<{
-    value: number;
+    value: number | string;
     label: string;
     hidden?: boolean;
   }>;
