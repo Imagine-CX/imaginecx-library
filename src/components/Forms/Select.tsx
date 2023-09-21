@@ -35,7 +35,7 @@ export const Select = forwardRef(
               <option
                 className="hover:icx-bg-neutral-200 icx-rounded-lg"
                 key={option.value}
-                value={option.label}
+                value={option.value}
                 hidden={option.hidden}
               >
                 {option.label}

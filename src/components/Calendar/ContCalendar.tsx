@@ -1,5 +1,3 @@
-import 'animate.css';
-
 import { format } from 'date-fns';
 import { InputHTMLAttributes, useEffect, useRef, useState } from 'react';
 
@@ -79,7 +77,7 @@ export const ContCalendar = ({
         />
         <div ref={refOne}>
           {open && (
-            <div className="icx-relative icx-bg-white animate__animated animate__zoomIn animate__faster">
+            <div className="icx-relative icx-bg-white">
               {showMonths && !showYears ? (
                 <MonthView key="month" value={currentDate} onChange={setCurrentDate} showMonths={setshowMonths} />
               ) : showYears ? (

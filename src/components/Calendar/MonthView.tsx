@@ -1,7 +1,6 @@
-import 'animate.css';
-
 import { setMonth } from 'date-fns';
 import { useEffect } from 'react';
+import { Slide } from 'react-awesome-reveal';
 
 import { getMonths } from '../helpers';
 import { Cell } from './Cell';
@@ -29,22 +28,24 @@ export const MonthView = ({ value = new Date(), onChange, showMonths }: IMonth):
 
   return (
     <div className="icx-w-[300px] icx-h-[370px] icx-border icx-rounded-lg icx-p-10 icx-m-3 icx-grid icx-grid-cols-1 icx-items-center icx-justify-center icx-overflow-auto icx-bg-white icx-absolute icx-z-50">
-      <div className="icx-grid icx-grid-cols-3 icx-items-center icx-justify-center icx-text-center animate__animated animate__zoomIn animate__faster">
-        {months.map((month, index) => {
-          const date = index;
-          const isCurrentMonth = date === value.getMonth();
-          return (
-            <Cell
-              isActive={isCurrentMonth}
-              key={month}
-              className="icx-font-bold icx-mt-3 icx-mb-3"
-              onClick={() => handleClickCell(date)}
-            >
-              {month}
-            </Cell>
-          );
-        })}
-      </div>
+      <Slide direction="down">
+        <div className="icx-grid icx-grid-cols-3 icx-items-center icx-justify-center icx-text-center">
+          {months.map((month, index) => {
+            const date = index;
+            const isCurrentMonth = date === value.getMonth();
+            return (
+              <Cell
+                isActive={isCurrentMonth}
+                key={month}
+                className="icx-font-bold icx-mt-3 icx-mb-3"
+                onClick={() => handleClickCell(date)}
+              >
+                {month}
+              </Cell>
+            );
+          })}
+        </div>
+      </Slide>
     </div>
   );
 };

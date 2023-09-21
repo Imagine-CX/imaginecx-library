@@ -1,7 +1,6 @@
-import 'animate.css';
-
 import { add, compareAsc, differenceInDays, endOfMonth, format, getYear, setDate, startOfMonth, sub } from 'date-fns';
 import { es } from 'date-fns/locale';
+import { Slide } from 'react-awesome-reveal';
 
 import { getDaysWeek } from '../helpers';
 import { Cell } from './Cell';
@@ -139,51 +138,49 @@ export const Calendar = ({
 
   return (
     <div className="icx-w-[300px] icx-h-[370px] icx-border icx-rounded-lg icx-p-10 icx-m-1 icx-drop-shadow-xl icx-overflow-auto icx-bg-white icx-absolute icx-z-50">
-      <div className="icx-grid icx-grid-cols-7 icx-items-center icx-justify-center icx-text-center animate__animated animate__zoomIn animate__faster">
-        <Cell onClick={prevMonth}>{prevIcon}</Cell>
-        <Cell onClick={handleShowMonth} className="icx-font-bold icx-text-sm">
-          {format(value, 'MMM', { locale: es }).toUpperCase()}
-        </Cell>
-        <Cell onClick={nextMonth}>{nextIcon}</Cell>
-        <Cell />
-        <Cell onClick={prevYear}>{prevIcon}</Cell>
-        <Cell onClick={handleShowYear} className="icx-font-bold icx-text-sm">
-          {format(value, 'yyyy')}
-        </Cell>
-        <Cell onClick={nextYear}>{nextIcon}</Cell>
-
-        {daysOfWeek.map((day, index) => (
-          <Cell className="icx-font-bold" key={index}>
-            {day}
+      <Slide direction="down">
+        <div className="icx-grid icx-grid-cols-7 icx-items-center icx-justify-center icx-text-center">
+          <Cell onClick={prevMonth}>{prevIcon}</Cell>
+          <Cell onClick={handleShowMonth} className="icx-font-bold icx-text-sm">
+            {format(value, 'MMM', { locale: es }).toUpperCase()}
           </Cell>
-        ))}
-
-        {Array.from({ length: prefixDays }).map((_, index) => (
-          <Cell key={index} isActive={false} />
-        ))}
-
-        {Array.from({ length: numDays }).map((_, index) => {
-          const date = index + 1;
-          const isCurrentDate = date === value.getDate();
-          const isDisabledBefore = isPastDisableDate(date);
-          const isDisabledAfter = isFutureDisableDate(date);
-          return (
-            <Cell
-              isActive={isCurrentDate}
-              isDisabledBefore={isDisabledBefore}
-              isDisabledAfter={isDisabledAfter}
-              onClick={() => handleClickDate(date)}
-              key={date}
-            >
-              {date}
+          <Cell onClick={nextMonth}>{nextIcon}</Cell>
+          <Cell />
+          <Cell onClick={prevYear}>{prevIcon}</Cell>
+          <Cell onClick={handleShowYear} className="icx-font-bold icx-text-sm">
+            {format(value, 'yyyy')}
+          </Cell>
+          <Cell onClick={nextYear}>{nextIcon}</Cell>
+          {daysOfWeek.map((day, index) => (
+            <Cell className="icx-font-bold" key={index}>
+              {day}
             </Cell>
-          );
-        })}
-
-        {Array.from({ length: suffixDays }).map((_, index) => (
-          <Cell key={index} />
-        ))}
-      </div>
+          ))}
+          {Array.from({ length: prefixDays }).map((_, index) => (
+            <Cell key={index} isActive={false} />
+          ))}
+          {Array.from({ length: numDays }).map((_, index) => {
+            const date = index + 1;
+            const isCurrentDate = date === value.getDate();
+            const isDisabledBefore = isPastDisableDate(date);
+            const isDisabledAfter = isFutureDisableDate(date);
+            return (
+              <Cell
+                isActive={isCurrentDate}
+                isDisabledBefore={isDisabledBefore}
+                isDisabledAfter={isDisabledAfter}
+                onClick={() => handleClickDate(date)}
+                key={date}
+              >
+                {date}
+              </Cell>
+            );
+          })}
+          {Array.from({ length: suffixDays }).map((_, index) => (
+            <Cell key={index} />
+          ))}
+        </div>
+      </Slide>
     </div>
   );
 };

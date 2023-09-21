@@ -1,4 +1,5 @@
 import { ChangeEvent, ReactElement, useState } from 'react';
+import { Slide } from 'react-awesome-reveal';
 import { Close } from 'src/assets/Close';
 
 export interface ITabs {
@@ -26,45 +27,57 @@ export const Tabs = ({ tabs, content, navElement, iconSmScreen }: ITabs): JSX.El
     <>
       <div className="icx-bg-white icx-mx-auto element-shadow icx-rounded-lg icx-w-full icx-pb-1">
         <div className="sm:icx-hidden icx-relative icx-w-full icx-mx-auto icx-bg-white icx-rounded">
-          <div className="icx-absolute icx-ml-4 icx-my-3 icx-z-0 icx-w-6 icx-h-6">
-            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-              <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-              <g id="SVGRepo_iconCarrier">
-                <path
-                  d="M4 6H20M4 12H20M4 18H20"
-                  stroke="#000000"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></path>
-              </g>
-            </svg>
-          </div>
+          {!hiddenElement && (
+            <Slide triggerOnce>
+              <div className="icx-absolute icx-ml-4 icx-my-3 icx-z-0 icx-w-6 icx-h-6">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                  <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M4 6H20M4 12H20M4 18H20"
+                      stroke="#000000"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+            </Slide>
+          )}
           <div className="icx-flex icx-border-b">
             {!hiddenElement ? (
-              <div className="icx-w-full icx-flex icx-justify-between">
-                <select
-                  role="tablist"
-                  onChange={handleSelectChange}
-                  className="icx-form-select icx-block icx-w-full icx-py-3 icx-rounded icx-appearance-none icx-bg-transparent icx-relative icx-z-10 icx-font-bold icx-pl-12"
-                >
-                  {filteredTabs.map((item, index) => (
-                    <option key={index} className="icx-text-sm icx-text-gray-600">
-                      {item}
-                    </option>
-                  ))}
-                </select>
-                <button className="icx-mr-4" onClick={() => setHiddenElement(true)}>
-                  {iconSmScreen}
-                </button>
+              <div className="icx-w-full icx-flex icx-items-center icx-justify-between">
+                <Slide triggerOnce>
+                  <select
+                    role="tablist"
+                    onChange={handleSelectChange}
+                    className="icx-form-select icx-block icx-w-full icx-py-3 icx-rounded icx-appearance-none icx-bg-transparent icx-relative icx-z-10 icx-font-bold icx-pl-12"
+                  >
+                    {filteredTabs.map((item, index) => (
+                      <option key={index} className="icx-text-sm icx-text-gray-600">
+                        {item}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="icx-flex icx-items-center icx-pt-1">
+                    <button className="icx-mr-4" onClick={() => setHiddenElement(true)}>
+                      {iconSmScreen}
+                    </button>
+                  </div>
+                </Slide>
               </div>
             ) : (
-              <div className="icx-w-full icx-flex icx-justify-between icx-pb-1">
-                <div className="icx-flex icx-items-center">{navElement}</div>
-                <button className="icx-mr-4" onClick={() => setHiddenElement(false)}>
-                  <Close className="icx-w-5 icx-h-5 icx-mx-auto icx-text-black" />
-                </button>
+              <div className="icx-w-full icx-flex icx-items-center icx-justify-between icx-pb-1">
+                <Slide direction="right" triggerOnce>
+                  <div className="icx-flex icx-items-center">{navElement}</div>
+                  <div className="icx-flex icx-items-center icx-pt-1">
+                    <button className="icx-mr-4" onClick={() => setHiddenElement(false)}>
+                      <Close className="icx-w-5 icx-h-5 icx-mx-auto icx-text-black" />
+                    </button>
+                  </div>
+                </Slide>
               </div>
             )}
           </div>
