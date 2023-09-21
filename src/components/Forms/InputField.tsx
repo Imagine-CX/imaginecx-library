@@ -20,7 +20,7 @@ export const InputField = ({
   const showIcon: JSX.Element = icon ? (
     <div className="icx-text-gray-700 icx-absolute icx-top-1/2 icx--translate-y-1/2 icx-left-4">{icon}</div>
   ) : (
-    <div></div>
+    <></>
   );
 
   const showAction = action ? (
@@ -28,7 +28,7 @@ export const InputField = ({
       {action}
     </div>
   ) : (
-    <div></div>
+    <></>
   );
 
   const padding: string = icon ? 'icx-pl-[50px]' : 'icx-pl-4';
