@@ -3,7 +3,7 @@ import { Close } from 'src/assets/Close';
 
 export interface IAlert extends React.HTMLAttributes<HTMLDivElement> {
   icon: JSX.Element;
-  type: 'success' | 'error' | string;
+  type: 'success' | 'error' | 'warning' | string;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   close?: boolean;
@@ -15,6 +15,8 @@ const selectStyleAlert = (type: string): string => {
     type = `icx-bg-success-100`;
   } else if (type === 'error') {
     type = `icx-bg-error-100`;
+  } else if (type === 'warning') {
+    type = `icx-bg-secondary-400`;
   } else {
     type = 'icx-bg-gray-600';
   }
