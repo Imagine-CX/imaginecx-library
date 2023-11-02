@@ -29,8 +29,14 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/imaginecx-library.es.js",
-      "require": "./dist/imaginecx-library.umd.js"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/imaginecx-library.es.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/imaginecx-library.umd.js"
+      }
     },
     "./style.css": {
       "import": "./dist/style.css",
@@ -38,9 +44,9 @@
     },
     "./dist/*": "./dist/*.d.ts"
   },
-  "main": "./dist/imaginecx-library.umd.js",
-  "module": "./dist/imaginecx-library.es.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/imaginecx-library.umd.js",
+  "module": "dist/imaginecx-library.es.js",
+  "types": "dist/index.d.ts",
   "devDependencies": {
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.28",
