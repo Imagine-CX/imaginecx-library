@@ -112,15 +112,15 @@ const IconDropdown = ({ color = '#3F3F3F' }: IIconDropdown): JSX.Element => {
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       stroke="#3F3F3F"
-      stroke-width="0.00032"
+      strokeWidth="0.00032"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         stroke="#CCCCCC"
-        stroke-width="0.064"
+        strokeWidth="0.064"
       ></g>
       <g id="SVGRepo_iconCarrier">
         {' '}

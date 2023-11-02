@@ -1,7 +1,7 @@
 {
   "name": "@imagine-cx/imaginecx-library",
   "private": false,
-  "version": "0.2.17",
+  "version": "0.2.30",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -96,8 +96,9 @@
   "homepage": "https://github.com/Imagine-CX/imaginecx-library#readme",
   "license": "MIT",
   "dependencies": {
-    "animate.css": "^4.1.1",
+    "@emotion/react": "^11.11.1",
     "clsx": "^1.2.1",
+    "react-awesome-reveal": "^4.2.5",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.11.1"
   }

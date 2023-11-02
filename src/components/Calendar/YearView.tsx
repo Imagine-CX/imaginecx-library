@@ -1,7 +1,6 @@
-import 'animate.css';
-
 import { getYear, setYear, sub } from 'date-fns';
 import React from 'react';
+import { Slide } from 'react-awesome-reveal';
 
 import { getYears } from '../helpers';
 import { Cell } from './Cell';
@@ -36,22 +35,24 @@ export const YearView = ({
 
   return (
     <div className="icx-w-[300px] icx-h-[370px] icx-border icx-rounded-lg icx-p-8 icx-m-3 icx-grid icx-grid-cols-1 icx-items-center icx-justify-center icx-overflow-auto icx-bg-white icx-absolute icx-z-50">
-      <div className="icx-grid icx-grid-cols-3 icx-items-center icx-justify-center icx-text-center animate__animated animate__zoomIn animate__faster">
-        {years.map((year, index) => {
-          const date = index + anteriores;
-          const isCurrentYear = date === value.getFullYear();
-          return (
-            <Cell
-              isActive={isCurrentYear}
-              key={year}
-              className="icx-font-bold icx-mt-3 icx-mb-3"
-              onClick={() => handleClickCell(date)}
-            >
-              {year}
-            </Cell>
-          );
-        })}
-      </div>
+      <Slide direction="down">
+        <div className="icx-grid icx-grid-cols-3 icx-items-center icx-justify-center icx-text-center">
+          {years.map((year, index) => {
+            const date = index + anteriores;
+            const isCurrentYear = date === value.getFullYear();
+            return (
+              <Cell
+                isActive={isCurrentYear}
+                key={year}
+                className="icx-font-bold icx-mt-3 icx-mb-3"
+                onClick={() => handleClickCell(date)}
+              >
+                {year}
+              </Cell>
+            );
+          })}
+        </div>
+      </Slide>
     </div>
   );
 };

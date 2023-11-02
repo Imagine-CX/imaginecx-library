@@ -1,11 +1,11 @@
 import '../style.css';
 
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, ForwardedRef, forwardRef, ReactNode } from 'react';
 
-export interface IBtnPrimary extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   color: 'success' | 'error' | 'secondary' | 'primary' | 'alternative';
   animation?: boolean;
-  icon?: JSX.Element | null;
+  icon?: ReactNode;
   children: string | JSX.Element | JSX.Element[];
 }
 const selectStyleButton = (type: string | undefined): string => {
@@ -22,26 +22,22 @@ const selectStyleButton = (type: string | undefined): string => {
   }
   return '';
 };
-export const Button = ({
-  color,
-  animation,
-  disabled,
-  icon,
-  children,
-  className,
-  ...btnProps
-}: IBtnPrimary): JSX.Element => {
-  let estiloBtn = selectStyleButton(color);
+export const Button = forwardRef(
+  (
+    { color, animation, disabled, icon, children, className, ...btnProps }: Props,
+    ref: ForwardedRef<HTMLButtonElement>,
+  ): JSX.Element => {
+    let estiloBtn = selectStyleButton(color);
 
-  if (disabled) {
-    estiloBtn = 'icx-btn-disable';
-  }
+    if (disabled) {
+      estiloBtn = 'icx-btn-disable';
+    }
 
-  return (
-    <>
-      <button
-        type="button"
-        className={`
+    return (
+      <>
+        <button
+          type="button"
+          className={`
         ${estiloBtn} 
         ${className}
           icx-flex 
@@ -53,16 +49,18 @@ export const Button = ({
           icx-duration-150
           icx-ease-in-out
         `}
-        disabled={disabled}
-        {...btnProps}
-      >
-        <div className="icx-m-auto">
-          <div className="icx-flex icx-items-center icx-space-x-2">
-            {icon ? <div>{icon}</div> : <div></div>}
-            <span>{children}</span>
+          disabled={disabled}
+          ref={ref}
+          {...btnProps}
+        >
+          <div className="icx-m-auto">
+            <div className="icx-flex icx-items-center icx-space-x-2">
+              {icon ? <div>{icon}</div> : <div></div>}
+              <span>{children}</span>
+            </div>
           </div>
-        </div>
-      </button>
-    </>
-  );
-};
+        </button>
+      </>
+    );
+  },
+);
