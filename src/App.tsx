@@ -190,6 +190,38 @@ function App() {
           required
         />
         <InputField placeholder="Input disabled" name="Input disabled" title="Input disabled" required disabled />
+        <InputField
+          placeholder="Input Label as tooltip"
+          name="Input Label with tooltip"
+          title="Input Label with Toltip"
+          labelAction={
+            <Tooltip text="This is a tooltip to guide the user in the interface">
+              <BsQuestionCircle className="icx-w-5 icx-h-5" />
+            </Tooltip>
+          }
+        />
+        <InputField
+          placeholder="Input Label tooltip and required"
+          name="Input Label with tooltip and required"
+          title="Input Label with tooltip and required"
+          labelAction={
+            <Tooltip text="This is a tooltip to guide the user in the interface">
+              <BsQuestionCircle className="icx-w-5 icx-h-5" />
+            </Tooltip>
+          }
+          required
+        />
+        <InputField
+          placeholder="Input Label tooltip Disabled"
+          name="Input Label with tooltip Disabled"
+          title="Input Label with tooltip Disabled"
+          labelAction={
+            <Tooltip text="This is a tooltip to guide the user in the interface">
+              <BsQuestionCircle className="icx-w-5 icx-h-5" />
+            </Tooltip>
+          }
+          disabled
+        />
       </div>
       <Header variant="h2">Calendar</Header>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3 ">

@@ -8,7 +8,7 @@ export const Tooltip = ({ text, children }: ITooltip): JSX.Element => {
   const [tooltipStatus, setTooltipStatus] = useState(0);
   return (
     <>
-      <div className="icx-flex-col">
+      <div className="icx-flex-col icx-w-fit">
         <div className="icx-relative" onMouseEnter={() => setTooltipStatus(3)} onMouseLeave={() => setTooltipStatus(0)}>
           <div className="icx-mr-2 icx-cursor-pointer">{children}</div>
           {tooltipStatus === 3 && (
