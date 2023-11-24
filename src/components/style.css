@@ -29,6 +29,21 @@
     font-size: 1.21em;
     line-height: 1.1;
   }
+
+  select,
+  select option {
+    color: #000000;
+  }
+
+  select:invalid,
+  select option[value='1'] {
+    color: #999999;
+  }
+
+  /* label {
+    display: block;
+    margin: 16px 0;
+  } */
 }
 
 @layer components {

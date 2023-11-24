@@ -25,17 +25,17 @@ export const Select = forwardRef(
           </label>
           <select
             disabled={disabled}
-            required={required}
             id={title}
             ref={ref}
             className={`icx-w-full icx-border icx-px-2 icx-py-1.5 icx-rounded-lg ${estiloSelect} ${className}`}
+            required
             {...props}
           >
             {options.map((option) => (
               <option
                 className="hover:icx-bg-neutral-200 icx-rounded-lg"
                 key={option.value}
-                value={option.value}
+                value={option.hidden ? '' : option.value}
                 hidden={option.hidden}
               >
                 {option.label}
