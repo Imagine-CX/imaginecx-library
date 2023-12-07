@@ -33,6 +33,8 @@ export const Button = forwardRef(
       estiloBtn = 'icx-btn-disable';
     }
 
+    const iconSpace = icon ? 'icx-space-x-2' : '';
+
     return (
       <>
         <button
@@ -54,7 +56,7 @@ export const Button = forwardRef(
           {...btnProps}
         >
           <div className="icx-m-auto">
-            <div className="icx-flex icx-items-center icx-space-x-2">
+            <div className={`icx-flex icx-items-center ${iconSpace}`}>
               {icon ? <div>{icon}</div> : <div></div>}
               <span>{children}</span>
             </div>
