@@ -19,6 +19,7 @@ import {
   Radio,
   Select,
   Selector,
+  SelectSearch,
   Skeleton,
   Tabs,
   TextArea,
@@ -27,6 +28,7 @@ import {
 } from './components';
 import { ContCalendar } from './components/Calendar/ContCalendar';
 import { useForm } from './components/hooks/useForm';
+import { Options } from './components/interfaces/selectInterface';
 
 const options = [
   { id: 1, value: 'option1', label: 'Radio Button 1' },
@@ -94,12 +96,23 @@ const FormFields: FormState = {
   check: false,
 };
 
+const staticOptionSearch = [
+  { value: 'item 1', label: 'Item 1' },
+  { value: 'item 2', label: 'Item 2' },
+  { value: 'item 3', label: 'Item 3' },
+  { value: 'item 4', label: 'Item 4' },
+  { value: 'item 5', label: 'Item 5' },
+];
+
 function App() {
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
   const [open4, setOpen4] = useState(false);
+
+  const [valueSelected, setValueSelected] = useState<Options>({ value: 'item 1', label: 'Item 1' });
+
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const { selector, onInputChange } = useForm(FormFields);
@@ -291,6 +304,13 @@ function App() {
           disabled
         />
         <Selector options={optionsSelect3} />
+
+        <SelectSearch
+          placeholder="Selecciona ..."
+          valueSelected={valueSelected}
+          setValueSelected={setValueSelected}
+          options={staticOptionSearch}
+        />
       </div>
       <Header variant="h2">Dropdown</Header>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3">

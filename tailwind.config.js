@@ -28,18 +28,19 @@ export default {
         disable: {
           100: '#CECECE',
           200: '#3F3F3F',
+          300: '#999999',
         },
         error: {
           100: '#d80000',
-          200: '#a40000'
+          200: '#a40000',
         },
         success: {
           100: '#2e7d32',
           200: '#1b491d',
-          300: '#3EA843'
+          300: '#3EA843',
         },
         info: '#0288d1',
-        warning: '#f3c200'
+        warning: '#f3c200',
       },
       fontFamily: {
         imagine: ['Segoe UI', 'sans-serif'],

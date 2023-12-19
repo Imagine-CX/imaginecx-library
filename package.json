@@ -81,6 +81,7 @@
   },
   "peerDependencies": {
     "date-fns": ">=2.29.3",
+    "downshift": ">=8.2.3",
     "react": "16.8.0 || >=17.x",
     "react-dom": "16.8.0 || >=17.x"
   },
