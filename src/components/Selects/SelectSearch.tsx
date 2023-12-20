@@ -1,5 +1,5 @@
 import { useCombobox } from 'downshift';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 
 import { Options } from '../interfaces/selectInterface';
@@ -13,7 +13,7 @@ interface ISelectSearch {
   required?: boolean;
   options: Options[];
   valueSelected: Options;
-  setValueSelected: Dispatch<SetStateAction<Options>>;
+  onValueSelected: (newValue: Options) => void;
 }
 
 export const SelectSearch = ({
@@ -24,7 +24,7 @@ export const SelectSearch = ({
   required,
   options,
   valueSelected,
-  setValueSelected,
+  onValueSelected,
   placeholder = '',
 }: ISelectSearch) => {
   const [stateOptions, setStateOptions] = useState<Options[]>(options);
@@ -53,7 +53,7 @@ export const SelectSearch = ({
       selectedItem: valueSelected,
       onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
         if (newSelectedItem) {
-          setValueSelected(newSelectedItem);
+          onValueSelected(newSelectedItem);
         }
       },
     });
@@ -81,7 +81,7 @@ export const SelectSearch = ({
         </div>
       </div>
       <ul
-        className={`icx-absolute icx-bg-white icx-mt-1 icx-shadow-lg icx-w-full icx-max-h-80 icx-z-10 icx-top-11 icx-rounded-lg icx-border ${
+        className={`icx-absolute icx-bg-white icx-mt-1 icx-shadow-lg icx-w-full icx-max-h-80 icx-z-10 icx-top-11 icx-rounded-lg icx-border icx-overflow-y-scroll ${
           !(isOpen && stateOptions.length) ? 'icx-hidden' : ''
         }`}
         {...getMenuProps()}

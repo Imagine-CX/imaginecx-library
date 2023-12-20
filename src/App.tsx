@@ -308,7 +308,7 @@ function App() {
         <SelectSearch
           placeholder="Selecciona ..."
           valueSelected={valueSelected}
-          setValueSelected={setValueSelected}
+          onValueSelected={(value: Options) => setValueSelected(value)}
           options={staticOptionSearch}
         />
       </div>
