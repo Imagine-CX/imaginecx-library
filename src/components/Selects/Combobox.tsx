@@ -11,9 +11,9 @@ interface ISelectSearch {
   idLabel?: string;
   label?: string;
   required?: boolean;
+  messageNotFound?: string;
   options: Options[];
   valueSelected: Options;
-  messageNotFound: string;
   onValueSelected: (newValue: Options) => void;
 }
 
@@ -25,8 +25,8 @@ export const Combobox = ({
   required,
   options,
   valueSelected,
-  messageNotFound,
   onValueSelected,
+  messageNotFound = 'No se encontro',
   placeholder = '',
 }: ISelectSearch) => {
   const [stateOptions, setStateOptions] = useState<Options[]>(options);
