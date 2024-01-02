@@ -11,6 +11,7 @@ interface ISelectSearch {
   idLabel?: string;
   label?: string;
   required?: boolean;
+  style: React.CSSProperties | undefined;
   messageNotFound?: string;
   options: Options[];
   valueSelected: Options;
@@ -25,6 +26,7 @@ export const Combobox = ({
   required,
   options,
   valueSelected,
+  style,
   onValueSelected,
   messageNotFound = 'No se encontro',
   placeholder = '',
@@ -113,6 +115,7 @@ export const Combobox = ({
           <input
             className={`icx-w-full icx-py-1.5 icx-pl-4 icx-rounded-lg icx-outline-none ${estiloInput} ${inputClassName} icx-pr-10`}
             placeholder={placeholder}
+            style={style}
             {...getInputProps({ onBlur: handleInputChange, onClick: handleInputClick })}
             id={idLabel}
           />
