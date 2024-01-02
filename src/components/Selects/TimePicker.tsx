@@ -37,7 +37,7 @@ export const TimePicker = ({ initialValue, setValue }: ITimePicker) => {
     const newMinutes = parseInt(e.target.value, 10);
     const paddedMinutes = String(Math.min(Math.max(newMinutes, 0), 59)).padStart(2, '0');
     setMinutes(paddedMinutes);
-    setValue(`${paddedMinutes}:${String(minutes).padStart(2, '0')}`);
+    setValue(`${String(hours).padStart(2, '0')}:${paddedMinutes}`);
   };
 
   return (
