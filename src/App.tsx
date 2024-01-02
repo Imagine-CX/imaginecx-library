@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { BsQuestionCircle } from 'react-icons/bs';
 
@@ -23,6 +23,7 @@ import {
   Skeleton,
   Tabs,
   TextArea,
+  TimePicker,
   Toggle,
   Tooltip,
 } from './components';
@@ -118,11 +119,15 @@ function App() {
   const [open3, setOpen3] = useState(false);
   const [open4, setOpen4] = useState(false);
 
+  const [time, setTime] = useState('00:00');
+
   const [valueSelected, setValueSelected] = useState<Options>({ value: 'item 1', label: 'Item 1' });
 
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const { selector, onInputChange } = useForm(FormFields);
+
+  // useEffect(() => console.log(time), [time]);
 
   return (
     <div className="icx-container icx-ml-3">
@@ -278,6 +283,10 @@ function App() {
           icon={<BiSearch className="icx-w-5 icx-h-5" />}
           disabled
         />
+      </div>
+      <Header variant="h2">Time Picker</Header>
+      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3">
+        <TimePicker initialValue={time} setValue={setTime} />
       </div>
       <Header variant="h2">Text Area</Header>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3">

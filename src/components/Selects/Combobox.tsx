@@ -99,7 +99,7 @@ export const Combobox = ({
   return (
     <div className="icx-flex icx-flex-col icx-gap-8 icx-relative">
       <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-1">
-        <label className="w-fit" htmlFor={idLabel}>
+        <label className="icx-w-fit" htmlFor={idLabel}>
           {label} {required ? <span>*</span> : ''}
         </label>
         <div className="icx-relative icx-text-gray-400">
