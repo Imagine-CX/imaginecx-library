@@ -1,8 +1,8 @@
-import { ChangeEventHandler, Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { ChangeEventHandler, useEffect, useState } from 'react';
 
 interface ITimePicker {
   initialValue: string;
-  setValue: Dispatch<SetStateAction<string>>;
+  setValue: (value: string) => void;
 }
 
 export const TimePicker = ({ initialValue, setValue }: ITimePicker) => {
