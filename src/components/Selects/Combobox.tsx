@@ -1,5 +1,5 @@
 import { useCombobox } from 'downshift';
-import { ChangeEvent, useRef, useState } from 'react';
+import { ChangeEvent, CSSProperties, useRef, useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 
 import { Options } from '../interfaces/selectInterface';
@@ -11,7 +11,7 @@ interface ISelectSearch {
   idLabel?: string;
   label?: string;
   required?: boolean;
-  style: React.CSSProperties | undefined;
+  style?: CSSProperties;
   messageNotFound?: string;
   options: Options[];
   valueSelected: Options;
