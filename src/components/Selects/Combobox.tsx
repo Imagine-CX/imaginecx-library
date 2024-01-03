@@ -106,9 +106,11 @@ export const Combobox = ({
         </label>
         <div className="icx-relative icx-text-gray-400">
           <div
-            className="icx-text-gray-700 icx-absolute icx-top-1/2 icx-cursor-pointer icx--translate-y-1/2 icx-right-3 icx-flex icx-justify-end"
+            className={`icx-text-gray-700 icx-absolute icx-top-1/2 icx--translate-y-1/2 icx-right-3 icx-flex icx-justify-end ${
+              disabled ? 'icx-cursor-not-allowed' : 'icx-cursor-pointer'
+            }`}
             aria-label="toggle menu"
-            {...getToggleButtonProps({ onClick: handleInputClick })}
+            {...getToggleButtonProps({ onClick: handleInputClick, disabled: disabled })}
           >
             <IoIosArrowDown className="icx-text-disable-300" />
           </div>
@@ -118,6 +120,7 @@ export const Combobox = ({
             style={style}
             {...getInputProps({ onBlur: handleInputChange, onClick: handleInputClick })}
             id={idLabel}
+            disabled={disabled}
           />
         </div>
       </div>
