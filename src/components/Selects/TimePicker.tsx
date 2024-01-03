@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useEffect, useState } from 'react';
+import { ChangeEventHandler, FocusEventHandler, useEffect, useState } from 'react';
 
 interface ITimePicker {
   initialValue: string;
@@ -27,17 +27,29 @@ export const TimePicker = ({ initialValue, setValue }: ITimePicker) => {
   };
 
   const handlerHours: ChangeEventHandler<HTMLInputElement> = (e) => {
-    const newHours = parseInt(e.target.value, 10);
+    let valueHours = e.target.value;
+    if (valueHours.length > 2) {
+      valueHours = valueHours.substring(1, 3);
+    }
+    const newHours = parseInt(valueHours, 10);
     const paddedHours = String(Math.min(Math.max(newHours, 0), 23)).padStart(2, '0');
     setHours(paddedHours);
     setValue(`${paddedHours}:${String(minutes).padStart(2, '0')}`);
   };
 
   const handlerMinutes: ChangeEventHandler<HTMLInputElement> = (e) => {
-    const newMinutes = parseInt(e.target.value, 10);
+    let valueminutes = e.target.value;
+    if (valueminutes.length > 2) {
+      valueminutes = valueminutes.substring(1, 3);
+    }
+    const newMinutes = parseInt(valueminutes, 10);
     const paddedMinutes = String(Math.min(Math.max(newMinutes, 0), 59)).padStart(2, '0');
     setMinutes(paddedMinutes);
     setValue(`${String(hours).padStart(2, '0')}:${paddedMinutes}`);
+  };
+
+  const handleFocusInput: FocusEventHandler<HTMLInputElement> = (e) => {
+    e.target.select();
   };
 
   return (
@@ -55,6 +67,7 @@ export const TimePicker = ({ initialValue, setValue }: ITimePicker) => {
           value={hours}
           onChange={handlerHours}
           maxLength={2}
+          onFocus={handleFocusInput}
         />
         <span className="text-gray-500">:</span>
         <input
@@ -63,6 +76,7 @@ export const TimePicker = ({ initialValue, setValue }: ITimePicker) => {
           value={minutes}
           onChange={handlerMinutes}
           maxLength={2}
+          onFocus={handleFocusInput}
         />
       </div>
     </div>
