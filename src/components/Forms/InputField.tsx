@@ -5,6 +5,7 @@ export interface IInputField extends InputHTMLAttributes<HTMLInputElement> {
   title?: string;
   action?: JSX.Element | null;
   labelAction?: JSX.Element | null;
+  labelClassName?: string;
   refInput?: RefObject<HTMLInputElement>;
 }
 
@@ -14,6 +15,7 @@ export const InputField = ({
   action,
   disabled,
   labelAction,
+  labelClassName,
   required,
   className,
   refInput,
@@ -41,7 +43,7 @@ export const InputField = ({
   return (
     <div className="icx-flex icx-flex-col icx-gap-8">
       <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-1">
-        <label htmlFor={title} className={`${estiloTitle} icx-flex icx-items-center icx-gap-1`}>
+        <label htmlFor={title} className={`${labelClassName} ${estiloTitle} icx-flex icx-items-center icx-gap-1`}>
           {title} {required ? <span className={estiloTitle}>*</span> : ''}{' '}
           {labelAction ? <div className="icx-ml-2">{labelAction}</div> : ''}
         </label>

@@ -1,6 +1,7 @@
 import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react';
 
 interface ISelectorTest extends InputHTMLAttributes<HTMLSelectElement> {
+  labelClassName?: string;
   title?: string;
   options: Array<{
     value: number | string;
@@ -11,7 +12,7 @@ interface ISelectorTest extends InputHTMLAttributes<HTMLSelectElement> {
 
 export const Select = forwardRef(
   (
-    { title, options, className, disabled, required, ...props }: ISelectorTest,
+    { title, options, className, labelClassName, disabled, required, ...props }: ISelectorTest,
     ref: ForwardedRef<HTMLSelectElement>,
   ) => {
     const estiloSelect: string = disabled ? 'icx-selector-disabled' : 'icx-selector-active';
@@ -20,7 +21,7 @@ export const Select = forwardRef(
     return (
       <div className="icx-px-1 icx-py-1 icx-flex icx-flex-col icx-gap-8">
         <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-2">
-          <label className={estiloTitle} htmlFor={title}>
+          <label className={`${labelClassName}  ${estiloTitle}`} htmlFor={title}>
             {title} {required ? <span>*</span> : ''}
           </label>
           <select

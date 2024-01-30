@@ -10,6 +10,7 @@ interface ISelectSearch {
   inputClassName?: string;
   idLabel?: string;
   label?: string;
+  labelClassName?: string;
   required?: boolean;
   style?: CSSProperties;
   messageNotFound?: string;
@@ -23,6 +24,7 @@ export const Combobox = ({
   inputClassName,
   label,
   idLabel,
+  labelClassName,
   required,
   options,
   valueSelected,
@@ -71,6 +73,9 @@ export const Combobox = ({
     },
   });
 
+  const styleHover = (index: number) => (highlightedIndex === index ? 'icx-bg-primary-400' : '');
+  const styleSelected = (option: Options) => (selectedItem === option ? 'icx-font-bold' : '');
+
   const listRef = useRef<HTMLUListElement>(null);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -101,7 +106,7 @@ export const Combobox = ({
   return (
     <div className="icx-flex icx-flex-col icx-gap-8 icx-relative">
       <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-1">
-        <label className="icx-w-fit" htmlFor={idLabel}>
+        <label className={`icx-w-fit ${labelClassName}`} htmlFor={idLabel}>
           {label} {required ? <span>*</span> : ''}
         </label>
         <div className="icx-relative icx-text-gray-400">
@@ -126,16 +131,14 @@ export const Combobox = ({
       </div>
       <ul
         className={`icx-absolute icx-bg-white icx-mt-1 icx-shadow-lg icx-w-full icx-max-h-80 icx-z-10 icx-top-11 icx-rounded-lg icx-border icx-overflow-auto icx-text-sm ${
-          !(isOpen || stateOptions.length === 0) ? 'icx-hidden' : ''
+          !isOpen ? 'icx-hidden' : ''
         }`}
         {...getMenuProps({ ref: listRef })}
       >
         {isOpen && stateOptions.length > 0 ? (
           stateOptions.map((option, index) => (
             <li
-              className={`${highlightedIndex === index ? 'icx-bg-primary-400' : ''} ${
-                selectedItem === option ? 'icx-font-bold' : ''
-              } ${index === 0 ? 'icx-rounded-t-lg' : ''} ${
+              className={`${styleHover(index)} ${styleSelected(option)} ${index === 0 ? 'icx-rounded-t-lg' : ''} ${
                 index === stateOptions.length - 1 ? 'icx-rounded-b-lg' : ''
               } icx-py-1 icx-px-3 icx-block`}
               key={option.value}

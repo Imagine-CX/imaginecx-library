@@ -3,9 +3,20 @@ import { ChangeEventHandler, FocusEventHandler, useEffect, useState } from 'reac
 interface ITimePicker {
   initialValue: string;
   setValue: (value: string) => void;
+  required?: boolean;
+  label?: string;
+  idLabel?: string;
+  classNameLabel?: string;
 }
 
-export const TimePicker = ({ initialValue, setValue }: ITimePicker) => {
+export const TimePicker = ({
+  initialValue,
+  setValue,
+  label,
+  idLabel,
+  classNameLabel,
+  required = false,
+}: ITimePicker) => {
   const [hours, setHours] = useState<string | number>('00');
   const [minutes, setMinutes] = useState<string | number>('00');
   const [isFocused, setIsFocused] = useState(false);
@@ -53,7 +64,10 @@ export const TimePicker = ({ initialValue, setValue }: ITimePicker) => {
   };
 
   return (
-    <div className="icx-flex icx-flex-col icx-gap-8 icx-relative">
+    <div className="icx-flex icx-flex-col icx-gap-1 icx-relative">
+      <label className={`icx-w-fit ${classNameLabel}`} htmlFor={idLabel}>
+        {label} {required ? <span>*</span> : ''}
+      </label>
       <div
         className={`icx-flex icx-items-center icx-border ${
           isFocused ? 'icx-border-primary-300' : 'icx-border-gray-300'
@@ -62,6 +76,7 @@ export const TimePicker = ({ initialValue, setValue }: ITimePicker) => {
         onBlur={handleContainerBlur}
       >
         <input
+          id={idLabel}
           className="icx-w-1/2 icx-mr-2 icx-text-center icx-outline-none"
           type="number"
           value={hours}

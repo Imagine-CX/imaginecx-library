@@ -285,8 +285,8 @@ function App() {
         />
       </div>
       <Header variant="h2">Time Picker</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3">
-        <TimePicker initialValue={time} setValue={setTime} />
+      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3 ">
+        <TimePicker initialValue={time} setValue={setTime} label="Time" idLabel="time" />
       </div>
       <Header variant="h2">Text Area</Header>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3">
