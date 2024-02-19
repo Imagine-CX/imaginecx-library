@@ -4,10 +4,14 @@ import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react';
 
 export interface IRadio extends InputHTMLAttributes<HTMLInputElement> {
   text: string;
+  classNameLabel?: string;
 }
 
 export const Radio = forwardRef(
-  ({ text, disabled, name, id, ...radioProps }: IRadio, ref: ForwardedRef<HTMLInputElement>): JSX.Element => {
+  (
+    { text, classNameLabel, disabled, name, id, ...radioProps }: IRadio,
+    ref: ForwardedRef<HTMLInputElement>,
+  ): JSX.Element => {
     // const estiloRadio: string = disabled ? 'icx-radio-disabled' : 'icx-radio-active';
 
     return (
@@ -26,7 +30,7 @@ export const Radio = forwardRef(
             htmlFor={id}
             className="icx-mt-2 icx-rounded-full icx-border icx-border-orange-400 icx-flex icx-w-4 icx-h-4"
           ></label>
-          <span className="icx-font-imagine icx-pt-1">{text}</span>
+          <span className={`icx-font-imagine icx-pt-1 ${classNameLabel}`}>{text}</span>
         </div>
       </>
     );
