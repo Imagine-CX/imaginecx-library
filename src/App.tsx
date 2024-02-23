@@ -129,6 +129,9 @@ function App() {
 
   // useEffect(() => console.log(time), [time]);
 
+  const [selectedItem, setSelectedItem] = useState(0);
+  const [selectedItem1, setSelectedItem1] = useState(0);
+
   return (
     <div className="icx-container icx-ml-3">
       <div className="icx-text-center">
@@ -460,6 +463,8 @@ function App() {
                 sit.
               </p>,
             ]}
+            selectedItem={selectedItem1}
+            setSelectedItem={setSelectedItem1}
           />
         </div>
         <div>
@@ -497,6 +502,8 @@ function App() {
                 </g>
               </svg>
             }
+            selectedItem={selectedItem}
+            setSelectedItem={setSelectedItem}
           />
         </div>
       </div>

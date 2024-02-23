@@ -1,4 +1,4 @@
-import { ChangeEvent, ReactElement, useState } from 'react';
+import { ChangeEvent, Dispatch, ReactElement, SetStateAction, useState } from 'react';
 import { Slide } from 'react-awesome-reveal';
 import { Close } from 'src/assets/Close';
 
@@ -7,11 +7,18 @@ export interface ITabs {
   content: (ReactElement | null)[];
   navElement?: ReactElement | ReactElement[];
   iconSmScreen?: ReactElement | ReactElement[] | string;
+  selectedItem: number;
+  setSelectedItem: Dispatch<SetStateAction<number>>;
 }
 
-export const Tabs = ({ tabs, content, navElement, iconSmScreen }: ITabs): JSX.Element => {
-  const [selectedItem, setSelectedItem] = useState(0);
-
+export const Tabs = ({
+  tabs,
+  content,
+  navElement,
+  iconSmScreen,
+  selectedItem,
+  setSelectedItem,
+}: ITabs): JSX.Element => {
   const filteredTabs = tabs.filter((item) => item !== null);
   const filteredContent = content.filter((item) => item !== null);
 
