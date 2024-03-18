@@ -104,7 +104,7 @@ export const Combobox = ({
   };
 
   return (
-    <div className="icx-flex icx-flex-col icx-gap-8 icx-relative">
+    <div className="icx-relative">
       <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-1">
         <label className={`icx-w-fit ${labelClassName}`} htmlFor={idLabel}>
           {label} {required ? <span>*</span> : ''}
@@ -130,7 +130,7 @@ export const Combobox = ({
         </div>
       </div>
       <ul
-        className={`icx-absolute icx-bg-white icx-mt-1 icx-shadow-lg icx-w-full icx-max-h-80 icx-z-10 icx-top-11 icx-rounded-lg icx-border icx-overflow-auto icx-text-sm ${
+        className={`icx-absolute icx-bg-white icx-mt-1 icx-shadow-lg icx-w-full icx-max-h-80 icx-z-10  icx-rounded-lg icx-border icx-overflow-auto icx-text-sm ${
           !isOpen ? 'icx-hidden' : ''
         }`}
         {...getMenuProps({ ref: listRef })}
