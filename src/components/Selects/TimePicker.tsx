@@ -27,7 +27,7 @@ export const TimePicker = ({
       setHours(String(Math.min(Math.max(parseInt(value[0], 10), 0), 23)).padStart(2, '0'));
       setMinutes(String(Math.min(Math.max(parseInt(value[1], 10), 0), 59)).padStart(2, '0'));
     }
-  }, []);
+  }, [initialValue]);
 
   const handleContainerFocus = () => {
     setIsFocused(true);
