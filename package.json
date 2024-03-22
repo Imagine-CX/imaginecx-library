@@ -1,7 +1,7 @@
 {
   "name": "@imagine-cx/imaginecx-library",
   "private": false,
-  "version": "0.3.19",
+  "version": "0.3.20",
   "type": "module",
   "scripts": {
     "dev": "vite",
