@@ -9,6 +9,7 @@ export interface ITabs {
   iconSmScreen?: ReactElement | ReactElement[] | string;
   selectedItem: number;
   setSelectedItem: Dispatch<SetStateAction<number>>;
+  className?: string;
 }
 
 export const Tabs = ({
@@ -18,6 +19,7 @@ export const Tabs = ({
   iconSmScreen,
   selectedItem,
   setSelectedItem,
+  className,
 }: ITabs): JSX.Element => {
   const filteredTabs = tabs.filter((item) => item !== null);
   const filteredContent = content.filter((item) => item !== null);
@@ -99,7 +101,7 @@ export const Tabs = ({
                 <li
                   key={index}
                   className={`icx-py-2 icx-border-b-4 ${
-                    +selectedItem === index
+                    selectedItem === index
                       ? 'icx-border-primary-400 icx-font-bold'
                       : 'icx-border-white icx-text-gray-400'
                   }`}
@@ -119,7 +121,7 @@ export const Tabs = ({
             <div className="icx-flex icx-items-center">{navElement}</div>
           </ul>
         </div>
-        <div className="icx-max-w-screen-xl icx-mx-auto icx-px-1 icx-py-3">
+        <div className={`icx-max-w-screen-xl icx-mx-auto icx-px-1 ${className ?? ''}`}>
           {filteredContent.map((item, index) => (
             <div
               key={index}

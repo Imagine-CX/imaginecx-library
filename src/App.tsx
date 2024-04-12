@@ -465,6 +465,7 @@ function App() {
             ]}
             selectedItem={selectedItem1}
             setSelectedItem={setSelectedItem1}
+            className="icx-bg-blue-300 icx-py-2"
           />
         </div>
         <div>

@@ -30,7 +30,7 @@ export const Radio = forwardRef(
             htmlFor={id}
             className="icx-mt-2 icx-rounded-full icx-border icx-border-orange-400 icx-flex icx-w-4 icx-h-4"
           ></label>
-          <span className={`icx-font-imagine icx-pt-1 ${classNameLabel}`}>{text}</span>
+          <span className={`icx-font-imagine icx-pt-1 ${classNameLabel ?? ''}`}>{text}</span>
         </div>
       </>
     );

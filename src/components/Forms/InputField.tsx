@@ -51,7 +51,9 @@ export const InputField = ({
           {showIcon}
           <div className="ml-5">{showAction}</div>
           <input
-            className={`icx-w-full ${padding} ${paddingAction} icx-py-1.5 icx-rounded-lg icx-outline-none ${estiloInput} ${className}`}
+            className={`icx-w-full ${padding} ${paddingAction} icx-py-1.5 icx-rounded-lg icx-outline-none ${estiloInput} ${
+              className ?? ''
+            }`}
             id={title}
             required={required}
             disabled={disabled}
