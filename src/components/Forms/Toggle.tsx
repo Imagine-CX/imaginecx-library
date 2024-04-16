@@ -1,11 +1,19 @@
 import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react';
 
 export interface IToggle extends InputHTMLAttributes<HTMLInputElement> {
-  text: string;
+  text?: string;
+  labelTrackClassName?: string;
+  small?: boolean;
 }
 
 export const Toggle = forwardRef(
-  ({ text, id = 'toggle', ...toggleProps }: IToggle, ref: ForwardedRef<HTMLInputElement>): JSX.Element => {
+  (
+    { text, className, labelTrackClassName, small, id = 'toggle', ...toggleProps }: IToggle,
+    ref: ForwardedRef<HTMLInputElement>,
+  ): JSX.Element => {
+    const sizeTogglepoint = small ? 'icx-w-6 icx-h-6' : 'icx-w-7 icx-h-7';
+    const sizeToggleTrack = small ? 'icx-h-6' : 'icx-h-7';
+
     return (
       <>
         <div>
@@ -14,12 +22,12 @@ export const Toggle = forwardRef(
               type="checkbox"
               id={id}
               ref={ref}
-              className="icx-toggle-checkbox icx-absolute icx-block icx-w-7 icx-h-7 icx-rounded-full icx-bg-white icx-border-4 icx-border-disable-200 icx-appearance-none icx-cursor-pointer"
+              className={`${className} icx-toggle-checkbox icx-absolute ${sizeTogglepoint} icx-block icx-rounded-full icx-bg-white icx-border-4 icx-border-disable-200 icx-appearance-none icx-cursor-pointer`}
               {...toggleProps}
             />
             <label
               htmlFor={id}
-              className="icx-toggle-label icx-block icx-overflow-hidden icx-h-7 icx-rounded-full icx-bg-disable-200 icx-cursor-pointer"
+              className={`${labelTrackClassName} icx-toggle-label icx-block icx-overflow-hidden ${sizeToggleTrack} icx-rounded-full icx-bg-disable-200 icx-cursor-pointer`}
             ></label>
           </div>
           <label className="icx-ml-[5px]" htmlFor={id}>
