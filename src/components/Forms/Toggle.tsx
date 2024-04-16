@@ -3,12 +3,13 @@ import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react';
 export interface IToggle extends InputHTMLAttributes<HTMLInputElement> {
   text?: string;
   labelTrackClassName?: string;
+  containerClassName?: string;
   small?: boolean;
 }
 
 export const Toggle = forwardRef(
   (
-    { text, className, labelTrackClassName, small, id = 'toggle', ...toggleProps }: IToggle,
+    { text, className, containerClassName, labelTrackClassName, small, id = 'toggle', ...toggleProps }: IToggle,
     ref: ForwardedRef<HTMLInputElement>,
   ): JSX.Element => {
     const sizeTogglepoint = small ? 'icx-w-6 icx-h-6' : 'icx-w-7 icx-h-7';
@@ -17,7 +18,9 @@ export const Toggle = forwardRef(
     return (
       <>
         <div>
-          <div className="icx-relative icx-inline-block icx-w-12 icx-m-1 icx-align-middle icx-select-none">
+          <div
+            className={`${containerClassName} icx-relative icx-inline-block icx-w-12 icx-m-1 icx-align-middle icx-select-none`}
+          >
             <input
               type="checkbox"
               id={id}
