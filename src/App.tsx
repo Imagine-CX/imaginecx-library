@@ -157,6 +157,7 @@ function App() {
         <Button color="primary" animation>
           Primary with animation
         </Button>
+        <Button color="neutral">neutral for cancel</Button>
         <img src={smsIcon} alt="" />
       </div>
       <Header variant="h2">Checkbox</Header>

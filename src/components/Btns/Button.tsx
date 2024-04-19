@@ -3,7 +3,7 @@ import '../style.css';
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef, ReactNode } from 'react';
 
 export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  color: 'success' | 'error' | 'secondary' | 'primary' | 'alternative';
+  color: 'success' | 'error' | 'secondary' | 'primary' | 'alternative' | 'neutral';
   animation?: boolean;
   icon?: ReactNode;
   children: string | JSX.Element | JSX.Element[];
@@ -19,6 +19,8 @@ const selectStyleButton = (type: string | undefined): string => {
     return `icx-btn-primary`;
   } else if (type === 'alternative') {
     return `icx-btn-alternative`;
+  } else if (type === 'neutral') {
+    return `icx-btn-neutral`;
   }
   return '';
 };

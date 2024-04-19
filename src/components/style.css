@@ -99,6 +99,13 @@
           hover:icx-text-white;
   }
 
+  .icx-btn-neutral {
+    @apply icx-bg-transparent 
+          icx-border 
+          icx-border-[#7B7B7B] 
+          icx-text-[#7B7B7B];
+  }
+
   .icx-animate-fade-in {
     animation: dropdpwn-fade 0.5s;
   }
