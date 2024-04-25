@@ -30,7 +30,7 @@ export const Alert: React.FC<IAlert> = ({ icon, type, open, setOpen, close, clos
   return (
     <>
       {open && (
-        <div className="icx-fixed icx-bottom-0 icx-right-0 icx-m-5 icx-max-w-lg icx-z-40">
+        <div className="icx-fixed icx-bottom-0 icx-right-0 icx-m-5 icx-max-w-lg icx-z-50">
           <div className={`alert icx-w-full icx-overflow-hidden ${styleAlert} icx-rounded-lg icx-shadow-md`}>
             <div className="icx-container icx-flex icx-items-center icx-justify-between icx-mx-auto icx-px-3 icx-py-5">
               <div className="icx-flex icx-gap-3">

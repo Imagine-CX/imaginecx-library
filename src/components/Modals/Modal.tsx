@@ -11,7 +11,7 @@ export const Modal = ({ open, setOpen, children }: IModal): JSX.Element => {
   return (
     <>
       {open && (
-        <div className="icx-fixed icx-inset-0 icx-z-10 icx-overflow-y-auto">
+        <div className="icx-fixed icx-inset-0 icx-z-50 icx-overflow-y-auto">
           <div
             className="icx-fixed icx-inset-0 icx-w-full icx-h-full icx-bg-white icx-opacity-70"
             onClick={() => setOpen(false)}

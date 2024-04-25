@@ -151,7 +151,7 @@ function App() {
         <Button color="success" disabled>
           Disabled
         </Button>
-        <Button color="success" icon={smsIcon}>
+        <Button color="success" icon={<img src={smsIcon} className="icx-w-6 icx-h-6"></img>}>
           Button with Icon
         </Button>
         <Button color="primary" animation>
@@ -253,6 +253,18 @@ function App() {
         />
       </div>
       <Header variant="h2">Calendar</Header>
+      <div className="icx-w-28">
+        <InputField
+          placeholder="Input Label as tooltip"
+          name="Input Label with tooltip"
+          title="Input Label with Toltip"
+          labelAction={
+            <Tooltip text="This is a tooltip to guide the user in the interface">
+              <BsQuestionCircle className="icx-w-5 icx-h-5" />
+            </Tooltip>
+          }
+        />
+      </div>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3 ">
         <ContCalendar
           beforeYear={7}
@@ -294,7 +306,16 @@ function App() {
       </div>
       <Header variant="h2">Text Area</Header>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3">
-        <TextArea title="Text Area" placeholder="Mensaje" content="Hola Mundo" />
+        <TextArea
+          title="Text Area"
+          placeholder="Mensaje"
+          content="Hola Mundo"
+          labelAction={
+            <Tooltip text="This is a tooltip to guide the user in the interface">
+              <BsQuestionCircle className="icx-w-5 icx-h-5" />
+            </Tooltip>
+          }
+        />
         <TextArea title="Text Area required" placeholder="Mensaje" content="Hola Mundo" required />
         <TextArea title="Text Area disabled" placeholder="Mensaje disabled" required disabled />
       </div>
