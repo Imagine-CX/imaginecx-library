@@ -29,6 +29,7 @@ export default {
           100: '#CECECE',
           200: '#3F3F3F',
           300: '#999999',
+          400: '#EAEAEA',
         },
         error: {
           100: '#d80000',

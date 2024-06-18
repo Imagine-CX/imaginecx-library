@@ -10,6 +10,7 @@ import {
   Button,
   Card,
   CheckBox,
+  ColorPicker,
   Combobox,
   Dropdown,
   Header,
@@ -131,6 +132,7 @@ function App() {
 
   const [selectedItem, setSelectedItem] = useState(0);
   const [selectedItem1, setSelectedItem1] = useState(0);
+  const [colorPick, setColorPick] = useState('$ffffff');
 
   return (
     <div className="icx-container icx-ml-3">
@@ -303,6 +305,10 @@ function App() {
       <Header variant="h2">Time Picker</Header>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3 ">
         <TimePicker initialValue={time} setValue={setTime} label="Time" idLabel="time" />
+      </div>
+      <Header variant="h2">Color Pick</Header>
+      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3 ">
+        <ColorPicker colorPick={colorPick} setColorPick={setColorPick} label="Color text" idLabel="colo-text" />
       </div>
       <Header variant="h2">Text Area</Header>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3">
