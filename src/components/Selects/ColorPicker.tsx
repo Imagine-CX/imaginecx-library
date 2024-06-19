@@ -1,18 +1,25 @@
-import { Dispatch, FocusEventHandler, MouseEventHandler, SetStateAction, useRef, useState } from 'react';
+import { FocusEventHandler, MouseEventHandler, useRef, useState } from 'react';
 import { HexColorInput, HexColorPicker } from 'react-colorful';
 
 import { useOutsideAlerter } from '../hooks/useOutsideAlerter';
 
 interface IColorPicker {
   colorPick: string;
-  setColorPick: Dispatch<SetStateAction<string>>;
+  handleChangeColor: (newColor: string) => void;
   required?: boolean;
   idLabel?: string;
   labelClassName?: string;
   label?: string;
 }
 
-export const ColorPicker = ({ colorPick, setColorPick, idLabel, labelClassName, required, label }: IColorPicker) => {
+export const ColorPicker = ({
+  colorPick,
+  handleChangeColor,
+  idLabel,
+  labelClassName,
+  required,
+  label,
+}: IColorPicker) => {
   const [openColorPick, setOpenColorPick] = useState<boolean>(false);
   const [isFocus, setIsFocus] = useState<boolean>(false);
 
@@ -65,7 +72,7 @@ export const ColorPicker = ({ colorPick, setColorPick, idLabel, labelClassName, 
           <HexColorInput
             className="icx-ml-4 icx-w-full icx-outline-0 icx-rounded-md icx-px-2 icx-border icx-border-disable-400"
             color={colorPick}
-            onChange={(color) => setColorPick(color)}
+            onChange={handleChangeColor}
             id={idLabel}
           />
         </div>
@@ -74,7 +81,7 @@ export const ColorPicker = ({ colorPick, setColorPick, idLabel, labelClassName, 
             <HexColorPicker
               style={{ width: 'auto' }}
               color={colorPick}
-              onChange={(color) => setColorPick(color)}
+              onChange={handleChangeColor}
               onFocus={handleFocusInput}
             />
           </div>

@@ -308,7 +308,12 @@ function App() {
       </div>
       <Header variant="h2">Color Pick</Header>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3 ">
-        <ColorPicker colorPick={colorPick} setColorPick={setColorPick} label="Color text" idLabel="colo-text" />
+        <ColorPicker
+          colorPick={colorPick}
+          handleChangeColor={(color) => setColorPick(color)}
+          label="Color text"
+          idLabel="colo-text"
+        />
       </div>
       <Header variant="h2">Text Area</Header>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3">
