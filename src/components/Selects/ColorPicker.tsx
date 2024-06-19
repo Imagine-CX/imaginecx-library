@@ -1,4 +1,4 @@
-import { FocusEventHandler, MouseEventHandler, useRef, useState } from 'react';
+import { MouseEventHandler, useRef, useState } from 'react';
 import { HexColorInput, HexColorPicker } from 'react-colorful';
 
 import { useOutsideAlerter } from '../hooks/useOutsideAlerter';
@@ -46,10 +46,6 @@ export const ColorPicker = ({
     setIsFocus(false);
   };
 
-  const handleFocusInput: FocusEventHandler<HTMLInputElement> = (e) => {
-    e.target.select();
-  };
-
   return (
     <div>
       <label className={`icx-w-fit ${labelClassName}`} htmlFor={idLabel}>
@@ -77,13 +73,8 @@ export const ColorPicker = ({
           />
         </div>
         {openColorPick ? (
-          <div className="icx-w-full icx-absolute icx-top-full icx-left-0 icx-mt-2">
-            <HexColorPicker
-              style={{ width: 'auto' }}
-              color={colorPick}
-              onChange={handleChangeColor}
-              onFocus={handleFocusInput}
-            />
+          <div className="icx-w-full icx-absolute icx-top-full icx-left-0 icx-mt-2 icx-z-30">
+            <HexColorPicker style={{ width: 'auto' }} color={colorPick} onChange={handleChangeColor} />
           </div>
         ) : null}
       </div>
