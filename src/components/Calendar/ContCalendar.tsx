@@ -13,6 +13,7 @@ export interface IContCalendar extends InputHTMLAttributes<HTMLInputElement> {
   disableBefore?: Date | null;
   icon?: JSX.Element | null;
   title?: string;
+  labelClassName?: string;
   currentDate: Date;
   disabled?: boolean;
   setCurrentDate: React.Dispatch<React.SetStateAction<Date>>;
@@ -25,6 +26,7 @@ export const ContCalendar = ({
   disableAfter,
   disableBefore,
   title,
+  labelClassName,
   currentDate,
   setCurrentDate,
   onChangeCalendar,
@@ -72,6 +74,7 @@ export const ContCalendar = ({
           onClick={() => setOpen((open) => !open)}
           icon={icon}
           title={title}
+          labelClassName={labelClassName}
           disabled={disabled}
           {...inputProps}
         />
