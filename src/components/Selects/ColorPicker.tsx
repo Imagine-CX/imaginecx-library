@@ -54,7 +54,7 @@ export const ColorPicker = ({
       <div
         className={`icx-relative icx-border ${
           isFocus ? 'icx-border-primary-300' : 'icx-border-gray-300'
-        } icx-rounded-lg icx-px-4 icx-py-1.5 icx-mt-1`}
+        } icx-rounded-lg icx-px-4 icx-py-1.5`}
         onFocus={handleContainerFocus}
         onBlur={handleContainerBlur}
         ref={wrapperRef}
