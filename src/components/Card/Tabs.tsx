@@ -1,6 +1,7 @@
 import { ChangeEvent, Dispatch, JSX, ReactElement, SetStateAction, useState } from 'react';
 import { Slide } from 'react-awesome-reveal';
 import { Close } from 'src/assets/Close';
+import { cn } from 'src/lib/utils';
 
 export interface ITabs {
   tabs: (string | null)[];
@@ -10,6 +11,7 @@ export interface ITabs {
   selectedItem: number;
   setSelectedItem: Dispatch<SetStateAction<number>>;
   className?: string;
+  classNameContainer?: string;
 }
 
 export const Tabs = ({
@@ -20,6 +22,7 @@ export const Tabs = ({
   selectedItem,
   setSelectedItem,
   className,
+  classNameContainer,
 }: ITabs): JSX.Element => {
   const filteredTabs = tabs.filter((item) => item !== null);
   const filteredContent = content.filter((item) => item !== null);
@@ -34,7 +37,9 @@ export const Tabs = ({
 
   return (
     <>
-      <div className="icx-bg-white icx-mx-auto element-shadow icx-rounded-lg icx-w-full icx-pb-1">
+      <div
+        className={cn('icx-bg-white icx-mx-auto element-shadow icx-rounded-lg icx-w-full icx-pb-1', classNameContainer)}
+      >
         <div className="sm:icx-hidden icx-relative icx-w-full icx-mx-auto icx-bg-white icx-rounded">
           {!hiddenElement && (
             <Slide triggerOnce>
@@ -121,7 +126,7 @@ export const Tabs = ({
             <div className="icx-flex icx-items-center">{navElement}</div>
           </ul>
         </div>
-        <div className={`icx-max-w-screen-xl icx-mx-auto icx-px-1 ${className ?? ''}`}>
+        <div className={cn('icx-max-w-screen-xl icx-mx-auto icx-px-1', className)}>
           {filteredContent.map((item, index) => (
             <div
               key={index}
