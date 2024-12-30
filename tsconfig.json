@@ -25,6 +25,6 @@
     },
     "typeRoots": ["node_modules/@types", "src/bower_component/index.d.ts"]
   },
-  "include": ["src"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/types/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

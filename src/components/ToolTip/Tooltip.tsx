@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { JSX, useState } from 'react';
 
 export interface ITooltip extends React.PropsWithChildren {
   text: string;

@@ -1,4 +1,4 @@
-import { MouseEventHandler, useRef, useState } from 'react';
+import { JSX, MouseEventHandler, useRef, useState } from 'react';
 
 import { useOutsideAlerter } from '../hooks/useOutsideAlerter';
 

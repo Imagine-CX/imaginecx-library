@@ -1,5 +1,6 @@
 import { add, compareAsc, differenceInDays, endOfMonth, format, getYear, setDate, startOfMonth, sub } from 'date-fns';
 import { es } from 'date-fns/locale';
+import { JSX } from 'react';
 import { Slide } from 'react-awesome-reveal';
 
 import { getDaysWeek } from '../helpers';
@@ -89,24 +90,24 @@ export const Calendar = ({
 
   const prevMonth = () => {
     if (compareAsc(value, sub(new Date(), { years: beforeYear })) === 1) {
-      onChange && onChange(sub(value, { months: 1 }));
+      if (onChange) onChange(sub(value, { months: 1 }));
     }
   };
 
   const nextMonth = () => {
     if (compareAsc(value, add(new Date(), { years: afterYear })) === -1) {
-      onChange && onChange(add(value, { months: 1 }));
+      if (onChange) onChange(add(value, { months: 1 }));
     }
   };
 
   const prevYear = () => {
     if (currentYear <= startYears) return;
-    onChange && onChange(sub(value, { years: 1 }));
+    if (onChange) onChange(sub(value, { years: 1 }));
   };
 
   const nextYear = () => {
     if (currentYear >= endYears) return;
-    onChange && onChange(add(value, { years: 1 }));
+    if (onChange) onChange(add(value, { years: 1 }));
   };
 
   const handleClickDate = (index: number) => {
@@ -119,7 +120,7 @@ export const Calendar = ({
     if (disableAfter) {
       if (compareAsc(date, disableAfter) === 1) return;
     }
-    onChange && onChange(date);
+    if (onChange) onChange(date);
   };
 
   const isPastDisableDate = (date: number) => {

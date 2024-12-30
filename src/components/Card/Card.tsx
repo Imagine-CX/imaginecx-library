@@ -1,3 +1,5 @@
+import { JSX } from 'react';
+
 interface ICard extends React.PropsWithChildren {
   title?: string;
   type?: 'success' | 'success-light' | 'error' | 'info' | 'warning' | 'primary' | 'inactive' | string;

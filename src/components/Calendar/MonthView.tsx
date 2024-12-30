@@ -1,5 +1,5 @@
 import { setMonth } from 'date-fns';
-import { useEffect } from 'react';
+import { JSX, useEffect } from 'react';
 import { Slide } from 'react-awesome-reveal';
 
 import { getMonths } from '../helpers';
@@ -16,7 +16,7 @@ export const MonthView = ({ value = new Date(), onChange, showMonths }: IMonth):
 
   const handleClickMonth = (index: number) => {
     const month = setMonth(value, index);
-    onChange && onChange(month);
+    if (onChange) onChange(month);
   };
 
   const handleClickCell = (date: number) => {

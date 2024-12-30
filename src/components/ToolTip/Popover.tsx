@@ -91,7 +91,7 @@ const Trigger = ({ children }: { children: ReactElement }) => {
     setIsShow(false);
   };
 
-  const childrenToTriggerPopover = cloneElement(children, {
+  const childrenToTriggerPopover = cloneElement(children as ReactElement<any>, {
     onMouseEnter,
     onMouseLeave,
     ref,
@@ -155,7 +155,7 @@ const Close = ({ children }: { children: ReactElement }) => {
   const onClick = () => {
     setIsShow(false);
   };
-  const childrenToClosePopover = cloneElement(children, {
+  const childrenToClosePopover = cloneElement(children as ReactElement<any>, {
     onClick,
   });
 

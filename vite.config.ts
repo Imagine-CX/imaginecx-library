@@ -9,11 +9,12 @@ import tsConfigPaths from 'vite-tsconfig-paths';
 import * as packageJson from './package.json';
 // https://vitejs.dev/config/
 export default defineConfig((configEnv) => ({
+  root: __dirname,
   plugins: [
     react(),
     tsConfigPaths(),
     linterPlugin({
-      include: ['./src}/**/*.{ts,tsx}'],
+      include: ['./src/**/*.{ts,tsx}'],
       linters: [new EsLinter({ configEnv })],
     }),
     dts({

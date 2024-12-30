@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, ReactElement, SetStateAction, useState } from 'react';
+import { ChangeEvent, Dispatch, JSX, ReactElement, SetStateAction, useState } from 'react';
 import { Slide } from 'react-awesome-reveal';
 import { Close } from 'src/assets/Close';
 

@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, HTMLProps } from 'react';
+import { ForwardedRef, forwardRef, HTMLProps, JSX } from 'react';
 
 export interface ITextArea extends HTMLProps<HTMLTextAreaElement> {
   title?: string;

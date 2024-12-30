@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { Close } from 'src/assets/Close';
 
 import header from '../../assets/SMS-Cards.png';

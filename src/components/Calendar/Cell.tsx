@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { JSX } from 'react';
 
 export interface ICell extends React.PropsWithChildren {
   className?: string;

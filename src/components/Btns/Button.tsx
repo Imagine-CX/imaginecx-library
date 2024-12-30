@@ -1,6 +1,6 @@
 import '../style.css';
 
-import { ButtonHTMLAttributes, ForwardedRef, forwardRef, ReactNode } from 'react';
+import { ButtonHTMLAttributes, ForwardedRef, forwardRef, JSX, ReactNode } from 'react';
 
 export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   color: 'success' | 'error' | 'secondary' | 'primary' | 'alternative' | 'neutral';

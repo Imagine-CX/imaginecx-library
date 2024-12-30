@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, RefObject } from 'react';
+import { InputHTMLAttributes, JSX, RefObject } from 'react';
 
 export interface IInputField extends InputHTMLAttributes<HTMLInputElement> {
   icon?: JSX.Element | null;

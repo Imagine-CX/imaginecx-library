@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { JSX, ReactNode } from 'react';
 import { Close } from 'src/assets/Close';
 
 export interface IAlert extends React.HTMLAttributes<HTMLDivElement> {

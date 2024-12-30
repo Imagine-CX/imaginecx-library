@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, InputHTMLAttributes } from 'react';
+import { ForwardedRef, forwardRef, InputHTMLAttributes, JSX } from 'react';
 
 export interface IToggle extends InputHTMLAttributes<HTMLInputElement> {
   text?: string;

@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { InputHTMLAttributes, useEffect, useRef, useState } from 'react';
+import { InputHTMLAttributes, JSX, useEffect, useRef, useState } from 'react';
 
 import { InputField } from '../Forms';
 import { Calendar } from './Calendar';
@@ -43,7 +43,7 @@ export const ContCalendar = ({
 
   useEffect(() => {
     document.addEventListener('click', hideOnClickOutside, true);
-    onChangeCalendar && onChangeCalendar(currentDate);
+    if (onChangeCalendar) onChangeCalendar(currentDate);
   }, []);
 
   const hideOnClickOutside = (e: Event) => {
