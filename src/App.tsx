@@ -124,7 +124,7 @@ function App() {
 
   const [valueSelected, setValueSelected] = useState<Options>({ value: 'item 1', label: 'Item 1' });
 
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState<Date | undefined>(undefined);
 
   const { selector, onInputChange } = useForm(FormFields);
 
@@ -271,12 +271,13 @@ function App() {
         <ContCalendar
           beforeYear={7}
           afterYear={7}
-          disableAfter={new Date('2023-08-10')}
-          disableBefore={new Date('2023-05-08')}
+          // disableAfter={new Date('2023-08-10')}
+          // disableBefore={new Date('2023-05-08')}
           title="Calendar basic"
           currentDate={currentDate}
           setCurrentDate={setCurrentDate}
-          onChangeCalendar={setCurrentDate}
+          onChangeCalendar={(value) => setCurrentDate(value)}
+          placeholder="date"
         />
         <ContCalendar
           beforeYear={7}
@@ -286,7 +287,7 @@ function App() {
           title="Calendar with icon"
           currentDate={currentDate}
           setCurrentDate={setCurrentDate}
-          onChangeCalendar={setCurrentDate}
+          onChangeCalendar={(value) => setCurrentDate(value)}
           icon={<BiSearch className="icx-w-5 icx-h-5" />}
         />
         <ContCalendar
@@ -297,7 +298,7 @@ function App() {
           title="Calendar disabled"
           currentDate={currentDate}
           setCurrentDate={setCurrentDate}
-          onChangeCalendar={setCurrentDate}
+          onChangeCalendar={(value) => setCurrentDate(value)}
           icon={<BiSearch className="icx-w-5 icx-h-5" />}
           disabled
         />

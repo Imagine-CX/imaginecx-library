@@ -14,9 +14,9 @@ export interface IContCalendar extends InputHTMLAttributes<HTMLInputElement> {
   icon?: JSX.Element | null;
   title?: string;
   labelClassName?: string;
-  currentDate: Date;
+  currentDate: Date | undefined;
   disabled?: boolean;
-  setCurrentDate: React.Dispatch<React.SetStateAction<Date>>;
+  setCurrentDate: React.Dispatch<React.SetStateAction<Date | undefined>>;
   onChangeCalendar?: (value: Date) => void;
 }
 
@@ -43,13 +43,13 @@ export const ContCalendar = ({
 
   useEffect(() => {
     document.addEventListener('click', hideOnClickOutside, true);
-    if (onChangeCalendar) onChangeCalendar(currentDate);
+    if (onChangeCalendar && currentDate) onChangeCalendar(currentDate);
   }, []);
 
   const hideOnClickOutside = (e: Event) => {
     if (refOne.current && !refOne.current.contains(e.target as Node)) {
       if (open && e.target !== refOne.current) {
-        if (disableBefore && currentDate < disableBefore) {
+        if (disableBefore && currentDate && currentDate < disableBefore) {
           setCurrentDate(new Date());
         }
         setOpen(false);
@@ -68,7 +68,7 @@ export const ContCalendar = ({
     <>
       <div>
         <InputField
-          value={format(currentDate, 'dd/MM/yyyy')}
+          value={!currentDate ? '' : format(currentDate, 'dd/MM/yyyy')}
           readOnly
           className={`${disabled ? 'icx-cursor-not-allowed' : ' icx-cursor-pointer'}`}
           onClick={() => setOpen((open) => !open)}
