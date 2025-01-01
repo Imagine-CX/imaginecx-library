@@ -500,6 +500,8 @@ function App() {
             selectedItem={selectedItem1}
             setSelectedItem={setSelectedItem1}
             className="icx-bg-blue-300 icx-py-2"
+            classNameTabs="icx-text-[#7B7B7B]"
+            classNameTabsSelected="icx-font-semibold"
           />
         </div>
         <div>

@@ -12,6 +12,8 @@ export interface ITabs {
   setSelectedItem: Dispatch<SetStateAction<number>>;
   className?: string;
   classNameContainer?: string;
+  classNameTabs?: string;
+  classNameTabsSelected?: string;
 }
 
 export const Tabs = ({
@@ -23,6 +25,8 @@ export const Tabs = ({
   setSelectedItem,
   className,
   classNameContainer,
+  classNameTabs,
+  classNameTabsSelected,
 }: ITabs): JSX.Element => {
   const filteredTabs = tabs.filter((item) => item !== null);
   const filteredContent = content.filter((item) => item !== null);
@@ -107,8 +111,8 @@ export const Tabs = ({
                   key={index}
                   className={`icx-py-2 icx-border-b-4 ${
                     selectedItem === index
-                      ? 'icx-border-primary-400 icx-font-bold'
-                      : 'icx-border-white icx-text-gray-400'
+                      ? cn('icx-border-primary-400 icx-font-bold', classNameTabsSelected)
+                      : cn('icx-border-white icx-text-gray-400', classNameTabs)
                   }`}
                 >
                   <button
