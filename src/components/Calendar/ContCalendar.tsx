@@ -16,7 +16,7 @@ export interface IContCalendar extends InputHTMLAttributes<HTMLInputElement> {
   labelClassName?: string;
   currentDate: Date | undefined;
   disabled?: boolean;
-  setCurrentDate: React.Dispatch<React.SetStateAction<Date | undefined>>;
+  setCurrentDate: React.Dispatch<React.SetStateAction<Date>> | React.Dispatch<React.SetStateAction<Date | undefined>>;
   onChangeCalendar?: (value: Date) => void;
 }
 
@@ -49,7 +49,7 @@ export const ContCalendar = ({
   const hideOnClickOutside = (e: Event) => {
     if (refOne.current && !refOne.current.contains(e.target as Node)) {
       if (open && e.target !== refOne.current) {
-        if (disableBefore && currentDate && currentDate < disableBefore) {
+        if (disableBefore && currentDate && setCurrentDate && currentDate < disableBefore) {
           setCurrentDate(new Date());
         }
         setOpen(false);

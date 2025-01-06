@@ -134,6 +134,9 @@ function App() {
   const [selectedItem1, setSelectedItem1] = useState(0);
   const [colorPick, setColorPick] = useState('$ffffff');
 
+  const [calenderOne, setCalenderOne] = useState<undefined | Date>(undefined);
+  const [calenderTwo, setCalenderTwo] = useState<undefined | Date>(undefined);
+
   return (
     <div className="icx-container icx-ml-3">
       <div className="icx-text-center">
@@ -301,6 +304,16 @@ function App() {
           onChangeCalendar={(value) => setCurrentDate(value)}
           icon={<BiSearch className="icx-w-5 icx-h-5" />}
           disabled
+        />
+
+        <ContCalendar currentDate={calenderOne} setCurrentDate={setCalenderOne} placeholder="calendar one" />
+        <ContCalendar
+          currentDate={calenderTwo}
+          placeholder="calender two"
+          setCurrentDate={setCalenderTwo}
+          disabled={!calenderOne ? true : false}
+          // disableBefore={calenderOne}
+          disableAfter={calenderOne}
         />
       </div>
       <Header variant="h2">Time Picker</Header>

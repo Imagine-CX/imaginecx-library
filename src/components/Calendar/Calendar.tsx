@@ -1,4 +1,15 @@
-import { add, compareAsc, differenceInDays, endOfMonth, format, getYear, setDate, startOfMonth, sub } from 'date-fns';
+import {
+  add,
+  compareAsc,
+  differenceInDays,
+  endOfMonth,
+  format,
+  getYear,
+  setDate,
+  startOfDay,
+  startOfMonth,
+  sub,
+} from 'date-fns';
 import { es } from 'date-fns/locale';
 import { JSX } from 'react';
 import { Slide } from 'react-awesome-reveal';
@@ -114,11 +125,12 @@ export const Calendar = ({
     const date = setDate(value, index);
 
     if (disableBefore) {
-      if (compareAsc(date, disableBefore) === -1) return;
+      const compareDisable = compareAsc(startOfDay(date), startOfDay(disableBefore));
+      if (compareDisable === -1 || compareDisable === 0) return;
     }
 
     if (disableAfter) {
-      if (compareAsc(date, disableAfter) === 1) return;
+      if (compareAsc(startOfDay(date), startOfDay(disableAfter)) === 1) return;
     }
     if (onChange) onChange(date);
   };
