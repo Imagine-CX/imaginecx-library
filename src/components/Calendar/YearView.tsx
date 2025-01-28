@@ -1,5 +1,5 @@
 import { getYear, setYear, sub } from 'date-fns';
-import React, { JSX } from 'react';
+import React, { JSX, useState } from 'react';
 import { Slide } from 'react-awesome-reveal';
 
 import { getYears } from '../helpers';
@@ -23,9 +23,13 @@ export const YearView = ({
   const anteriores: number = getYear(sub(new Date(), { years: beforeYear }));
   const years = getYears(beforeYear, afterYear);
 
+  const [viewDate, setviewDate] = useState(value);
   const handleClickYear = (index: number) => {
-    const year = setYear(value, index);
-    if (onChange) onChange(year);
+    const year = setYear(viewDate, index);
+    if (onChange) {
+      onChange(year);
+      setviewDate(year);
+    }
   };
 
   const handleClickCell = (date: number) => {

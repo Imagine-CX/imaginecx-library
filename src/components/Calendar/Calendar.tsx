@@ -11,7 +11,7 @@ import {
   sub,
 } from 'date-fns';
 import { es } from 'date-fns/locale';
-import { JSX } from 'react';
+import { JSX, useState } from 'react';
 import { Slide } from 'react-awesome-reveal';
 
 import { getDaysWeek } from '../helpers';
@@ -80,8 +80,10 @@ export const Calendar = ({
   disableAfter,
   disableBefore,
 }: ICalendar): JSX.Element => {
-  const startDate = startOfMonth(value);
-  const endDate = endOfMonth(value);
+  const [viewDate, setviewDate] = useState(value);
+
+  const startDate = startOfMonth(viewDate);
+  const endDate = endOfMonth(viewDate);
   const numDays = differenceInDays(endDate, startDate) + 1;
 
   const prefixDays = startDate.getDay();
@@ -100,29 +102,31 @@ export const Calendar = ({
   };
 
   const prevMonth = () => {
-    if (compareAsc(value, sub(new Date(), { years: beforeYear })) === 1) {
-      if (onChange) onChange(sub(value, { months: 1 }));
+    if (compareAsc(viewDate, sub(new Date(), { years: beforeYear })) === 1) {
+      // if (onChange) onChange(sub(value, { months: 1 }));
+      setviewDate(sub(viewDate, { months: 1 }));
     }
   };
 
   const nextMonth = () => {
-    if (compareAsc(value, add(new Date(), { years: afterYear })) === -1) {
-      if (onChange) onChange(add(value, { months: 1 }));
+    if (compareAsc(viewDate, add(new Date(), { years: afterYear })) === -1) {
+      // if (onChange) onChange(add(value, { months: 1 }));
+      setviewDate(add(viewDate, { months: 1 }));
     }
   };
 
   const prevYear = () => {
     if (currentYear <= startYears) return;
-    if (onChange) onChange(sub(value, { years: 1 }));
+    setviewDate(sub(viewDate, { years: 1 }));
   };
 
   const nextYear = () => {
     if (currentYear >= endYears) return;
-    if (onChange) onChange(add(value, { years: 1 }));
+    setviewDate(add(viewDate, { years: 1 }));
   };
 
   const handleClickDate = (index: number) => {
-    const date = setDate(value, index);
+    const date = setDate(viewDate, index);
 
     if (disableBefore) {
       const compareDisable = compareAsc(startOfDay(date), startOfDay(disableBefore));
@@ -132,7 +136,10 @@ export const Calendar = ({
     if (disableAfter) {
       if (compareAsc(startOfDay(date), startOfDay(disableAfter)) === 1) return;
     }
-    if (onChange) onChange(date);
+    if (onChange) {
+      onChange(date);
+      setviewDate(date);
+    }
   };
 
   const isPastDisableDate = (date: number) => {
@@ -155,13 +162,13 @@ export const Calendar = ({
         <div className="icx-grid icx-grid-cols-7 icx-items-center icx-justify-center icx-text-center">
           <Cell onClick={prevMonth}>{prevIcon}</Cell>
           <Cell onClick={handleShowMonth} className="icx-font-bold icx-text-sm">
-            {format(value, 'MMM', { locale: es }).toUpperCase()}
+            {format(viewDate, 'MMM', { locale: es }).toUpperCase()}
           </Cell>
           <Cell onClick={nextMonth}>{nextIcon}</Cell>
           <Cell />
           <Cell onClick={prevYear}>{prevIcon}</Cell>
           <Cell onClick={handleShowYear} className="icx-font-bold icx-text-sm">
-            {format(value, 'yyyy')}
+            {format(viewDate, 'yyyy')}
           </Cell>
           <Cell onClick={nextYear}>{nextIcon}</Cell>
           {daysOfWeek.map((day, index) => (
@@ -174,7 +181,11 @@ export const Calendar = ({
           ))}
           {Array.from({ length: numDays }).map((_, index) => {
             const date = index + 1;
-            const isCurrentDate = date === value.getDate();
+            // const isCurrentDate = date === value.getDate();
+            const isCurrentDate =
+              date === value.getDate() &&
+              viewDate.getMonth() === value.getMonth() &&
+              viewDate.getFullYear() === value.getFullYear();
             const isDisabledBefore = isPastDisableDate(date);
             const isDisabledAfter = isFutureDisableDate(date);
             return (

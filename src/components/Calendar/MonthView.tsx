@@ -1,5 +1,5 @@
 import { setMonth } from 'date-fns';
-import { JSX, useEffect } from 'react';
+import { JSX, useEffect, useState } from 'react';
 import { Slide } from 'react-awesome-reveal';
 
 import { getMonths } from '../helpers';
@@ -14,9 +14,14 @@ export interface IMonth extends React.PropsWithChildren {
 export const MonthView = ({ value = new Date(), onChange, showMonths }: IMonth): JSX.Element => {
   const months = getMonths(3);
 
+  const [viewDate, setviewDate] = useState(value);
+
   const handleClickMonth = (index: number) => {
-    const month = setMonth(value, index);
-    if (onChange) onChange(month);
+    const month = setMonth(viewDate, index);
+    if (onChange) {
+      onChange(month);
+      setviewDate(month);
+    }
   };
 
   const handleClickCell = (date: number) => {
