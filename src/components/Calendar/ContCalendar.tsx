@@ -36,6 +36,8 @@ export const ContCalendar = ({
 }: IContCalendar): JSX.Element => {
   const [showMonths, setshowMonths] = useState<boolean>(false);
   const [showYears, setShowYears] = useState<boolean>(false);
+  const [viewDate, setViewDate] = useState(currentDate || new Date());
+
   // const [currentDate, setCurrentDate] = useState(new Date());
 
   const [open, setOpen] = useState<boolean>(false);
@@ -82,12 +84,12 @@ export const ContCalendar = ({
           {open && (
             <div className="icx-relative icx-bg-white">
               {showMonths && !showYears ? (
-                <MonthView key="month" value={currentDate} onChange={setCurrentDate} showMonths={setshowMonths} />
+                <MonthView key="month" value={viewDate} onChange={setViewDate} showMonths={setshowMonths} />
               ) : showYears ? (
                 <YearView
                   key="year"
-                  value={currentDate}
-                  onChange={setCurrentDate}
+                  value={viewDate}
+                  onChange={setViewDate}
                   showYears={setShowYears}
                   beforeYear={beforeYear}
                   afterYear={afterYear}
@@ -97,6 +99,8 @@ export const ContCalendar = ({
                   key="calendar"
                   value={currentDate}
                   onChange={setCurrentDate}
+                  viewDate={viewDate}
+                  setViewDate={setViewDate}
                   showMonths={setshowMonths}
                   showYears={setShowYears}
                   beforeYear={beforeYear}

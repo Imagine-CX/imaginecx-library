@@ -312,8 +312,8 @@ function App() {
           placeholder="calender two"
           setCurrentDate={setCalenderTwo}
           disabled={!calenderOne ? true : false}
-          // disableBefore={calenderOne}
-          disableAfter={calenderOne}
+          disableBefore={calenderOne}
+          // disableAfter={calenderOne}
         />
       </div>
       <Header variant="h2">Time Picker</Header>
