@@ -22,7 +22,7 @@ export const Select = forwardRef(
 
     return (
       <div className={cn('icx-px-1 icx-py-1 icx-flex icx-flex-col icx-gap-8', containerClassName)}>
-        <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-2">
+        <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-1">
           <label className={`${labelClassName}  ${estiloTitle}`} htmlFor={title}>
             {title} {required ? <span>*</span> : ''}
           </label>
