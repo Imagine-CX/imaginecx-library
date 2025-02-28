@@ -14,6 +14,7 @@ export interface ITabs {
   classNameContainer?: string;
   classNameTabs?: string;
   classNameTabsSelected?: string;
+  classNameTabsContainer?: string;
 }
 
 export const Tabs = ({
@@ -27,6 +28,7 @@ export const Tabs = ({
   classNameContainer,
   classNameTabs,
   classNameTabsSelected,
+  classNameTabsContainer,
 }: ITabs): JSX.Element => {
   const filteredTabs = tabs.filter((item) => item !== null);
   const filteredContent = content.filter((item) => item !== null);
@@ -103,7 +105,10 @@ export const Tabs = ({
         <div className="xl:icx-w-full xl:icx-mx-0 icx-hidden sm:icx-block">
           <ul
             role="tablist"
-            className="icx-max-w-screen-xl icx-mx-auto icx-border-b icx-flex icx-items-center icx-gap-x-2 icx-justify-between"
+            className={cn(
+              'icx-max-w-screen-xl icx-mx-auto icx-border-b icx-flex icx-items-center icx-gap-x-2 icx-justify-between',
+              classNameTabsContainer,
+            )}
           >
             <div className="icx-flex">
               {filteredTabs.map((item, index) => (

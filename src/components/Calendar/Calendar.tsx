@@ -70,6 +70,7 @@ export interface ICalendar extends React.PropsWithChildren {
   showYears: (value: boolean) => void;
   viewDate: Date;
   setViewDate: Dispatch<SetStateAction<Date>>;
+  showAbove?: boolean;
 }
 
 export const Calendar = ({
@@ -83,6 +84,7 @@ export const Calendar = ({
   disableBefore,
   viewDate,
   setViewDate,
+  showAbove = false,
 }: ICalendar): JSX.Element => {
   const startDate = startOfMonth(viewDate);
   const endDate = endOfMonth(viewDate);
@@ -159,7 +161,9 @@ export const Calendar = ({
   };
 
   return (
-    <div className="icx-w-[300px] icx-h-[370px] icx-border icx-rounded-lg icx-p-10 icx-m-1 icx-drop-shadow-xl icx-overflow-auto icx-bg-white icx-absolute icx-z-50">
+    <div
+      className={`icx-w-[300px] icx-h-[370px] icx-border icx-rounded-lg icx-p-10 icx-m-1 icx-drop-shadow-xl icx-overflow-auto icx-bg-white icx-absolute icx-z-50 ${showAbove ? 'icx-bottom-full icx-mb-1' : 'icx-top-full icx-mt-1'}`}
+    >
       <Slide direction="down">
         <div className="icx-grid icx-grid-cols-7 icx-items-center icx-justify-center icx-text-center">
           <Cell onClick={prevMonth}>{prevIcon}</Cell>

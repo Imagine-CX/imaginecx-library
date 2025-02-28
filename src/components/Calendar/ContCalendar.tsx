@@ -37,11 +37,14 @@ export const ContCalendar = ({
   const [showMonths, setshowMonths] = useState<boolean>(false);
   const [showYears, setShowYears] = useState<boolean>(false);
   const [viewDate, setViewDate] = useState(currentDate || new Date());
+  const [showAbove, setShowAbove] = useState<boolean>(false);
 
   // const [currentDate, setCurrentDate] = useState(new Date());
 
   const [open, setOpen] = useState<boolean>(false);
   const refOne = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const calendarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.addEventListener('click', hideOnClickOutside, true);
@@ -59,6 +62,57 @@ export const ContCalendar = ({
     }
   };
 
+  // Check if there's enough space below the input field
+  const checkPosition = () => {
+    if (containerRef.current) {
+      const containerRect = containerRef.current.getBoundingClientRect();
+
+      // Use a fixed height if calendar is not yet rendered
+      const calendarHeight = calendarRef.current?.offsetHeight || 370; // Default height of calendar
+
+      // Calculate space below the input
+      const spaceBelow = window.innerHeight - containerRect.bottom;
+
+      // If there's not enough space below, show above
+      if (spaceBelow < calendarHeight + 10) {
+        // 10px buffer
+        setShowAbove(true);
+      } else {
+        setShowAbove(false);
+      }
+    }
+  };
+
+  // Handle opening the calendar
+  const handleOpenCalendar = () => {
+    if (!disabled) {
+      const newOpenState = !open;
+      setOpen(newOpenState);
+
+      if (newOpenState) {
+        // Check position immediately
+        checkPosition();
+
+        // And check again after render to be sure
+        setTimeout(checkPosition, 0);
+      }
+    }
+  };
+
+  // Recalculate position on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (open) {
+        checkPosition();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [open]);
+
   useEffect(() => {
     document.addEventListener('click', hideOnClickOutside, true);
     return () => {
@@ -68,12 +122,12 @@ export const ContCalendar = ({
 
   return (
     <>
-      <div>
+      <div ref={containerRef} className="icx-relative">
         <InputField
           value={!currentDate ? '' : format(currentDate, 'dd/MM/yyyy')}
           readOnly
           className={`${disabled ? 'icx-cursor-not-allowed' : ' icx-cursor-pointer'}`}
-          onClick={() => setOpen((open) => !open)}
+          onClick={handleOpenCalendar}
           icon={icon}
           title={title}
           labelClassName={labelClassName}
@@ -82,9 +136,15 @@ export const ContCalendar = ({
         />
         <div ref={refOne}>
           {open && (
-            <div className="icx-relative icx-bg-white">
+            <div ref={calendarRef} className="">
               {showMonths && !showYears ? (
-                <MonthView key="month" value={viewDate} onChange={setViewDate} showMonths={setshowMonths} />
+                <MonthView
+                  key="month"
+                  value={viewDate}
+                  onChange={setViewDate}
+                  showMonths={setshowMonths}
+                  showAbove={showAbove}
+                />
               ) : showYears ? (
                 <YearView
                   key="year"
@@ -93,6 +153,7 @@ export const ContCalendar = ({
                   showYears={setShowYears}
                   beforeYear={beforeYear}
                   afterYear={afterYear}
+                  showAbove={showAbove}
                 />
               ) : (
                 <Calendar
@@ -107,6 +168,7 @@ export const ContCalendar = ({
                   afterYear={afterYear}
                   disableAfter={disableAfter}
                   disableBefore={disableBefore}
+                  showAbove={showAbove}
                 />
               )}
             </div>
