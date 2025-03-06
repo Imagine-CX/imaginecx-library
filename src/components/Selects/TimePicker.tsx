@@ -9,6 +9,7 @@ interface ITimePicker {
   classNameLabel?: string;
 }
 
+// Cambiar el tiempo a 99:99
 export const TimePicker = ({
   initialValue,
   setValue,
