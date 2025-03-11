@@ -7,9 +7,10 @@ interface ITimePicker {
   label?: string;
   idLabel?: string;
   classNameLabel?: string;
+  maxNumber?: boolean;
 }
 
-// Cambiar el tiempo a 99:99
+// Cambiar el tiempo a 99:59
 export const TimePicker = ({
   initialValue,
   setValue,
@@ -17,6 +18,7 @@ export const TimePicker = ({
   idLabel,
   classNameLabel,
   required = false,
+  maxNumber = false,
 }: ITimePicker) => {
   const [hours, setHours] = useState<string | number>('00');
   const [minutes, setMinutes] = useState<string | number>('00');
@@ -25,10 +27,11 @@ export const TimePicker = ({
   useEffect(() => {
     if (initialValue) {
       const value = initialValue.split(':');
-      setHours(String(Math.min(Math.max(parseInt(value[0], 10), 0), 23)).padStart(2, '0'));
+      const maxHours = maxNumber ? 99 : 23; // Determina el límite según maxNumber
+      setHours(String(Math.min(Math.max(parseInt(value[0], 10), 0), maxHours)).padStart(2, '0'));
       setMinutes(String(Math.min(Math.max(parseInt(value[1], 10), 0), 59)).padStart(2, '0'));
     }
-  }, [initialValue]);
+  }, [initialValue, maxNumber]); // Agrega maxNumber a las dependencias
 
   const handleContainerFocus = () => {
     setIsFocused(true);
@@ -44,7 +47,8 @@ export const TimePicker = ({
       valueHours = valueHours.substring(1, 3);
     }
     const newHours = parseInt(valueHours, 10);
-    const paddedHours = String(Math.min(Math.max(newHours, 0), 23)).padStart(2, '0');
+    const maxHours = maxNumber ? 99 : 23;
+    const paddedHours = String(Math.min(Math.max(newHours, 0), maxHours)).padStart(2, '0');
     setHours(paddedHours);
     setValue(`${paddedHours}:${String(minutes).padStart(2, '0')}`);
   };
