@@ -434,10 +434,7 @@ function App() {
           </Tooltip>
         </div>
         <div className="icx-flex icx-items-center">
-          <Tooltip
-            text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar."
-            position="top"
-          >
+          <Tooltip text={['John Doe', 'John Doe', 'John Doe', 'John Doe']} position="top" listType="ul">
             <BiSearch className="icx-w-5 icx-h-5 icx-text-blue-500" />
           </Tooltip>
         </div>

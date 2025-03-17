@@ -1,11 +1,11 @@
-import { JSX } from 'react';
+import { isValidElement, JSX, ReactNode } from 'react';
 
 export interface ITooltip extends React.PropsWithChildren {
-  text: string;
+  text: string | ReactNode | string[];
   position?: 'top' | 'bottom' | 'left' | 'right';
   containerClass?: string;
   theme?: 'dark' | 'light';
-  isDom?: boolean;
+  listType?: 'ul' | 'ol';
 }
 
 export const Tooltip = ({
@@ -14,12 +14,12 @@ export const Tooltip = ({
   position = 'right',
   containerClass,
   theme = 'dark',
-  isDom = false,
+  listType = 'ul',
 }: ITooltip): JSX.Element => {
   const tooltipBaseClasses = 'icx-relative icx-inline-flex';
 
   const tooltipTextBaseClasses =
-    'icx-invisible icx-absolute icx-w-56 icx-text-center icx-p-1 icx-rounded-md icx-z-10 icx-opacity-0 icx-transition-opacity icx-duration-300 icx-shadow-md';
+    'icx-invisible icx-absolute icx-w-max icx-max-w-56 icx-text-center icx-p-1 icx-rounded-md icx-z-10 icx-opacity-0 icx-transition-opacity icx-duration-300 icx-shadow-md icx-px-2';
 
   const themeClasses = {
     light: 'icx-bg-white icx-text-gray-800 icx-border icx-border-gray-200',
@@ -61,13 +61,33 @@ export const Tooltip = ({
     return <div className={arrowClasses}></div>;
   };
 
+  const renderTooltipContent = () => {
+    if (isValidElement(text)) {
+      return text;
+    }
+
+    if (Array.isArray(text)) {
+      const ListComponent = listType === 'ul' ? 'ul' : 'ol';
+      return (
+        <ListComponent className={`icx-text-left icx-pl-5 ${listType === 'ul' ? 'icx-list-disc' : 'icx-list-decimal'}`}>
+          {text.map((item, index) => (
+            <li key={index} className="icx-py-1">
+              {item}
+            </li>
+          ))}
+        </ListComponent>
+      );
+    }
+    return text;
+  };
+
   return (
     <div className={`icx-tooltip ${tooltipBaseClasses} ${containerClass || ''} group`}>
       {children}
       <div
         className={`icx-tooltiptext ${tooltipTextBaseClasses} ${themeClasses[theme]} ${positionClasses[position]} group-hover:icx-visible group-hover:icx-opacity-100`}
       >
-        {isDom ? <div dangerouslySetInnerHTML={{ __html: text }}></div> : text}
+        {renderTooltipContent()}
         {getArrowElement()}
       </div>
     </div>
