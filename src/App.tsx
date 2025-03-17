@@ -425,13 +425,36 @@ function App() {
       </div>
       <Header variant="h2">Tooltip</Header>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-2">
-        <Tooltip text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar.">
-          <BsQuestionCircle className="icx-w-5 icx-h-5" />
-        </Tooltip>
-        <Tooltip text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar.">
-          <BiSearch className="icx-w-5 icx-h-5 icx-text-blue-500" />
-        </Tooltip>
+        <div className="icx-flex icx-items-center">
+          <Tooltip
+            text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar."
+            position="right"
+          >
+            <BsQuestionCircle className="icx-w-5 icx-h-5" />
+          </Tooltip>
+        </div>
+        <div className="icx-flex icx-items-center">
+          <Tooltip text={['John Doe', 'John Doe', 'John Doe', 'John Doe']} position="top" listType="ul">
+            <BiSearch className="icx-w-5 icx-h-5 icx-text-blue-500" />
+          </Tooltip>
+        </div>
+        <div className="icx-flex icx-items-center">
+          <Tooltip
+            text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar."
+            position="right"
+            theme="dark"
+          >
+            <button className="icx-bg-green-500 icx-text-white icx-px-4 icx-py-2 icx-rounded">Hover (Derecha)</button>
+          </Tooltip>
+        </div>
       </div>
+      <Tooltip
+        text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar."
+        position="top"
+        theme="light"
+      >
+        <button className="icx-bg-green-500 icx-text-white icx-px-4 icx-py-2 icx-rounded">Hover (Arriba)</button>
+      </Tooltip>
       <Header variant="h2">Cards</Header>
       <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-4">
         <Card title="Card Basic" type="error12">
