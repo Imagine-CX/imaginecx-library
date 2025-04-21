@@ -1,5 +1,3 @@
-import '../style.css';
-
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef, JSX, ReactNode } from 'react';
 
 export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {

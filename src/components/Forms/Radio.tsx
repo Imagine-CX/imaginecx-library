@@ -1,5 +1,3 @@
-import '../style.css';
-
 import { ForwardedRef, forwardRef, InputHTMLAttributes, JSX } from 'react';
 
 export interface IRadio extends InputHTMLAttributes<HTMLInputElement> {
