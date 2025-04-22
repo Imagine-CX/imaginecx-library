@@ -22,13 +22,13 @@ export const Cell = ({
     <div
       onClick={isActive && isDisabledBefore && isDisabledAfter ? undefined : onClick}
       className={clsx(
-        'icx-h-9 icx-flex icx-items-center icx-justify-center icx-cursor-pointer icx-rounded-full',
+        'icx:h-9 icx:flex icx:items-center icx:justify-center icx:cursor-pointer icx:rounded-full',
         {
-          'icx-text-white icx-bg-primary-400 hover:icx-bg-primary-500':
+          'icx:text-white icx:bg-primary-400 icx:hover:bg-primary-500':
             isActive && !isDisabledBefore && !isDisabledAfter,
         },
-        { 'hover:icx-bg-gray-200 ': !isActive && !isDisabledBefore && !isDisabledAfter && onClick },
-        { 'icx-text-gray-300': isDisabledBefore || isDisabledAfter },
+        { 'icx:hover:bg-gray-200 ': !isActive && !isDisabledBefore && !isDisabledAfter && onClick },
+        { 'icx:text-gray-300': isDisabledBefore || isDisabledAfter },
         className,
       )}
     >

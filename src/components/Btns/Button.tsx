@@ -33,7 +33,7 @@ export const Button = forwardRef(
       estiloBtn = 'icx-btn-disable';
     }
 
-    const iconSpace = icon ? 'icx-space-x-2' : '';
+    const iconSpace = icon ? 'icx:space-x-2' : '';
 
     return (
       <>
@@ -42,21 +42,21 @@ export const Button = forwardRef(
           className={`
         ${estiloBtn} 
         ${className}
-          icx-flex 
-          icx-py-1.5
-          icx-rounded-lg
-          icx-w-full
-          ${animation ? 'hover:icx-scale-[1.02]' : ''}
-          icx-transition-all
-          icx-duration-150
-          icx-ease-in-out
+          icx:flex 
+          icx:py-1.5
+          icx:rounded-lg
+          icx:w-full
+          ${animation ? 'icx:hover:scale-[1.02]' : ''}
+          icx:transition-all
+          icx:duration-150
+          icx:ease-in-out
         `}
           disabled={disabled}
           ref={ref}
           {...btnProps}
         >
-          <div className="icx-m-auto">
-            <div className={`icx-flex icx-items-center ${iconSpace}`}>
+          <div className="icx:m-auto">
+            <div className={`icx:flex icx:items-center ${iconSpace}`}>
               {icon ? <div>{icon}</div> : <div></div>}
               <span>{children}</span>
             </div>

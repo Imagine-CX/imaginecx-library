@@ -69,20 +69,20 @@ export const TimePicker = ({
   };
 
   return (
-    <div className="icx-flex icx-flex-col icx-gap-1 icx-relative">
-      <label className={`icx-w-fit ${classNameLabel}`} htmlFor={idLabel}>
+    <div className="icx:flex icx:flex-col icx:gap-1 icx:relative">
+      <label className={`icx:w-fit ${classNameLabel}`} htmlFor={idLabel}>
         {label} {required ? <span>*</span> : ''}
       </label>
       <div
-        className={`icx-flex icx-items-center icx-border ${
-          isFocused ? 'icx-border-primary-300' : 'icx-border-gray-300'
-        } icx-px-4 icx-py-1 icx-transition icx-duration-300 icx-text-gray-700 icx-w-full icx-rounded-lg`}
+        className={`icx:flex icx:items-center icx:border ${
+          isFocused ? 'icx:border-primary-300' : 'icx:border-gray-300'
+        } icx:px-4 icx:py-1 icx:transition icx:duration-300 icx:text-gray-700 icx:w-full icx:rounded-lg`}
         onFocus={handleContainerFocus}
         onBlur={handleContainerBlur}
       >
         <input
           id={idLabel}
-          className="icx-w-1/2 icx-mr-2 icx-text-center icx-outline-none"
+          className="icx:w-1/2 icx:mr-2 icx:text-center icx:outline-hidden"
           type="number"
           value={hours}
           onChange={handlerHours}
@@ -91,7 +91,7 @@ export const TimePicker = ({
         />
         <span className="text-gray-500">:</span>
         <input
-          className="icx-w-1/2 icx-ml-2 icx-text-center icx-outline-none"
+          className="icx:w-1/2 icx:ml-2 icx:text-center icx:outline-hidden"
           type="number"
           value={minutes}
           onChange={handlerMinutes}

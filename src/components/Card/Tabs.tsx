@@ -44,12 +44,12 @@ export const Tabs = ({
   return (
     <>
       <div
-        className={cn('icx-bg-white icx-mx-auto element-shadow icx-rounded-lg icx-w-full icx-pb-1', classNameContainer)}
+        className={cn('icx:bg-white icx:mx-auto element-shadow icx:rounded-lg icx:w-full icx:pb-1', classNameContainer)}
       >
-        <div className="sm:icx-hidden icx-relative icx-w-full icx-mx-auto icx-bg-white icx-rounded">
+        <div className="icx:sm:hidden icx:relative icx:w-full icx:mx-auto icx:bg-white icx:rounded">
           {!hiddenElement && (
             <Slide triggerOnce>
-              <div className="icx-absolute icx-ml-4 icx-my-3 icx-z-0 icx-w-6 icx-h-6">
+              <div className="icx:absolute icx:ml-4 icx:my-3 icx:z-0 icx:w-6 icx:h-6">
                 <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                   <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
@@ -66,35 +66,35 @@ export const Tabs = ({
               </div>
             </Slide>
           )}
-          <div className="icx-flex icx-border-b">
+          <div className="icx:flex icx:border-b">
             {!hiddenElement ? (
-              <div className="icx-w-full icx-flex icx-items-center icx-justify-between">
+              <div className="icx:w-full icx:flex icx:items-center icx:justify-between">
                 <Slide triggerOnce>
                   <select
                     role="tablist"
                     onChange={handleSelectChange}
-                    className="icx-form-select icx-block icx-w-full icx-py-3 icx-rounded icx-appearance-none icx-bg-transparent icx-relative icx-z-10 icx-font-bold icx-pl-12"
+                    className="icx-form-select icx:block icx:w-full icx:py-3 icx:rounded icx:appearance-none icx:bg-transparent icx:relative icx:z-10 icx:font-bold icx:pl-12"
                   >
                     {filteredTabs.map((item, index) => (
-                      <option key={index} className="icx-text-sm icx-text-gray-600">
+                      <option key={index} className="icx:text-sm icx:text-gray-600">
                         {item}
                       </option>
                     ))}
                   </select>
-                  <div className="icx-flex icx-items-center icx-pt-1">
-                    <button className="icx-mr-4" onClick={() => setHiddenElement(true)}>
+                  <div className="icx:flex icx:items-center icx:pt-1">
+                    <button className="icx:mr-4" onClick={() => setHiddenElement(true)}>
                       {iconSmScreen}
                     </button>
                   </div>
                 </Slide>
               </div>
             ) : (
-              <div className="icx-w-full icx-flex icx-items-center icx-justify-between icx-pb-1">
+              <div className="icx:w-full icx:flex icx:items-center icx:justify-between icx:pb-1">
                 <Slide direction="right" triggerOnce>
-                  <div className="icx-flex icx-items-center">{navElement}</div>
-                  <div className="icx-flex icx-items-center icx-pt-1">
-                    <button className="icx-mr-4" onClick={() => setHiddenElement(false)}>
-                      <Close className="icx-w-5 icx-h-5 icx-mx-auto icx-text-black" />
+                  <div className="icx:flex icx:items-center">{navElement}</div>
+                  <div className="icx:flex icx:items-center icx:pt-1">
+                    <button className="icx:mr-4" onClick={() => setHiddenElement(false)}>
+                      <Close className="icx:w-5 icx:h-5 icx:mx-auto icx:text-black" />
                     </button>
                   </div>
                 </Slide>
@@ -102,29 +102,29 @@ export const Tabs = ({
             )}
           </div>
         </div>
-        <div className="xl:icx-w-full xl:icx-mx-0 icx-hidden sm:icx-block">
+        <div className="icx:xl:w-full icx:xl:mx-0 icx:hidden icx:sm:block">
           <ul
             role="tablist"
             className={cn(
-              'icx-max-w-screen-xl icx-mx-auto icx-border-b icx-flex icx-items-center icx-gap-x-2 icx-justify-between',
+              'icx:max-w-(--breakpoint-xl) icx:mx-auto icx:border-b icx:flex icx:items-center icx:gap-x-2 icx:justify-between',
               classNameTabsContainer,
             )}
           >
-            <div className="icx-flex">
+            <div className="icx:flex">
               {filteredTabs.map((item, index) => (
                 <li
                   key={index}
-                  className={`icx-py-2 icx-border-b-4 ${
+                  className={`icx:py-2 icx:border-b-4 ${
                     selectedItem === index
-                      ? cn('icx-border-primary-400 icx-font-bold', classNameTabsSelected)
-                      : cn('icx-border-white icx-text-gray-400', classNameTabs)
+                      ? cn('icx:border-primary-400 icx:font-bold', classNameTabsSelected)
+                      : cn('icx:border-white icx:text-gray-400', classNameTabs)
                   }`}
                 >
                   <button
                     role="tab"
                     aria-selected={selectedItem === index ? true : false}
                     aria-controls={`tabpanel-${index + 1}`}
-                    className="icx-py-1 icx-px-4 icx-rounded-lg icx-duration-150"
+                    className="icx:py-1 icx:px-4 icx:rounded-lg icx:duration-150"
                     onClick={() => setSelectedItem(index)}
                   >
                     {item}
@@ -132,17 +132,17 @@ export const Tabs = ({
                 </li>
               ))}
             </div>
-            <div className="icx-flex icx-items-center">{navElement}</div>
+            <div className="icx:flex icx:items-center">{navElement}</div>
           </ul>
         </div>
-        <div className={cn('icx-max-w-screen-xl icx-mx-auto icx-px-1', className)}>
+        <div className={cn('icx:max-w-(--breakpoint-xl) icx:mx-auto icx:px-1', className)}>
           {filteredContent.map((item, index) => (
             <div
               key={index}
               id={`tabpanel-${index + 1}`}
               role="tabpanel"
               aria-labelledby={`tab-${index + 1}`}
-              className={`${selectedItem === index ? 'icx-block' : 'icx-hidden'}`}
+              className={`${selectedItem === index ? 'icx:block' : 'icx:hidden'}`}
             >
               {item}
             </div>

@@ -22,36 +22,36 @@ export const InputField = ({
   ...inputProps
 }: IInputField): JSX.Element => {
   const showIcon: JSX.Element = icon ? (
-    <div className="icx-text-gray-700 icx-absolute icx-top-1/2 icx--translate-y-1/2 icx-left-4">{icon}</div>
+    <div className="icx:text-gray-700 icx:absolute icx:top-1/2 icx:-translate-y-1/2 icx:left-4">{icon}</div>
   ) : (
     <></>
   );
 
   const showAction = action ? (
-    <div className="icx-text-gray-700 icx-absolute icx-top-1/2 icx-cursor-pointer icx--translate-y-1/2 icx-right-3 icx-flex icx-justify-end">
+    <div className="icx:text-gray-700 icx:absolute icx:top-1/2 icx:cursor-pointer icx:-translate-y-1/2 icx:right-3 icx:flex icx:justify-end">
       {action}
     </div>
   ) : (
     <></>
   );
 
-  const padding: string = icon ? 'icx-pl-[50px]' : 'icx-pl-4';
-  const paddingAction = action ? 'icx-pr-10' : 'icx-pr-4';
+  const padding: string = icon ? 'icx:pl-[50px]' : 'icx:pl-4';
+  const paddingAction = action ? 'icx:pr-10' : 'icx:pr-4';
   const estiloInput: string = disabled ? 'icx-input-disabled' : 'icx-input-active';
-  const estiloTitle = disabled ? 'icx-text-gray-300' : 'icx-text-neutral-500';
+  const estiloTitle = disabled ? 'icx:text-gray-300' : 'icx:text-neutral-500';
 
   return (
-    <div className="icx-flex icx-flex-col icx-gap-8">
-      <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-1">
-        <label htmlFor={title} className={`${labelClassName} ${estiloTitle} icx-flex icx-items-center icx-gap-1`}>
+    <div className="icx:flex icx:flex-col icx:gap-8">
+      <div className="icx:w-full icx:flex icx:flex-col icx:gap-y-1">
+        <label htmlFor={title} className={`${labelClassName} ${estiloTitle} icx:flex icx:items-center icx:gap-1`}>
           {title} {required ? <span className={estiloTitle}>*</span> : ''}{' '}
-          {labelAction ? <div className="icx-ml-2">{labelAction}</div> : ''}
+          {labelAction ? <div className="icx:ml-2">{labelAction}</div> : ''}
         </label>
-        <div className="icx-relative icx-text-gray-400">
+        <div className="icx:relative icx:text-gray-400">
           {showIcon}
           <div className="ml-5">{showAction}</div>
           <input
-            className={`icx-w-full ${padding} ${paddingAction} icx-py-1.5 icx-rounded-lg icx-outline-none ${estiloInput} ${
+            className={`icx:w-full ${padding} ${paddingAction} icx:py-1.5 icx:rounded-lg icx:outline-hidden ${estiloInput} ${
               className ?? ''
             }`}
             id={title}

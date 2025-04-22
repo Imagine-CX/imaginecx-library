@@ -162,23 +162,23 @@ export const Calendar = ({
 
   return (
     <div
-      className={`icx-w-[300px] icx-h-[370px] icx-border icx-rounded-lg icx-p-10 icx-m-1 icx-drop-shadow-xl icx-overflow-auto icx-bg-white icx-absolute icx-z-50 ${showAbove ? 'icx-bottom-full icx-mb-1' : 'icx-top-full icx-mt-1'}`}
+      className={`icx:w-[300px] icx:h-[370px] icx:border icx:rounded-lg icx:p-10 icx:m-1 icx:drop-shadow-xl icx:overflow-auto icx:bg-white icx:absolute icx:z-50 ${showAbove ? 'icx:bottom-full icx:mb-1' : 'icx:top-full icx:mt-1'}`}
     >
       <Slide direction="down">
-        <div className="icx-grid icx-grid-cols-7 icx-items-center icx-justify-center icx-text-center">
+        <div className="icx:grid icx:grid-cols-7 icx:items-center icx:justify-center icx:text-center">
           <Cell onClick={prevMonth}>{prevIcon}</Cell>
-          <Cell onClick={handleShowMonth} className="icx-font-bold icx-text-sm">
+          <Cell onClick={handleShowMonth} className="icx:font-bold icx:text-sm">
             {format(viewDate, 'MMM', { locale: es }).toUpperCase()}
           </Cell>
           <Cell onClick={nextMonth}>{nextIcon}</Cell>
           <Cell />
           <Cell onClick={prevYear}>{prevIcon}</Cell>
-          <Cell onClick={handleShowYear} className="icx-font-bold icx-text-sm">
+          <Cell onClick={handleShowYear} className="icx:font-bold icx:text-sm">
             {format(viewDate, 'yyyy')}
           </Cell>
           <Cell onClick={nextYear}>{nextIcon}</Cell>
           {daysOfWeek.map((day, index) => (
-            <Cell className="icx-font-bold" key={index}>
+            <Cell className="icx:font-bold" key={index}>
               {day}
             </Cell>
           ))}

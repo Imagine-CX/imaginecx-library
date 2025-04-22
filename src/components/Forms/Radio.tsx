@@ -14,21 +14,21 @@ export const Radio = forwardRef(
 
     return (
       <>
-        <div className="icx-radio icx-flex icx-items-center icx-gap-x-2 icx-m-0.5">
+        <div className="icx-radio icx:flex icx:items-center icx:gap-x-2 icx:m-0.5">
           <input
             name={name}
             type="radio"
             id={id}
-            className="icx-hidden"
+            className="icx:hidden"
             disabled={disabled}
             ref={ref}
             {...radioProps}
           />
           <label
             htmlFor={id}
-            className="icx-mt-2 icx-rounded-full icx-border icx-border-orange-400 icx-flex icx-w-4 icx-h-4"
+            className="icx:mt-2 icx:rounded-full icx:border icx:border-orange-400 icx:flex icx:w-4 icx:h-4"
           ></label>
-          <span className={`icx-font-imagine icx-pt-1 ${classNameLabel ?? ''}`}>{text}</span>
+          <span className={`icx:font-imagine icx:pt-1 ${classNameLabel ?? ''}`}>{text}</span>
         </div>
       </>
     );

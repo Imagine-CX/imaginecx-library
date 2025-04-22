@@ -122,11 +122,11 @@ export const ContCalendar = ({
 
   return (
     <>
-      <div ref={containerRef} className="icx-relative">
+      <div ref={containerRef} className="icx:relative">
         <InputField
           value={!currentDate ? '' : format(currentDate, 'dd/MM/yyyy')}
           readOnly
-          className={`${disabled ? 'icx-cursor-not-allowed' : ' icx-cursor-pointer'}`}
+          className={`${disabled ? 'icx:cursor-not-allowed' : ' icx:cursor-pointer'}`}
           onClick={handleOpenCalendar}
           icon={icon}
           title={title}

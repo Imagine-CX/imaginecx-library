@@ -18,11 +18,11 @@ export const Select = forwardRef(
     ref: ForwardedRef<HTMLSelectElement>,
   ) => {
     const estiloSelect: string = disabled ? 'icx-selector-disabled' : 'icx-selector-active';
-    const estiloTitle = disabled ? 'icx-text-gray-300' : 'icx-text-neutral-500';
+    const estiloTitle = disabled ? 'icx:text-gray-300' : 'icx:text-neutral-500';
 
     return (
-      <div className={cn('icx-px-1 icx-py-1 icx-flex icx-flex-col icx-gap-8', containerClassName)}>
-        <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-1">
+      <div className={cn('icx:px-1 icx:py-1 icx:flex icx:flex-col icx:gap-8', containerClassName)}>
+        <div className="icx:w-full icx:flex icx:flex-col icx:gap-y-1">
           <label className={`${labelClassName}  ${estiloTitle}`} htmlFor={title}>
             {title} {required ? <span>*</span> : ''}
           </label>
@@ -30,13 +30,13 @@ export const Select = forwardRef(
             disabled={disabled}
             id={title}
             ref={ref}
-            className={`icx-w-full icx-border icx-px-2 icx-py-1.5 icx-rounded-lg ${estiloSelect} ${className}`}
+            className={`icx:w-full icx:border icx:px-2 icx:py-1.5 icx:rounded-lg ${estiloSelect} ${className}`}
             required
             {...props}
           >
             {options.map((option) => (
               <option
-                className="hover:icx-bg-neutral-200 icx-rounded-lg"
+                className="icx:hover:bg-neutral-200 icx:rounded-lg"
                 key={option.value}
                 value={option.hidden ? '' : option.value}
                 hidden={option.hidden}

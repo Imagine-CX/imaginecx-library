@@ -138,25 +138,25 @@ function App() {
   const [calenderTwo, setCalenderTwo] = useState<undefined | Date>(undefined);
 
   return (
-    <div className="icx-container icx-ml-3">
-      <div className="icx-text-center">
+    <div className="icx:container icx:ml-3">
+      <div className="icx:text-center">
         <Header variant="h2">ICX Library</Header>
       </div>
       <Header variant="h2">Buttons</Header>
-      <div className="icx-grid icx-grid-cols-2 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-3 lg:icx-grid-cols-4">
-        <Button color="primary" className="icx-py-1">
+      <div className="icx:grid icx:grid-cols-2 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-3 icx:lg:grid-cols-4">
+        <Button color="primary" className="icx:py-1">
           Primary
         </Button>
         <Button color="secondary">Secondary</Button>
         <Button color="error">Error</Button>
         <Button color="alternative">Alternative</Button>
         <Button color="success">
-          <p className="icx-font-bold">Success</p>
+          <p className="icx:font-bold">Success</p>
         </Button>
         <Button color="success" disabled>
           Disabled
         </Button>
-        <Button color="success" icon={<img src={smsIcon} className="icx-w-6 icx-h-6"></img>}>
+        <Button color="success" icon={<img src={smsIcon} className="icx:w-6 icx:h-6"></img>}>
           Button with Icon
         </Button>
         <Button color="primary" animation>
@@ -166,14 +166,14 @@ function App() {
         <img src={smsIcon} alt="" />
       </div>
       <Header variant="h2">Checkbox</Header>
-      <div className="icx-grid icx-grid-cols-2 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-4">
+      <div className="icx:grid icx:grid-cols-2 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-4">
         <CheckBox text="Checkbox" id="check1" />
         <CheckBox text="Checkbox Disabled" id="check2" disabled />
         <CheckBox text="Checkbox disabled checked" id="check2" disabled checked />
         <CheckBox text="Checkbox checked" checked />
       </div>
       <Header variant="h2">Radio Buttons</Header>
-      <div className="icx-grid icx-grid-cols-2 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-4">
+      <div className="icx:grid icx:grid-cols-2 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-4">
         {options.map((option) => (
           <div key={option.id}>
             <Radio text={option.label} id={`${option.id}`} name="options" />
@@ -183,21 +183,21 @@ function App() {
         <Radio text="Radio Button checked disabled" checked disabled id="radio2" />
       </div>
       <Header variant="h2">Toggle</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-4">
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-4">
         <Toggle text="Toggle" id="toggle1" />
         <Toggle text="Toggle disabled" id="toggle2" disabled />
         <Toggle text="Toggle disabled checked" id="toggle3" checked disabled />
         <Toggle text="Toggle checked" id="toggle4" checked />
       </div>
       <Header variant="h2">Inputs</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3">
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-3">
         <InputField placeholder="Input basic" name="Input basic" title="Input basic" />
         <InputField placeholder="Input required" name="Input required" title="Input required" required />
         <InputField
           placeholder="Input with Icon"
           name="Input with Icon"
           title="Input with Icon"
-          icon={<BiSearch className="icx-w-5 icx-h-5" />}
+          icon={<BiSearch className="icx:w-5 icx:h-5" />}
           required
         />
         <InputField
@@ -206,7 +206,7 @@ function App() {
           title="Input with action"
           action={
             <button>
-              <BiSearch className="icx-w-5 icx-h-5" />
+              <BiSearch className="icx:w-5 icx:h-5" />
             </button>
           }
           required
@@ -217,10 +217,10 @@ function App() {
           title="Input with icon and action"
           action={
             <button>
-              <BiSearch className="icx-w-5 icx-h-5" />
+              <BiSearch className="icx:w-5 icx:h-5" />
             </button>
           }
-          icon={<BiSearch className="icx-w-5 icx-h-5" />}
+          icon={<BiSearch className="icx:w-5 icx:h-5" />}
           required
         />
         <InputField placeholder="Input disabled" name="Input disabled" title="Input disabled" required disabled />
@@ -230,7 +230,7 @@ function App() {
           title="Input Label with Toltip"
           labelAction={
             <Tooltip text="This is a tooltip to guide the user in the interface">
-              <BsQuestionCircle className="icx-w-5 icx-h-5" />
+              <BsQuestionCircle className="icx:w-5 icx:h-5" />
             </Tooltip>
           }
         />
@@ -240,7 +240,7 @@ function App() {
           title="Input Label with tooltip and required"
           labelAction={
             <Tooltip text="This is a tooltip to guide the user in the interface">
-              <BsQuestionCircle className="icx-w-5 icx-h-5" />
+              <BsQuestionCircle className="icx:w-5 icx:h-5" />
             </Tooltip>
           }
           required
@@ -251,26 +251,26 @@ function App() {
           title="Input Label with tooltip Disabled"
           labelAction={
             <Tooltip text="This is a tooltip to guide the user in the interface">
-              <BsQuestionCircle className="icx-w-5 icx-h-5" />
+              <BsQuestionCircle className="icx:w-5 icx:h-5" />
             </Tooltip>
           }
           disabled
         />
       </div>
       <Header variant="h2">Calendar</Header>
-      <div className="icx-w-28">
+      <div className="icx:w-28">
         <InputField
           placeholder="Input Label as tooltip"
           name="Input Label with tooltip"
           title="Input Label with Toltip"
           labelAction={
             <Tooltip text="This is a tooltip to guide the user in the interface">
-              <BsQuestionCircle className="icx-w-5 icx-h-5" />
+              <BsQuestionCircle className="icx:w-5 icx:h-5" />
             </Tooltip>
           }
         />
       </div>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3 ">
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-3 ">
         <ContCalendar
           beforeYear={7}
           afterYear={7}
@@ -291,7 +291,7 @@ function App() {
           currentDate={currentDate}
           setCurrentDate={setCurrentDate}
           onChangeCalendar={(value) => setCurrentDate(value)}
-          icon={<BiSearch className="icx-w-5 icx-h-5" />}
+          icon={<BiSearch className="icx:w-5 icx:h-5" />}
         />
         <ContCalendar
           beforeYear={7}
@@ -302,7 +302,7 @@ function App() {
           currentDate={currentDate}
           setCurrentDate={setCurrentDate}
           onChangeCalendar={(value) => setCurrentDate(value)}
-          icon={<BiSearch className="icx-w-5 icx-h-5" />}
+          icon={<BiSearch className="icx:w-5 icx:h-5" />}
           disabled
         />
 
@@ -317,11 +317,11 @@ function App() {
         />
       </div>
       <Header variant="h2">Time Picker</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3 ">
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-3 ">
         <TimePicker initialValue={time} setValue={setTime} label="Time" idLabel="time" maxNumber />
       </div>
       <Header variant="h2">Color Pick</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3 ">
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-3 ">
         <ColorPicker
           colorPick={colorPick}
           handleChangeColor={(color) => setColorPick(color)}
@@ -330,14 +330,14 @@ function App() {
         />
       </div>
       <Header variant="h2">Text Area</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3">
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-3">
         <TextArea
           title="Text Area"
           placeholder="Mensaje"
           content="Hola Mundo"
           labelAction={
             <Tooltip text="This is a tooltip to guide the user in the interface">
-              <BsQuestionCircle className="icx-w-5 icx-h-5" />
+              <BsQuestionCircle className="icx:w-5 icx:h-5" />
             </Tooltip>
           }
         />
@@ -345,7 +345,7 @@ function App() {
         <TextArea title="Text Area disabled" placeholder="Mensaje disabled" required disabled />
       </div>
       <Header variant="h2">Select</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3">
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-3">
         <Select
           options={optionsSelect2}
           name="selector"
@@ -380,32 +380,32 @@ function App() {
         />
       </div>
       <Header variant="h2">Dropdown</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-3">
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-3">
         <Dropdown title="Dropdown basic" items={[{ id: '1', value: 'action 1', click: () => {} }]} />
         <Dropdown
           title="Dropdown with Icon"
           items={[{ id: '1', value: 'action 1', click: () => {} }]}
-          icon={<BiSearch size={19} className="icx-text-white icx-ml-1 icx-mt-1.5" />}
+          icon={<BiSearch size={19} className="icx:text-white icx:ml-1 icx:mt-1.5" />}
         />
         <Dropdown
           title="Dropdown disabled"
           items={[{ id: '1', value: 'action 1', click: () => {} }]}
-          icon={<BiSearch size={19} className="icx-text-white icx-ml-1 icx-mt-1.5" />}
+          icon={<BiSearch size={19} className="icx:text-white icx:ml-1 icx:mt-1.5" />}
           disabled
         />
       </div>
       <Header variant="h2">Popover</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-2">
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-2">
         <Popover position="bottom-center">
           <Popover.Trigger>
             <input
               type="text"
-              className="icx-border icx-rounded-md icx-w-full icx-py-1.5 focus:icx-border-primary-400"
+              className="icx:border icx:rounded-md icx:w-full icx:py-1.5 icx:focus:border-primary-400"
             />
             {/* <InputField placeholder="Click" type="text" /> */}
           </Popover.Trigger>
           <Popover.Content>
-            <p className="icx-w-96">
+            <p className="icx:w-96">
               Recuerda que, en la primera columna del informe, debe ir el número telefónico del contacto. debe ir el
               número telefónico del contacto.
             </p>
@@ -416,7 +416,7 @@ function App() {
             <Button color="success">Hola</Button>
           </Popover.Trigger>
           <Popover.Content>
-            <p className="icx-w-96">
+            <p className="icx:w-96">
               Recuerda que, en la primera columna del informe, debe ir el número telefónico del contacto. debe ir el
               número telefónico del contacto.
             </p>
@@ -424,29 +424,13 @@ function App() {
         </Popover>
       </div>
       <Header variant="h2">Tooltip</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-2">
-        <div className="icx-flex icx-items-center">
-          <Tooltip
-            text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar."
-            position="right"
-          >
-            <BsQuestionCircle className="icx-w-5 icx-h-5" />
-          </Tooltip>
-        </div>
-        <div className="icx-flex icx-items-center">
-          <Tooltip text={['John Doe', 'John Doe', 'John Doe', 'John Doe']} position="top" listType="ul">
-            <BiSearch className="icx-w-5 icx-h-5 icx-text-blue-500" />
-          </Tooltip>
-        </div>
-        <div className="icx-flex icx-items-center">
-          <Tooltip
-            text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar."
-            position="right"
-            theme="dark"
-          >
-            <button className="icx-bg-green-500 icx-text-white icx-px-4 icx-py-2 icx-rounded">Hover (Derecha)</button>
-          </Tooltip>
-        </div>
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-2">
+        <Tooltip text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar.">
+          <BsQuestionCircle className="icx:w-5 icx:h-5" />
+        </Tooltip>
+        <Tooltip text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar.">
+          <BiSearch className="icx:w-5 icx:h-5 icx:text-blue-500" />
+        </Tooltip>
       </div>
       <Tooltip
         text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar."
@@ -456,7 +440,7 @@ function App() {
         <button className="icx-bg-green-500 icx-text-white icx-px-4 icx-py-2 icx-rounded">Hover (Arriba)</button>
       </Tooltip>
       <Header variant="h2">Cards</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-4">
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-4">
         <Card title="Card Basic" type="error12">
           <p>
             Ipsum cillum ipsum pariatur labore adipisicing occaecat quis ut. Officia ipsum mollit sit occaecat qui id
@@ -515,18 +499,18 @@ function App() {
         </Card>
       </div>
       <Header variant="h2">Tabs</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-2">
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-2">
         <div>
-          <h1 className="icx-mb-3 icx-font-bold">Tabs basic</h1>
+          <h1 className="icx:mb-3 icx:font-bold">Tabs basic</h1>
           <Tabs
             tabs={['Tab 1', 'Tab 2']}
             content={[
-              <p key="one" className="icx-p-4">
+              <p key="one" className="icx:p-4">
                 Culpa cillum nostrud nostrud est proident et dolore excepteur dolor. Deserunt aliqua magna voluptate
                 voluptate ea commodo in est id non. Nulla id pariatur mollit esse eu pariatur cillum. Eiusmod ullamco
                 excepteur non anim sit eu eiusmod et. Dolore culpa exercitation aliquip veniam aliquip aliqua ullamco.
               </p>,
-              <p key="two" className="icx-p-4">
+              <p key="two" className="icx:p-4">
                 Dolore officia irure veniam excepteur ut commodo culpa esse id. Laboris sunt in non et. Voluptate
                 pariatur veniam voluptate voluptate ut ut est in incididunt. Proident laborum aute consectetur eiusmod
                 ad. Aliqua ut fugiat qui voluptate qui reprehenderit officia aliqua amet. Sint exercitation dolore anim
@@ -535,28 +519,28 @@ function App() {
             ]}
             selectedItem={selectedItem1}
             setSelectedItem={setSelectedItem1}
-            className="icx-bg-blue-300 icx-py-2"
-            classNameTabs="icx-text-[#7B7B7B]"
-            classNameTabsSelected="icx-font-semibold"
+            className="icx:bg-blue-300 icx:py-2"
+            classNameTabs="icx:text-[#7B7B7B]"
+            classNameTabsSelected="icx:font-semibold"
           />
         </div>
         <div>
-          <h1 className="icx-mb-3 icx-font-bold">Tabs with navElement</h1>
+          <h1 className="icx:mb-3 icx:font-bold">Tabs with navElement</h1>
           <Tabs
             tabs={['Tab 1', 'Tab 2', 'Tab 3']}
             content={[
-              <p key="one" className="icx-p-4">
+              <p key="one" className="icx:p-4">
                 Otro
               </p>,
-              <p key="two" className="icx-p-4">
+              <p key="two" className="icx:p-4">
                 Hola
               </p>,
-              <p key="two" className="icx-p-4">
+              <p key="two" className="icx:p-4">
                 Nuevo 3
               </p>,
             ]}
             navElement={
-              <div className="icx-w-64 icx-mr-4">
+              <div className="icx:w-64 icx:mr-4">
                 <InputField type="text" placeholder="Escribe aquí" />
               </div>
             }
@@ -581,9 +565,9 @@ function App() {
         </div>
       </div>
       <Header variant="h2">Alerts</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-4">
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-4">
         <div>
-          <Button color="success" className="icx-py-1.5" onClick={() => setOpen1(!open1)}>
+          <Button color="success" className="icx:py-1.5" onClick={() => setOpen1(!open1)}>
             Alert Success
           </Button>
           <Alert
@@ -591,7 +575,7 @@ function App() {
             setOpen={setOpen1}
             icon={
               <svg
-                className="icx-w-8 icx-h-8 icx-text-white icx-fill-current"
+                className="icx:w-8 icx:h-8 icx:text-white icx:fill-current"
                 viewBox="0 0 40 40"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -605,7 +589,7 @@ function App() {
           </Alert>
         </div>
         <div>
-          <Button color="error" className="icx-py-1.5" onClick={() => setOpen2(!open2)}>
+          <Button color="error" className="icx:py-1.5" onClick={() => setOpen2(!open2)}>
             Alert Error
           </Button>
           <Alert
@@ -613,7 +597,7 @@ function App() {
             setOpen={setOpen2}
             icon={
               <svg
-                className="icx-w-8 icx-h-8 icx-text-white icx-fill-current"
+                className="icx:w-8 icx:h-8 icx:text-white icx:fill-current"
                 viewBox="0 0 40 40"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -626,7 +610,7 @@ function App() {
           </Alert>
         </div>
         <div>
-          <Button color="success" className="icx-py-1.5" onClick={() => setOpen3(!open3)}>
+          <Button color="success" className="icx:py-1.5" onClick={() => setOpen3(!open3)}>
             Alert con type incorrecto
           </Button>
           <Alert
@@ -634,7 +618,7 @@ function App() {
             setOpen={setOpen3}
             icon={
               <svg
-                className="icx-w-8 icx-h-8 icx-text-white icx-fill-current"
+                className="icx:w-8 icx:h-8 icx:text-white icx:fill-current"
                 viewBox="0 0 40 40"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -648,7 +632,7 @@ function App() {
           </Alert>
         </div>
         <div>
-          <Button color="error" className="icx-py-1.5" onClick={() => setOpen4(!open4)}>
+          <Button color="error" className="icx:py-1.5" onClick={() => setOpen4(!open4)}>
             Alert con opción de cerrar
           </Button>
           <Alert
@@ -656,7 +640,7 @@ function App() {
             setOpen={setOpen4}
             icon={
               <svg
-                className="icx-w-8 icx-h-8 icx-text-white icx-fill-current"
+                className="icx:w-8 icx:h-8 icx:text-white icx:fill-current"
                 viewBox="0 0 40 40"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -666,10 +650,10 @@ function App() {
             type="warning"
             closeCustom={
               <button
-                className="icx-p-1 icx-transition-colors icx-duration-300 icx-transform icx-rounded-md hover:icx-bg-opacity-25 hover:icx-bg-gray-600 focus:icx-outline-none"
+                className="icx:p-1 icx:transition-colors icx:duration-300 icx:transform icx:rounded-md icx:hover:bg-opacity-25 icx:hover:bg-gray-600 icx:focus:outline-hidden"
                 onClick={() => setOpen4(false)}
               >
-                <Close className="icx-w-5 icx-h-5 icx-mx-auto icx-text-white" />
+                <Close className="icx:w-5 icx:h-5 icx:mx-auto icx:text-white" />
               </button>
             }
           >
@@ -678,19 +662,19 @@ function App() {
         </div>
       </div>
       <Header variant="h2">BreadCrumb</Header>
-      <div className="icx-flex icx-justify-center icx-items-center">
+      <div className="icx:flex icx:justify-center icx:items-center">
         <BreadCrumb items={itemsBread} selected="Inicio" home="/" />
       </div>
       <Header variant="h2">Modal</Header>
-      <div className="icx-mt-3 icx-pb-8">
-        <Button color="success" className="icx-py-1.5" onClick={() => setOpen(!open)}>
+      <div className="icx:mt-3 icx:pb-8">
+        <Button color="success" className="icx:py-1.5" onClick={() => setOpen(!open)}>
           Modal
         </Button>
         <Modal open={open} setOpen={setOpen}>
-          <div className="icx-text-center icx-p-4 icx-mt-3">
+          <div className="icx:text-center icx:p-4 icx:mt-3">
             <p>¿Estás seguro de que quieres actualizar la campaña sin hacer ninguna prueba de envío?</p>
           </div>
-          <div className="icx-flex icx-items-center icx-gap-3 icx-p-4 icx-mt-5">
+          <div className="icx:flex icx:items-center icx:gap-3 icx:p-4 icx:mt-5">
             <Button color="alternative">No</Button>
             <Button color="primary">Si</Button>
           </div>
@@ -708,8 +692,8 @@ function App() {
         </Loader> */}
       </div>
       <Header variant="h2">Skeleton</Header>
-      <div className="icx-grid icx-grid-cols-1 icx-gap-4 icx-mt-3 icx-pb-8 md:icx-grid-cols-2 lg:icx-grid-cols-4">
-        <div className="icx-h-20">
+      <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-4">
+        <div className="icx:h-20">
           <p>Rectangular</p>
           <Skeleton variant="rectangular" />
         </div>
@@ -717,7 +701,7 @@ function App() {
           <p>Rectangular con bordes redondeados</p>
           <Skeleton variant="rounded" width="100%" height="80px" />
         </div>
-        <div className="icx-h-20">
+        <div className="icx:h-20">
           <p>Circular</p>
           <Skeleton variant="circular" width={'5rem'} height={'5rem'} />
         </div>
@@ -727,7 +711,7 @@ function App() {
           <Skeleton variant="text" />
           <Skeleton variant="text" />
         </div>
-        <div className="icx-h-20">
+        <div className="icx:h-20">
           <p>Rectangular animación</p>
           <Skeleton variant="rectangular" animation />
         </div>
@@ -735,7 +719,7 @@ function App() {
           <p>Bordes redondeados con animación</p>
           <Skeleton variant="rounded" width="100%" height="80px" animation />
         </div>
-        <div className="icx-h-20">
+        <div className="icx:h-20">
           <p>Circular animación</p>
           <Skeleton variant="circular" width={'5rem'} height={'5rem'} animation />
         </div>

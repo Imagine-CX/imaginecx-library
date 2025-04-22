@@ -73,8 +73,8 @@ export const Combobox = ({
     },
   });
 
-  const styleHover = (index: number) => (highlightedIndex === index ? 'icx-bg-primary-400' : '');
-  const styleSelected = (option: Options) => (selectedItem === option ? 'icx-font-bold' : '');
+  const styleHover = (index: number) => (highlightedIndex === index ? 'icx:bg-primary-400' : '');
+  const styleSelected = (option: Options) => (selectedItem === option ? 'icx:font-bold' : '');
 
   const listRef = useRef<HTMLUListElement>(null);
 
@@ -104,23 +104,23 @@ export const Combobox = ({
   };
 
   return (
-    <div className="icx-relative">
-      <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-1">
-        <label className={`icx-w-fit ${labelClassName}`} htmlFor={idLabel}>
+    <div className="icx:relative">
+      <div className="icx:w-full icx:flex icx:flex-col icx:gap-y-1">
+        <label className={`icx:w-fit ${labelClassName}`} htmlFor={idLabel}>
           {label} {required ? <span>*</span> : ''}
         </label>
-        <div className="icx-relative icx-text-gray-400">
+        <div className="icx:relative icx:text-gray-400">
           <div
-            className={`icx-text-gray-700 icx-absolute icx-top-1/2 icx--translate-y-1/2 icx-right-3 icx-flex icx-justify-end ${
-              disabled ? 'icx-cursor-not-allowed' : 'icx-cursor-pointer'
+            className={`icx:text-gray-700 icx:absolute icx:top-1/2 icx:-translate-y-1/2 icx:right-3 icx:flex icx:justify-end ${
+              disabled ? 'icx:cursor-not-allowed' : 'icx:cursor-pointer'
             }`}
             aria-label="toggle menu"
             {...getToggleButtonProps({ onClick: handleInputClick, disabled: disabled })}
           >
-            <IoIosArrowDown className="icx-text-disable-300" />
+            <IoIosArrowDown className="icx:text-disable-300" />
           </div>
           <input
-            className={`icx-w-full icx-py-1.5 icx-pl-4 icx-rounded-lg icx-outline-none ${estiloInput} ${inputClassName} icx-pr-10`}
+            className={`icx:w-full icx:py-1.5 icx:pl-4 icx:rounded-lg icx:outline-hidden ${estiloInput} ${inputClassName} icx:pr-10`}
             placeholder={placeholder}
             style={style}
             {...getInputProps({ onBlur: handleInputChange, onClick: handleInputClick })}
@@ -130,17 +130,17 @@ export const Combobox = ({
         </div>
       </div>
       <ul
-        className={`icx-absolute icx-bg-white icx-mt-1 icx-shadow-lg icx-w-full icx-max-h-80 icx-z-10  icx-rounded-lg icx-border icx-overflow-auto icx-text-sm ${
-          !isOpen ? 'icx-hidden' : ''
+        className={`icx:absolute icx:bg-white icx:mt-1 icx:shadow-lg icx:w-full icx:max-h-80 icx:z-10  icx:rounded-lg icx:border icx:overflow-auto icx:text-sm ${
+          !isOpen ? 'icx:hidden' : ''
         }`}
         {...getMenuProps({ ref: listRef })}
       >
         {isOpen && stateOptions.length > 0 ? (
           stateOptions.map((option, index) => (
             <li
-              className={`${styleHover(index)} ${styleSelected(option)} ${index === 0 ? 'icx-rounded-t-lg' : ''} ${
-                index === stateOptions.length - 1 ? 'icx-rounded-b-lg' : ''
-              } icx-py-1 icx-px-3 icx-block`}
+              className={`${styleHover(index)} ${styleSelected(option)} ${index === 0 ? 'icx:rounded-t-lg' : ''} ${
+                index === stateOptions.length - 1 ? 'icx:rounded-b-lg' : ''
+              } icx:py-1 icx:px-3 icx:block`}
               key={option.value}
               {...getItemProps({ item: option, index, 'data-item-index': index })}
             >
@@ -148,7 +148,7 @@ export const Combobox = ({
             </li>
           ))
         ) : isOpen ? (
-          <li className="icx-py-1 icx-px-3 icx-block">{messageNotFound}</li>
+          <li className="icx:py-1 icx:px-3 icx:block">{messageNotFound}</li>
         ) : null}
       </ul>
     </div>

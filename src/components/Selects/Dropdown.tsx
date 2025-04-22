@@ -23,13 +23,13 @@ export const Dropdown = ({ title, items, disabled = false, icon = null }: IDropd
 
   useOutsideAlerter({ ref: wrapperRef, active: open, setActive: setOpen });
 
-  const activeDropdown = 'icx-border-primary-500 icx-text-disable-200';
-  const disabledDropdown = 'icx-text-disable-200 icx-bg-neutral-200 icx-border-0 icx-cursor-not-allowed';
+  const activeDropdown = 'icx:border-primary-500 icx:text-disable-200';
+  const disabledDropdown = 'icx:text-disable-200 icx:bg-neutral-200 icx:border-0 icx:cursor-not-allowed';
 
   const activeSelected =
-    'icx-bg-primary-400 icx-text-neutral-100 icx-font-medium hover:icx-bg-primary-400 hover:icx-text-neutral-100';
-  const activeIcon = 'icx-bg-primary-500';
-  const disabledIcon = 'icx-text-disable-200 icx-bg-neutral-200 icx-cursor-not-allowed';
+    'icx:bg-primary-400 icx:text-neutral-100 icx:font-medium icx:hover:bg-primary-400 icx:hover:text-neutral-100';
+  const activeIcon = 'icx:bg-primary-500';
+  const disabledIcon = 'icx:text-disable-200 icx:bg-neutral-200 icx:cursor-not-allowed';
 
   const getBackgroundColor = () => {
     if (disabled) {
@@ -38,7 +38,7 @@ export const Dropdown = ({ title, items, disabled = false, icon = null }: IDropd
     if (open) {
       return activeIcon;
     }
-    return 'icx-bg-disable-200';
+    return 'icx:bg-disable-200';
   };
 
   const handleOpen: MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -58,31 +58,31 @@ export const Dropdown = ({ title, items, disabled = false, icon = null }: IDropd
   };
 
   return (
-    <div ref={wrapperRef} className="icx-text-left icx-font-imagine icx-text-md icx-w-full icx-min-w-[10rem] icx-flex">
+    <div ref={wrapperRef} className="icx:text-left icx:font-imagine icx:text-md icx:w-full icx:min-w-[10rem] icx:flex">
       {icon && (
         <div
-          className={`${getBackgroundColor()} icx-inline-block  icx-text-bg-neutral-100 icx-w-12 icx-p-2 icx-rounded-s-lg`}
+          className={`${getBackgroundColor()} icx:inline-block  icx:text-bg-neutral-100 icx:w-12 icx:p-2 icx:rounded-s-lg`}
         >
           {icon}
         </div>
       )}
-      <div className="icx-relative icx-w-full icx-min-w-[10rem] icx-inline-block">
+      <div className="icx:relative icx:w-full icx:min-w-[10rem] icx:inline-block">
         <button
           type="button"
           disabled={disabled}
           onClick={handleOpen}
-          className={` icx-text-disable-200 icx-bg-neutral-100 icx-border icx-border-disable-200 icx-rounded-[0.5rem] icx-w-full icx-p-[0.60rem] icx-flex icx-justify-between icx-items-center icx-gap-x-1.5 focus:outline-none ${
+          className={` icx:text-disable-200 icx:bg-neutral-100 icx:border icx:border-disable-200 icx:rounded-[0.5rem] icx:w-full icx:p-[0.60rem] icx:flex icx:justify-between icx:items-center icx:gap-x-1.5 focus:outline-none ${
             open ? activeDropdown : ''
-          } active:icx-border-primary-500 ${disabled ? disabledDropdown : ''} ${icon ? 'icx-rounded-s-none' : ''}`}
+          } icx:active:border-primary-500 ${disabled ? disabledDropdown : ''} ${icon ? 'icx:rounded-s-none' : ''}`}
         >
           {title}
           <IconDropdown color={open ? '#F3901D' : undefined} />
         </button>
         {open && (
-          <div className="icx-absolute icx-right-0 icx-mt-1 icx-z-10 icx-w-full icx-origin-top-right icx-border icx-border-primary-500 icx-rounded-[0.5rem] icx-flex icx-flex-col focus:outline-none icx-animate-fade-in icx-overflow-hidden">
+          <div className="icx:absolute icx:right-0 icx:mt-1 icx:z-10 icx:w-full icx:origin-top-right icx:border icx:border-primary-500 icx:rounded-[0.5rem] icx:flex icx:flex-col focus:outline-none icx:animate-fade-in icx:overflow-hidden">
             {items.map((item) => (
               <a
-                className={`icx-px-2.5 icx-pb-px icx-pt-1 icx-cursor-pointer hover:icx-bg-neutral-200 ${
+                className={`icx:px-2.5 icx:pb-px icx:pt-1 icx:cursor-pointer icx:hover:bg-neutral-200 ${
                   item.id === selected ? activeSelected : ''
                 }`}
                 key={item.id}

@@ -41,10 +41,10 @@ export const YearView = ({
 
   return (
     <div
-      className={`icx-w-[300px] icx-h-[370px] icx-border icx-rounded-lg icx-p-10 icx-m-1 icx-drop-shadow-xl icx-overflow-auto icx-bg-white icx-absolute icx-z-50 ${showAbove ? 'icx-bottom-full icx-mb-1' : 'icx-top-full icx-mt-1'}`}
+      className={`icx:w-[300px] icx:h-[370px] icx:border icx:rounded-lg icx:p-10 icx:m-1 icx:drop-shadow-xl icx:overflow-auto icx:bg-white icx:absolute icx:z-50 ${showAbove ? 'icx:bottom-full icx:mb-1' : 'icx:top-full icx:mt-1'}`}
     >
       <Slide direction="down">
-        <div className="icx-grid icx-grid-cols-3 icx-items-center icx-justify-center icx-text-center">
+        <div className="icx:grid icx:grid-cols-3 icx:items-center icx:justify-center icx:text-center">
           {years.map((year, index) => {
             const date = index + anteriores;
             const isCurrentYear = date === value.getFullYear();
@@ -52,7 +52,7 @@ export const YearView = ({
               <Cell
                 isActive={isCurrentYear}
                 key={year}
-                className="icx-font-bold icx-mt-3 icx-mb-3"
+                className="icx:font-bold icx:mt-3 icx:mb-3"
                 onClick={() => handleClickCell(date)}
               >
                 {year}

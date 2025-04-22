@@ -48,32 +48,32 @@ export const ColorPicker = ({
 
   return (
     <div>
-      <label className={`icx-w-fit ${labelClassName}`} htmlFor={idLabel}>
+      <label className={`icx:w-fit ${labelClassName}`} htmlFor={idLabel}>
         {label} {required ? <span>*</span> : ''}
       </label>
       <div
-        className={`icx-relative icx-border ${
-          isFocus ? 'icx-border-primary-300' : 'icx-border-gray-300'
-        } icx-rounded-lg icx-px-4 icx-py-1.5`}
+        className={`icx:relative icx:border ${
+          isFocus ? 'icx:border-primary-300' : 'icx:border-gray-300'
+        } icx:rounded-lg icx:px-4 icx:py-1.5`}
         onFocus={handleContainerFocus}
         onBlur={handleContainerBlur}
         ref={wrapperRef}
       >
-        <div className="icx-flex icx-w-full icx-h-full">
+        <div className="icx:flex icx:w-full icx:h-full">
           <div
-            className="icx-w-8 icx-rounded-md icx-border icx-border-disable-400"
+            className="icx:w-8 icx:rounded-md icx:border icx:border-disable-400"
             style={{ backgroundColor: colorPick }}
             onClick={handleOpenColorPick}
           ></div>
           <HexColorInput
-            className="icx-ml-4 icx-w-full icx-outline-0 icx-rounded-md icx-px-2 icx-border icx-border-disable-400"
+            className="icx:ml-4 icx:w-full icx:outline-0 icx:rounded-md icx:px-2 icx:border icx:border-disable-400"
             color={colorPick}
             onChange={handleChangeColor}
             id={idLabel}
           />
         </div>
         {openColorPick ? (
-          <div className="icx-w-full icx-absolute icx-top-full icx-left-0 icx-mt-2 icx-z-30">
+          <div className="icx:w-full icx:absolute icx:top-full icx:left-0 icx:mt-2 icx:z-30">
             <HexColorPicker style={{ width: 'auto' }} color={colorPick} onChange={handleChangeColor} />
           </div>
         ) : null}
