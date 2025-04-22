@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 22.x
           registry-url: https://registry.npmjs.org/
-      - run: node --run install
+      - run: pnpm install
       - run: node --run build
       - run: pnpm publish --access=public
         env:
