@@ -427,3 +427,8 @@
 .element-shadow {
   box-shadow: 2px 2px 10px 2px #cac9c9;
 }
+
+.icx-tooltip:hover .icx-tooltiptext {
+  visibility: visible !important;
+  opacity: 1 !important;
+}

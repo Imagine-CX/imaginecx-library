@@ -39,7 +39,7 @@ export const Alert: React.FC<IAlert> = ({ icon, type, open, setOpen, close, clos
               </div>
               {close && (
                 <button
-                  className="icx:p-1 icx:transition-colors icx:duration-300 icx:transform icx:rounded-md icx:hover:bg-opacity-25 icx:hover:bg-gray-600 icx:focus:outline-hidden"
+                  className="icx:p-1 icx:transition-colors icx:duration-300 icx:transform icx:rounded-md icx:hover:bg-opacity-25 icx:hover:bg-gray-600 icx:focus:outline-hidden icx:cursor-pointer"
                   onClick={() => setOpen(false)}
                 >
                   <Close className="icx:w-5 icx:h-5 icx:mx-auto icx:text-white" />

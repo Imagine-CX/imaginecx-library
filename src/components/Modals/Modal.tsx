@@ -23,7 +23,10 @@ export const Modal = ({ open, setOpen, children }: IModal): JSX.Element => {
                 className="icx:flex icx:items-center icx:justify-end icx:p-3 icx:rounded-lg icx:border-b icx:bg-cover icx:bg-center"
                 style={{ backgroundImage: `url(${header})` }}
               >
-                <button className="icx:p-2 icx:text-gray-400 icx:rounded-md " onClick={() => setOpen(false)}>
+                <button
+                  className="icx:p-2 icx:text-gray-400 icx:rounded-md  icx:cursor-pointer"
+                  onClick={() => setOpen(false)}
+                >
                   <Close className="icx:w-5 icx:h-5 icx:mx-auto icx:text-white" />
                 </button>
               </div>

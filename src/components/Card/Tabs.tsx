@@ -124,7 +124,7 @@ export const Tabs = ({
                     role="tab"
                     aria-selected={selectedItem === index ? true : false}
                     aria-controls={`tabpanel-${index + 1}`}
-                    className="icx:py-1 icx:px-4 icx:rounded-lg icx:duration-150"
+                    className="icx:py-1 icx:px-4 icx:rounded-lg icx:duration-150 icx:cursor-pointer"
                     onClick={() => setSelectedItem(index)}
                   >
                     {item}

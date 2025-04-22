@@ -82,10 +82,10 @@ export const Tooltip = ({
   };
 
   return (
-    <div className={`icx:tooltip ${tooltipBaseClasses} ${containerClass || ''} group`}>
+    <div className={`icx-tooltip ${tooltipBaseClasses} ${containerClass || ''} group`}>
       {children}
       <div
-        className={`icx:tooltiptext ${tooltipTextBaseClasses} ${themeClasses[theme]} ${positionClasses[position]} group-hover:icx:visible group-hover:icx:opacity-100`}
+        className={`icx-tooltiptext ${tooltipTextBaseClasses} ${themeClasses[theme]} ${positionClasses[position]} group-hover:icx:visible group-hover:icx:opacity-100`}
       >
         {renderTooltipContent()}
         {getArrowElement()}

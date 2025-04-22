@@ -50,6 +50,7 @@ export const Button = forwardRef(
           icx:transition-all
           icx:duration-150
           icx:ease-in-out
+          icx:cursor-pointer
         `}
           disabled={disabled}
           ref={ref}

@@ -39,10 +39,8 @@
         "default": "./dist/imaginecx-library.umd.js"
       }
     },
-    "./style.css": {
-      "import": "./dist/imaginecx-library.css",
-      "require": "./dist/imaginecx-library.css"
-    },
+    "./dist/style.css": "./dist/imaginecx-library.css",
+    "./style.css": "./dist/imaginecx-library.css",
     "./dist/*": "./dist/*.d.ts"
   },
   "main": "dist/imaginecx-library.umd.js",

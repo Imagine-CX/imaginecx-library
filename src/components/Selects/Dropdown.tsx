@@ -71,7 +71,7 @@ export const Dropdown = ({ title, items, disabled = false, icon = null }: IDropd
           type="button"
           disabled={disabled}
           onClick={handleOpen}
-          className={` icx:text-disable-200 icx:bg-neutral-100 icx:border icx:border-disable-200 icx:rounded-[0.5rem] icx:w-full icx:p-[0.60rem] icx:flex icx:justify-between icx:items-center icx:gap-x-1.5 focus:outline-none ${
+          className={` icx:text-disable-200 icx:bg-neutral-100 icx:border icx:border-disable-200 icx:rounded-[0.5rem] icx:w-full icx:p-[0.60rem] icx:flex icx:justify-between icx:items-center icx:gap-x-1.5 icx:cursor-pointer focus:outline-none ${
             open ? activeDropdown : ''
           } icx:active:border-primary-500 ${disabled ? disabledDropdown : ''} ${icon ? 'icx:rounded-s-none' : ''}`}
         >

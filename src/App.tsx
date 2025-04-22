@@ -425,7 +425,10 @@ function App() {
       </div>
       <Header variant="h2">Tooltip</Header>
       <div className="icx:grid icx:grid-cols-1 icx:gap-4 icx:mt-3 icx:pb-8 icx:md:grid-cols-2 icx:lg:grid-cols-2">
-        <Tooltip text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar.">
+        <Tooltip
+          text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar."
+          containerClass="icx:w-fit"
+        >
           <BsQuestionCircle className="icx:w-5 icx:h-5" />
         </Tooltip>
         <Tooltip text="Recuerda que debes ingresar entre corchetes [ ] el número de la columna que deseas utilizar.">
