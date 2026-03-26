@@ -12,12 +12,12 @@ interface BreadcrumbProps {
 export const BreadCrumb = ({ items, selected, home }: BreadcrumbProps): JSX.Element => {
   return (
     <>
-      <nav className="icx-flex icx-text-gray-700 icx-py-3" aria-label="Breadcrumb">
-        <ol className="icx-inline-flex icx-items-center icx-space-x-1 md:icx-space-x-3">
-          <li className="icx-inline-flex icx-items-center">
-            <a href={home} className="icx-text-gray-300 hover:icx-text-gray-900 icx-inline-flex icx-items-center">
+      <nav className="icx:flex icx:text-gray-700 icx:py-3" aria-label="Breadcrumb">
+        <ol className="icx:inline-flex icx:items-center icx:space-x-1 icx:md:space-x-3">
+          <li className="icx:inline-flex icx:items-center">
+            <a href={home} className="icx:text-gray-300 icx:hover:text-gray-900 icx:inline-flex icx:items-center">
               <svg
-                className="icx-w-6 icx-h-6 "
+                className="icx:w-6 icx:h-6 "
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
@@ -28,9 +28,9 @@ export const BreadCrumb = ({ items, selected, home }: BreadcrumbProps): JSX.Elem
           </li>
           {items.map((item) => (
             <li key={item.label}>
-              <div className="icx-flex icx-items-center">
+              <div className="icx:flex icx:items-center">
                 <svg
-                  className="icx-w-6 icx-h-6 icx-text-gray-300"
+                  className="icx:w-6 icx:h-6 icx:text-gray-300"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -41,9 +41,9 @@ export const BreadCrumb = ({ items, selected, home }: BreadcrumbProps): JSX.Elem
                     clipRule="evenodd"
                   ></path>
                 </svg>
-                <a href={item.link} className="icx-text-gray-700 hover:icx-text-gray-900 icx-ml-1 md:icx-ml-2">
+                <a href={item.link} className="icx:text-gray-700 icx:hover:text-gray-900 icx:ml-1 icx:md:ml-2">
                   {item.label === selected ? (
-                    <span className="icx-font-bold icx-text-primary-400">{item.label}</span>
+                    <span className="icx:font-bold icx:text-primary-400">{item.label}</span>
                   ) : (
                     <span>{item.label}</span>
                   )}

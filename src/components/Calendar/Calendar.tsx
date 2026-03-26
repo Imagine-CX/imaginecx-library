@@ -11,7 +11,7 @@ import {
   sub,
 } from 'date-fns';
 import { es } from 'date-fns/locale';
-import { JSX, useState } from 'react';
+import { Dispatch, JSX, SetStateAction } from 'react';
 import { Slide } from 'react-awesome-reveal';
 
 import { getDaysWeek } from '../helpers';
@@ -68,6 +68,9 @@ export interface ICalendar extends React.PropsWithChildren {
   onChange?: (value: Date) => void;
   showMonths: (value: boolean) => void;
   showYears: (value: boolean) => void;
+  viewDate: Date;
+  setViewDate: Dispatch<SetStateAction<Date>>;
+  showAbove?: boolean;
 }
 
 export const Calendar = ({
@@ -79,9 +82,10 @@ export const Calendar = ({
   afterYear = 7,
   disableAfter,
   disableBefore,
+  viewDate,
+  setViewDate,
+  showAbove = false,
 }: ICalendar): JSX.Element => {
-  const [viewDate, setviewDate] = useState(value);
-
   const startDate = startOfMonth(viewDate);
   const endDate = endOfMonth(viewDate);
   const numDays = differenceInDays(endDate, startDate) + 1;
@@ -104,25 +108,25 @@ export const Calendar = ({
   const prevMonth = () => {
     if (compareAsc(viewDate, sub(new Date(), { years: beforeYear })) === 1) {
       // if (onChange) onChange(sub(value, { months: 1 }));
-      setviewDate(sub(viewDate, { months: 1 }));
+      setViewDate(sub(viewDate, { months: 1 }));
     }
   };
 
   const nextMonth = () => {
     if (compareAsc(viewDate, add(new Date(), { years: afterYear })) === -1) {
       // if (onChange) onChange(add(value, { months: 1 }));
-      setviewDate(add(viewDate, { months: 1 }));
+      setViewDate(add(viewDate, { months: 1 }));
     }
   };
 
   const prevYear = () => {
     if (currentYear <= startYears) return;
-    setviewDate(sub(viewDate, { years: 1 }));
+    setViewDate(sub(viewDate, { years: 1 }));
   };
 
   const nextYear = () => {
     if (currentYear >= endYears) return;
-    setviewDate(add(viewDate, { years: 1 }));
+    setViewDate(add(viewDate, { years: 1 }));
   };
 
   const handleClickDate = (index: number) => {
@@ -138,41 +142,43 @@ export const Calendar = ({
     }
     if (onChange) {
       onChange(date);
-      setviewDate(date);
+      setViewDate(date);
     }
   };
 
   const isPastDisableDate = (date: number) => {
     if (!disableBefore) return false;
 
-    const pastDate = new Date(value.getFullYear(), value.getMonth(), date);
+    const pastDate = new Date(viewDate.getFullYear(), viewDate.getMonth(), date);
     return pastDate <= disableBefore;
   };
 
   const isFutureDisableDate = (date: number) => {
     if (!disableAfter) return false;
 
-    const futureDate = new Date(value.getFullYear(), value.getMonth(), date);
+    const futureDate = new Date(viewDate.getFullYear(), viewDate.getMonth(), date);
     return futureDate > disableAfter;
   };
 
   return (
-    <div className="icx-w-[300px] icx-h-[370px] icx-border icx-rounded-lg icx-p-10 icx-m-1 icx-drop-shadow-xl icx-overflow-auto icx-bg-white icx-absolute icx-z-50">
+    <div
+      className={`icx:w-[300px] icx:h-[370px] icx:border icx:rounded-lg icx:p-10 icx:m-1 icx:drop-shadow-xl icx:overflow-auto icx:bg-white icx:absolute icx:z-50 ${showAbove ? 'icx:bottom-full icx:mb-1' : 'icx:top-full icx:mt-1'}`}
+    >
       <Slide direction="down">
-        <div className="icx-grid icx-grid-cols-7 icx-items-center icx-justify-center icx-text-center">
+        <div className="icx:grid icx:grid-cols-7 icx:items-center icx:justify-center icx:text-center">
           <Cell onClick={prevMonth}>{prevIcon}</Cell>
-          <Cell onClick={handleShowMonth} className="icx-font-bold icx-text-sm">
+          <Cell onClick={handleShowMonth} className="icx:font-bold icx:text-sm">
             {format(viewDate, 'MMM', { locale: es }).toUpperCase()}
           </Cell>
           <Cell onClick={nextMonth}>{nextIcon}</Cell>
           <Cell />
           <Cell onClick={prevYear}>{prevIcon}</Cell>
-          <Cell onClick={handleShowYear} className="icx-font-bold icx-text-sm">
+          <Cell onClick={handleShowYear} className="icx:font-bold icx:text-sm">
             {format(viewDate, 'yyyy')}
           </Cell>
           <Cell onClick={nextYear}>{nextIcon}</Cell>
           {daysOfWeek.map((day, index) => (
-            <Cell className="icx-font-bold" key={index}>
+            <Cell className="icx:font-bold" key={index}>
               {day}
             </Cell>
           ))}

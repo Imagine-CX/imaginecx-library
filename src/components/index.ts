@@ -1,5 +1,3 @@
-import './style.css';
-
 export * from './Alerts/Alert';
 export * from './BreadCrumb/BreadCrumb';
 export * from './Btns';
