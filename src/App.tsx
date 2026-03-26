@@ -341,7 +341,13 @@ function App() {
             </Tooltip>
           }
         />
-        <TextArea title="Text Area required" placeholder="Mensaje" content="Hola Mundo" required />
+        <TextArea
+          title="Text Area required"
+          placeholder="Mensaje"
+          content="Hola Mundo"
+          required
+          labelClassName="icx-font-bold icx-text-sm md:icx-text-base"
+        />
         <TextArea title="Text Area disabled" placeholder="Mensaje disabled" required disabled />
       </div>
       <Header variant="h2">Select</Header>
