@@ -4,11 +4,12 @@ export interface ITextArea extends HTMLProps<HTMLTextAreaElement> {
   title?: string;
   content?: string;
   labelAction?: JSX.Element;
+  labelClassName?: string;
 }
 
 export const TextArea = forwardRef(
   (
-    { title, content, className, disabled, required, labelAction, ...areaProps }: ITextArea,
+    { title, content, className, disabled, required, labelAction, labelClassName, ...areaProps }: ITextArea,
     ref: ForwardedRef<HTMLTextAreaElement>,
   ): JSX.Element => {
     const estiloArea: string = disabled ? 'icx-area-disabled' : 'icx-area-active';
@@ -18,7 +19,10 @@ export const TextArea = forwardRef(
       <div className="icx-px-1 icx-py-1 icx-flex icx-flex-col icx-gap-8">
         <div className="icx-w-full icx-flex icx-flex-col icx-gap-y-2">
           {title && (
-            <label htmlFor={title} className={`${estiloTitle} icx-flex icx-items-center icx-gap-1`}>
+            <label
+              htmlFor={title}
+              className={`${labelClassName ?? ''} ${estiloTitle} icx-flex icx-items-center icx-gap-1`}
+            >
               {title} {required ? <span>*</span> : ''}
               {labelAction ? <div className="icx-ml-2">{labelAction}</div> : ''}
             </label>
