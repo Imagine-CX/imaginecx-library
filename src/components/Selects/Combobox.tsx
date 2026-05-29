@@ -21,6 +21,7 @@ interface ISelectSearch {
   options: Options[];
   valueSelected: Options;
   onValueSelected: (newValue: Options) => void;
+  clearOnEmpty?: boolean;
 }
 
 export const Combobox = ({
@@ -36,6 +37,7 @@ export const Combobox = ({
   onValueSelected,
   messageNotFound = 'No se encontro',
   placeholder = '',
+  clearOnEmpty = false,
 }: ISelectSearch) => {
   const [stateOptions, setStateOptions] = useState<Options[]>(options);
 
@@ -66,7 +68,7 @@ export const Combobox = ({
     onInputValueChange({ inputValue }) {
       setStateOptions(options.filter(getFilterOptions(inputValue)));
 
-      if (inputValue === '') {
+      if (clearOnEmpty && inputValue === '') {
         onValueSelected(emptyOption);
       }
     },
@@ -89,7 +91,7 @@ export const Combobox = ({
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
 
-    if (value === '') {
+    if (clearOnEmpty && value === '') {
       onValueSelected(emptyOption);
       setInputValue('');
       closeMenu();
