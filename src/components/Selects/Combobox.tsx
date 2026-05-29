@@ -4,6 +4,10 @@ import { IoIosArrowDown } from 'react-icons/io';
 
 import { Options } from '../interfaces/selectInterface';
 
+const emptyOption: Options = { label: '', value: '' };
+
+const isEmptyOption = (option: Options) => option.label === '' && option.value === '';
+
 interface ISelectSearch {
   disabled?: boolean;
   placeholder?: string;
@@ -61,11 +65,15 @@ export const Combobox = ({
     items: stateOptions,
     onInputValueChange({ inputValue }) {
       setStateOptions(options.filter(getFilterOptions(inputValue)));
+
+      if (inputValue === '') {
+        onValueSelected(emptyOption);
+      }
     },
     itemToString(item) {
       return item ? item.label : '';
     },
-    selectedItem: valueSelected,
+    selectedItem: isEmptyOption(valueSelected) ? null : valueSelected,
     onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
       if (newSelectedItem) {
         onValueSelected(newSelectedItem);
@@ -80,6 +88,13 @@ export const Combobox = ({
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
+
+    if (value === '') {
+      onValueSelected(emptyOption);
+      setInputValue('');
+      closeMenu();
+      return;
+    }
 
     const filteredOptions = options.filter((option) => option.label.toLowerCase().includes(value.toLowerCase()));
 
