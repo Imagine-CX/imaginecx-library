@@ -23,7 +23,6 @@ export const TextArea = forwardRef(
               htmlFor={title}
               className={`${labelClassName ?? ''} ${estiloTitle} icx-flex icx-items-center icx-gap-1`}
             >
-
               {title} {required ? <span>*</span> : ''}
               {labelAction ? <div className="icx:ml-2">{labelAction}</div> : ''}
             </label>
